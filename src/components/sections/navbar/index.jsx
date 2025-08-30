@@ -4,9 +4,9 @@ import { Box, Container, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useState } from "react";
 import Link from "next/link";
-import ImageWrapper from "../imageWrapper";
 import navItems from "@/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import ImageWrapper from "@/components/common/imageWrapper";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -18,7 +18,6 @@ export default function Navbar() {
   return (
     <motion.header
       initial={false}
-      // animate={{ height: mobileOpen ? "auto" : "auto" }}
       animate={{ height: mobileOpen && isMobile ? "50vh" : "auto" }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
       style={{
@@ -28,7 +27,6 @@ export default function Navbar() {
         width: "100%",
         zIndex: 1000,
         backdropFilter: "blur(12px)",
-        // backgroundColor: "rgba(8, 9, 10, 0.75)",
         backgroundColor: "rgb(0, 1, 1)",
       }}
     >

@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "../theme/muiTheme";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/sections/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Navbar />
-          {/* {children} */}
+          {children}
         </ThemeProvider>
       </body>
     </html>

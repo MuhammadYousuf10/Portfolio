@@ -1,8 +1,12 @@
-export default function HomePage() {
+"use client";
+
+import Hero from "@/components/sections/heroBanner";
+
+const page = () => {
   return (
     <>
-
-      sssss
+      <Hero />
     </>
   );
-}
+};
+export default page;
