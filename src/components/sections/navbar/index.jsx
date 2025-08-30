@@ -1,12 +1,13 @@
 "use client";
 
-import { Box, Container, Typography, useMediaQuery } from "@mui/material";
+import { Box, Container, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useState } from "react";
-import Link from "next/link";
 import navItems from "@/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import ImageWrapper from "@/components/common/imageWrapper";
+import NextLink from "next/link";
+import MuiLink from "@mui/material/Link";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -40,32 +41,28 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <Link href="/" passHref>
+        <MuiLink href="/" component={NextLink}>
           <ImageWrapper
             src="https://framerusercontent.com/images/ETKy6pcTVJ5pEm7xuvzpO0jv9cw.svg"
             alt="Logo"
             width={80}
             height={39}
+            priority={true}
           />
-        </Link>
+        </MuiLink>
 
         {/* Desktop Nav */}
         {!isMobile && (
           <Box sx={{ display: "flex", gap: 4 }}>
-            {navItems.map((item) => (
-              <Link key={item.name} href={item.path} passHref>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    cursor: "pointer",
-                    fontWeight: 400,
-                    textDecoration: "none",
-                    color: "inherit",
-                  }}
-                >
-                  {item.name}
-                </Typography>
-              </Link>
+            {navItems?.map((item) => (
+              <MuiLink
+                key={item.name}
+                component={NextLink}
+                href={item.path}
+                variant="body1"
+              >
+                {item.name}
+              </MuiLink>
             ))}
           </Box>
         )}
@@ -146,23 +143,15 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <Link
+                  <MuiLink
+                    key={item.name}
+                    component={NextLink}
                     href={item.path}
-                    passHref
-                    style={{ textDecoration: "none", margin: 0 }}
+                    variant="body1"
+                    onClick={handleDrawerToggle}
                   >
-                    <Typography
-                      onClick={handleDrawerToggle}
-                      sx={{
-                        fontSize: 16,
-                        fontWeight: 500,
-                        cursor: "pointer",
-                        color: "#ffffff99",
-                      }}
-                    >
-                      {item.name}
-                    </Typography>
-                  </Link>
+                    {item?.name}
+                  </MuiLink>
                 </motion.div>
               ))}
             </Box>

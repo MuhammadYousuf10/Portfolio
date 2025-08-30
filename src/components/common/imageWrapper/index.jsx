@@ -8,8 +8,9 @@ export default function ImageWrapper({
   alt,
   width,
   height,
-  layout = "intrinsic", 
+  layout = "intrinsic",
   style = {},
+  priority = false,
   ...props
 }) {
   return (
@@ -19,6 +20,7 @@ export default function ImageWrapper({
         alt={alt}
         width={width}
         height={height}
+        priority={priority}
         style={{ objectFit: "contain" }}
         {...props}
       />

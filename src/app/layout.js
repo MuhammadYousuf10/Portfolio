@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import theme from "../theme/muiTheme";
+import theme from "../theme/theme";
 import Navbar from "@/components/sections/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
