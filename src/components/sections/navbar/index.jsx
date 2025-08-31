@@ -40,28 +40,8 @@ export default function Navbar() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          position: "relative",
         }}
       >
-        {/* <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            height: "800px",
-            zIndex: -1, // ✅ no quotes
-          }}
-        >
-          <ImageWrapper
-            src="https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=2048"
-            alt="bg"
-            width={1200}
-            height={1200}
-            priority={true}
-            style={{ zIndex: -1, width: "100%", height: "100%" }} // ✅ pass styles as object
-          />
-        </Box> */}
-
         {/* Logo */}
         <MuiLink href="/" component={NextLink}>
           <ImageWrapper
