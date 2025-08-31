@@ -8,20 +8,20 @@ export default function ImageWrapper({
   alt,
   width,
   height,
-  layout = "intrinsic",
   style = {},
+  sx = {},
   priority = false,
   ...props
 }) {
   return (
-    <Box sx={{ display: "inline-block", ...style }}>
+    <Box sx={{ display: "inline-block", ...sx }}>
       <Image
         src={src}
         alt={alt}
         width={width}
         height={height}
         priority={priority}
-        style={{ objectFit: "contain" }}
+        style={{ objectFit: "contain", ...style }}
         {...props}
       />
     </Box>
