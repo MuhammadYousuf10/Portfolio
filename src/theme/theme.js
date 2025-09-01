@@ -39,6 +39,8 @@ let theme = createTheme({
       teal: "#00e6e6",
       orange: "#ff7f50",
       neonGreen: "00ff91",
+      silver: "#c7c7c7",
+      golden:'#fab700'
     },
   },
   typography: {
