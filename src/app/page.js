@@ -1,13 +1,13 @@
 "use client";
 
 import Hero from "@/components/sections/heroBanner";
-import Plans from "@/components/sections/plans";
+import ProcessCards from "@/components/sections/processCards";
 
 const page = () => {
   return (
     <>
       <Hero />
-      <Plans />
+      <ProcessCards />
     </>
   );
 };
