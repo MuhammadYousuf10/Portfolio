@@ -1,19 +1,13 @@
 "use client";
 
 import { Fragment, useState } from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  Stack,
-  IconButton,
-  Container,
-} from "@mui/material";
-import { motion } from "framer-motion";
+import { Box, Typography, Stack, IconButton, Container } from "@mui/material";
+import { color, motion } from "framer-motion";
 import PanToolIcon from "@mui/icons-material/PanTool";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import CustomButton from "@/components/common/customButtons";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 const MotionBox = motion.create(Box);
 
@@ -30,6 +24,7 @@ const ProcessCard = ({
   totalCards,
 }) => (
   <MotionBox
+    id="next-section"
     layout
     onClick={onClick}
     initial={{ scale: 0.95, y: 20 }}
@@ -44,17 +39,42 @@ const ProcessCard = ({
       left,
       p: 4,
       width: 600,
-      borderRadius: 4,
+      borderRadius: "16px",
       color: "white",
       cursor: "pointer",
       backdropFilter: "blur(20px) saturate(180%)",
-      backgroundColor: "rgba(255, 255, 255, 0.05)",
-      border: "1px solid rgba(255, 255, 255, 0.125)",
-      boxShadow: "0 8px 32px rgba(0, 0, 0, 0.37)",
+      backgroundColor: "rgba(0, 0, 0, 0.85)",
+      border: "1px solid rgba(255, 255, 255, 0.08)",
+      // Multiple shadows: top glow, right shadow, faint bottom
+      boxShadow: `
+          0px -6px 12px rgba(255, 255, 255, 0.15),  /* top whitish glow */
+          6px 0px 12px rgba(0, 0, 0, 0.25),         /* right shadow */
+          0px 6px 8px rgba(0, 0, 0, 0.1)            /* faint bottom shadow */
+        `,
       filter: isFocused ? "none" : `blur(${blur}px)`,
     }}
   >
-    <Box sx={{ py: 4, px: 2 }}>
+    <Box
+      sx={{
+        py: 4,
+        px: 2,
+        borderRadius: "16px",
+        backgroundColor: "rgba(255, 255, 255, 0)",
+        position: "relative",
+        overflow: "hidden",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "4%", // controls how far shadow spreads down
+          background:
+            "linear-gradient(to right, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 30%, rgba(255,255,255,0.05) 60%, rgba(255,255,255,0) 80%)",
+          pointerEvents: "none",
+        },
+      }}
+    >
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <IconButton sx={{ color: "white" }}>
           <Icon style={{ fontSize: 40, color: "white" }} />
@@ -84,18 +104,16 @@ const ProcessCard = ({
       <Typography variant="body1" sx={{ maxWidth: "70%" }}>
         {description}
       </Typography>
-
-      <Button
-        variant="contained"
+      <CustomButton
+        text={`Step ${step}`}
+        variant="outlined"
+        size={"small"}
+        disableHover
         sx={{
           mt: 8,
-          backgroundColor: "rgba(255, 255, 255, 0.1)",
-          backdropFilter: "blur(10px)",
-          "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.2)" },
+          color: "text.secondary",
         }}
-      >
-        Step {step}
-      </Button>
+      />
     </Box>
   </MotionBox>
 );
@@ -143,7 +161,7 @@ const CardSection = () => {
   return (
     <Fragment>
       <Container maxWidth="lg">
-        <Box sx={{ position: "relative", height: "100vh" }}>
+        <Box sx={{ position: "relative", height: "100vh", pt: 15 }}>
           <Stack
             direction={"row"}
             spacing={4}
@@ -158,8 +176,8 @@ const CardSection = () => {
             </Box>
             <CustomButton
               text={"See PLans"}
-              variant="outlined"
-              // startIcon={<FolderOpenIcon />}
+              variant="glow"
+              startIcon={<ArrowOutwardIcon />}
             />
           </Stack>
           {orderedCards.map((card, index) => {
