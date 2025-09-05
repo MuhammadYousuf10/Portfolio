@@ -124,14 +124,7 @@ const Hero = () => {
                 >
                   <Typography variant="h1" sx={{ textAlign: "left" }}>
                     Building brands to drive{" "}
-                    <Typography
-                      component="span"
-                      variant="h1"
-                      sx={{
-                        fontStyle: "italic",
-                        color: theme.palette.text.secondary,
-                      }}
-                    >
+                    <Typography component="span" variant="gradientText">
                       Results
                     </Typography>
                   </Typography>

@@ -40,7 +40,7 @@ let theme = createTheme({
       orange: "#ff7f50",
       neonGreen: "00ff91",
       silver: "#c7c7c7",
-      golden:'#fab700'
+      golden: "#fab700",
     },
   },
   typography: {
@@ -91,6 +91,17 @@ let theme = createTheme({
       fontSize: "0.9rem",
       lineHeight: 1.5,
       color: "#ffffff80", // more muted
+    },
+    gradientText: {
+      fontWeight: 200, // Thinner font weight
+      color: "#ffffff99", // slightly muted
+      fontStyle: "italic",
+      fontFamily: "'Georgia', 'serif'", // Use a serif font for the elegant look
+      background:
+        "linear-gradient(to right, #D3D3D3, #A8A8A8 20%, #E0E0E0 50%, #A8A8A8 80%, #D3D3D3)",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      textShadow: "0 1px 1px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.05)",
     },
     button: {
       fontWeight: 600,

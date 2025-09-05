@@ -171,7 +171,10 @@ const CardSection = () => {
           >
             <Box>
               <Typography variant="h2" color="">
-                Process is Result
+                Process is {""}
+                <Typography component="span" variant="gradientText">
+                  Results
+                </Typography>
               </Typography>
             </Box>
             <CustomButton
