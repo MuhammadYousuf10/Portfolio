@@ -36,11 +36,12 @@ import offer2 from "@/assests/services/what-we-offer2.avif";
 // Image Imports - About
 import redefiningDesignImg from "@/assests/about/redefining-design.avif";
 import whoWeAreImg from "@/assests/who-we-are/who-we-are.avif";
+import professionalBgImg from "@/assests/why-us/professional-bg.avif";
 
 export const aboutData = {
   title: "The One Behind",
   subtitle: "The Wheel",
-  image: whoWeAreImg,
+  image: professionalBgImg,
   rating: 4.7,
   clientsCount: "100+",
   skills: [
@@ -79,6 +80,66 @@ export const aboutData = {
       period: "June 2013 - Aug 2021",
     },
   ],
+};
+
+export const whyUsData = {
+  header: {
+    mainText: "Why Even",
+    italicText: "Us",
+    description: "We craft innovative designs that elevate your brand and engage your audience in a world of endless noise.",
+  },
+  card1: {
+    image: whoWeAreImg,
+    subtitle: "— ELITE DESIGN IS NOW YOURS —",
+    title: "We Are \n Professionals",
+    features: ["Industry Experts", "World Class Talent"]
+  },
+  card2: {
+    title: "24/7 priority care",
+    description: "Receive priority treatment for urgent tasks, with an average response time of 24 hours for high-priority.",
+    features: ["Unlimited Revisions", "Dedicated 24/7 Support"]
+  },
+  card3: {
+    title: "Perfection leads to growth",
+    description: "Need edits? We include 4 post-launch revisions to ensure everything feels just right.",
+    chartSubtitle: "Business Growth",
+    chartDate: "last 60 days",
+    chartValue: "$80,376",
+    ratingText: "Happy 5 Star Users"
+  }
+};
+
+export const comparisonData = {
+  header: {
+    mainText: "Comparison",
+    italicText: "Table",
+    description: "See how we stack up against others in clarity, speed, and quality.",
+  },
+  fade: {
+    title: "Fade",
+    items: [
+      "Exceptional Design Quality",
+      "Attention to Detail",
+      "Transparent Communication",
+      "Consistent Branding",
+      "Rapid Delivery Times",
+      "Scalable Design Systems",
+      "Customized Solutions",
+      "Collaborative Workflow",
+      "Strategy-Driven Approach",
+      "Ongoing Client Support",
+    ]
+  },
+  others: {
+    title: "Others",
+    items: [
+      "Basic Design Output",
+      "Limited Communication",
+      "Slow Turnarounds",
+      "Generic Templates",
+      "Minimal Post-Project Support",
+    ]
+  }
 };
 
 export const services = [

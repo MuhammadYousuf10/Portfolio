@@ -177,6 +177,9 @@ const CardSection = () => {
             height: "100%",
           }}
         >
+          <Box>
+            <SectionBadge text="Process" icon={AutoAwesomeIcon} />
+          </Box>
           <Stack
             direction={"row"}
             spacing={4}
@@ -184,9 +187,6 @@ const CardSection = () => {
             justifyContent={"space-between"}
             sx={{ mb: 16 }}
           >
-            <Box sx={{ mb: 2 }}>
-              <SectionBadge text="Process" icon={AutoAwesomeIcon} />
-            </Box>
             <Box>
               <Typography variant="h2" color="text.primary" sx={{ mb: 2 }}>
                 Process is {""}

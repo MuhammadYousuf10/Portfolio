@@ -110,8 +110,8 @@ let theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         section: {
-          paddingTop: "80px",
-          paddingBottom: "80px",
+          paddingTop: "40px",
+          paddingBottom: "40px",
         },
       },
     },

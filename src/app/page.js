@@ -11,6 +11,7 @@ import Pricing from "@/components/sections/Pricing";
 import WhyUs from "@/components/sections/WhyUs";
 import FAQ from "@/components/sections/FAQ";
 import Blog from "@/components/sections/Blog";
+import Comparison from "@/components/sections/Comparison";
 
 const page = () => {
   return (
@@ -23,6 +24,7 @@ const page = () => {
       <Testimonials />
       <ProvenResults />
       <WhyUs />
+      <Comparison />
       <Pricing />
       <FAQ />
       <Blog />
