@@ -39,12 +39,12 @@ const CustomButton = ({
 
         // Filled
         ...(isFilled && {
-          backgroundColor: "rgba(0,0,0,0.9)",
-          color: "#fff",
+          backgroundColor: "background.default",
+          color: "primary.main",
           boxShadow: "0 0 14px rgba(0,0,0,0.35)",
           transition: "box-shadow 0.3s ease, background-color 0.3s ease",
           "&:hover": !disableHover && {
-            backgroundColor: "rgba(0,0,0,1)",
+            backgroundColor: "background.paper",
             boxShadow: "0 0 18px rgba(0,0,0,0.45)",
           },
           "&:active": {
@@ -55,12 +55,13 @@ const CustomButton = ({
         // Outlined
         ...(isOutlined && {
           backgroundColor: "transparent",
-          color: "#fff",
-          border: "1.5px solid rgba(255,255,255,0.5)",
+          color: "primary.main",
+          border: "1.5px solid",
+          borderColor: "text.secondary",
           boxShadow: "none",
           transition: "all 0.3s ease",
           "&:hover": !disableHover && {
-            borderColor: "#fff",
+            borderColor: "primary.main",
             backgroundColor: "rgba(255,255,255,0.08)",
           },
         }),
@@ -69,8 +70,8 @@ const CustomButton = ({
         ...(isGlow && {
           position: "relative",
           overflow: "hidden",
-          backgroundColor: "rgba(0,0,0,0.9)",
-          color: "#fff",
+          backgroundColor: "background.default",
+          color: "primary.main",
           border: "2px solid transparent",
           backgroundImage: [
             "linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9))",

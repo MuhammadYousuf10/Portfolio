@@ -26,10 +26,9 @@ export default function Navbar() {
         top: 0,
         left: 0,
         width: "100%",
-        zIndex: 1000,
         backdropFilter: "blur(12px)",
-        backgroundColor: "rgba(8, 9, 10, 0.75)",
-        borderBottom: "2px solid rgba(255, 255, 255, 0.07)",
+        backgroundColor: "rgba(10, 10, 10, 0.75)", // Using direct rgba for header background transparency since theme paper is fully opaque.
+        borderBottom: `2px solid ${theme.palette.divider}`,
         opacity: 1,
       }}
     >
@@ -89,7 +88,7 @@ export default function Navbar() {
                 position: "absolute",
                 width: "100%",
                 height: 2,
-                backgroundColor: "#fff",
+                backgroundColor: theme.palette.text.primary,
                 borderRadius: 2,
                 top: 0,
                 left: 0,
@@ -106,7 +105,7 @@ export default function Navbar() {
                 position: "absolute",
                 width: "100%",
                 height: 2,
-                backgroundColor: "#fff",
+                backgroundColor: theme.palette.text.primary,
                 borderRadius: 2,
                 top: mobileOpen ? 0 : 6,
                 left: 0,

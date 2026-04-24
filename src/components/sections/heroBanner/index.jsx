@@ -27,7 +27,7 @@ const Hero = () => {
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        background: "#0e0e0e",
+        background: (theme) => theme.palette.background.default,
         position: "relative",
         overflow: "hidden",
       }}
@@ -60,8 +60,7 @@ const Hero = () => {
           sx={{
             width: "100%",
             height: "3px",
-            background:
-              "linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent)",
+            background: (theme) => theme.gradients.shadowLineUp,
             boxShadow: "0 -8px 20px rgba(255,255,255,0.15)", // shadow upwards
           }}
         />
@@ -157,8 +156,7 @@ const Hero = () => {
                     display: "inline-block",
                     p: "6px",
                     borderRadius: "14px",
-                    background:
-                      "linear-gradient(275deg, rgb(154, 151, 130) -49%, rgb(20, 20, 20) 25%, rgba(4,3,3,0) 108%)",
+                    background: (theme) => theme.gradients.heroCard,
                     width: "fit-content",
                     opacity: 1,
                     transform: "rotate(-3deg)",
@@ -193,8 +191,7 @@ const Hero = () => {
                       sx={{
                         width: "3px",
                         height: "100%",
-                        background:
-                          "linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent)",
+                        background: (theme) => theme.gradients.shadowLineDown,
                         boxShadow: "8px 0 20px rgba(255,255,255,0.15)",
                       }}
                     />

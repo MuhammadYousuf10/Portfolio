@@ -19,29 +19,22 @@ let theme = createTheme({
       primary: "#ffffffe6", // 90% white for headings
       secondary: "#ffffff99", // 60% white for body text
     },
-    // ✅ custom colors
-    // success: {
-    //   main: "#00ff91", // neon green
-    // },
-    // warning: {
-    //   main: "#ffcc00", // yellow
-    // },
-    // error: {
-    //   main: "#ff4d4d", // red
-    // },
-    // info: {
-    //   main: "#3da9fc", // blue
-    // },
 
     // ✅ completely custom category
     custom: {
       neonPink: "#ff00ff",
       teal: "#00e6e6",
       orange: "#ff7f50",
-      neonGreen: "00ff91",
+      neonGreen: "#00ff91",
       silver: "#c7c7c7",
       golden: "#fab700",
     },
+  },
+  gradients: {
+    heroCard: "linear-gradient(275deg, rgb(154, 151, 130) -49%, rgb(20, 20, 20) 25%, rgba(4,3,3,0) 108%)",
+    textGradient: "linear-gradient(to right, #D3D3D3, #A8A8A8 20%, #E0E0E0 50%, #A8A8A8 80%, #D3D3D3)",
+    shadowLineUp: "linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent)",
+    shadowLineDown: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent)"
   },
   typography: {
     fontFamily: `"Inter", "Helvetica", "Arial", sans-serif`,

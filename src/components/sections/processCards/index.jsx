@@ -2,7 +2,8 @@
 
 import { Fragment, useState } from "react";
 import { Box, Typography, Stack, IconButton, Container } from "@mui/material";
-import { color, motion } from "framer-motion";
+import { alpha } from "@mui/material/styles";
+import { motion } from "framer-motion";
 import PanToolIcon from "@mui/icons-material/PanTool";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
@@ -40,11 +41,12 @@ const ProcessCard = ({
       p: 4,
       width: 600,
       borderRadius: "16px",
-      color: "white",
+      color: "text.primary",
       cursor: "pointer",
       backdropFilter: "blur(20px) saturate(180%)",
-      backgroundColor: "rgba(0, 0, 0, 0.85)",
-      border: "1px solid rgba(255, 255, 255, 0.08)",
+      backgroundColor: (theme) => alpha(theme.palette.background.paper, 0.85),
+      border: "1px solid",
+      borderColor: "divider",
       // Multiple shadows: top glow, right shadow, faint bottom
       boxShadow: `
           0px -6px 12px rgba(255, 255, 255, 0.15),  /* top whitish glow */
@@ -76,8 +78,8 @@ const ProcessCard = ({
       }}
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <IconButton sx={{ color: "white" }}>
-          <Icon style={{ fontSize: 40, color: "white" }} />
+        <IconButton sx={{ color: "text.primary" }}>
+          <Icon style={{ fontSize: 40 }} color="inherit" />
         </IconButton>
 
         <Stack direction="row" spacing={1}>
@@ -89,7 +91,7 @@ const ProcessCard = ({
                 height: 8,
                 borderRadius: "50%",
                 backgroundColor:
-                  i + 1 === focusedCard ? "white" : "rgba(255, 255, 255, 0.3)",
+                  i + 1 === focusedCard ? "text.primary" : "text.secondary",
                 transition: "all 0.3s ease",
                 cursor: "pointer",
               }}
@@ -170,7 +172,7 @@ const CardSection = () => {
             sx={{ mb: 16 }}
           >
             <Box>
-              <Typography variant="h2" color="">
+              <Typography variant="h2" color="text.primary">
                 Process is {""}
                 <Typography component="span" variant="gradientText">
                   Results

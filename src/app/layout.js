@@ -1,7 +1,8 @@
 import { Inter } from "next/font/google";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider, Box } from "@mui/material";
 import theme from "../theme/theme";
 import Navbar from "@/components/sections/navbar";
+import Footer from "@/components/sections/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,10 @@ export default function RootLayout({ children }) {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Navbar />
-          {children}
+          <Box component="main" sx={{ flexGrow: 1, minHeight: "100vh" }}>
+            {children}
+          </Box>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
