@@ -1,10 +1,9 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, Typography, Stack, IconButton, Container } from "@mui/material";
-import { alpha } from "@mui/material/styles";
 import { motion } from "framer-motion";
-import PanToolIcon from "@mui/icons-material/PanTool";
+import SearchIcon from "@mui/icons-material/Search";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import CustomButton from "@/components/common/customButtons";
@@ -23,6 +22,9 @@ const ProcessCard = ({
   left,
   focusedCard,
   totalCards,
+  scale,
+  yOffset,
+  zIndex,
 }) => (
   <MotionBox
     id="next-section"
@@ -30,51 +32,38 @@ const ProcessCard = ({
     onClick={onClick}
     initial={{ scale: 0.95, y: 20 }}
     animate={{
-      scale: isFocused ? 1.05 : 0.95,
-      y: isFocused ? 0 : 20,
-      zIndex: isFocused ? 10 : 1,
+      scale: scale,
+      y: yOffset,
+      zIndex: zIndex,
     }}
-    transition={{ duration: 0.4, ease: "easeInOut" }}
+    transition={{ duration: 1.2, ease: "easeInOut" }}
     sx={{
       position: "absolute",
       left,
       p: 4,
       width: 600,
-      borderRadius: "16px",
+      borderRadius: "24px",
       color: "text.primary",
       cursor: "pointer",
       backdropFilter: "blur(20px) saturate(180%)",
-      backgroundColor: (theme) => alpha(theme.palette.background.paper, 0.85),
+      backgroundColor: "#0A0A0A",
       border: "1px solid",
-      borderColor: "divider",
-      // Multiple shadows: top glow, right shadow, faint bottom
-      boxShadow: `
-          0px -6px 12px rgba(255, 255, 255, 0.15),  /* top whitish glow */
-          6px 0px 12px rgba(0, 0, 0, 0.25),         /* right shadow */
-          0px 6px 8px rgba(0, 0, 0, 0.1)            /* faint bottom shadow */
-        `,
+      borderColor: isFocused
+        ? "rgba(255,255,255,0.1)"
+        : "rgba(255,255,255,0.05)",
+      boxShadow: isFocused
+        ? "inset 0px 1px 0px rgba(255, 255, 255, 0.15), 0px 20px 40px rgba(0, 0, 0, 0.5)"
+        : "0px 10px 20px rgba(0, 0, 0, 0.3)",
       filter: isFocused ? "none" : `blur(${blur}px)`,
     }}
   >
     <Box
       sx={{
-        py: 4,
+        py: 2,
         px: 2,
         borderRadius: "16px",
-        backgroundColor: "rgba(255, 255, 255, 0)",
+        backgroundColor: "transparent",
         position: "relative",
-        overflow: "hidden",
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "4%", // controls how far shadow spreads down
-          background:
-            "linear-gradient(to right, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 30%, rgba(255,255,255,0.05) 60%, rgba(255,255,255,0) 80%)",
-          pointerEvents: "none",
-        },
       }}
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center">
@@ -114,6 +103,8 @@ const ProcessCard = ({
         sx={{
           mt: 8,
           color: "text.secondary",
+          borderRadius: "999px",
+          px: 3,
         }}
       />
     </Box>
@@ -121,49 +112,67 @@ const ProcessCard = ({
 );
 
 const CardSection = () => {
-  const [focusedCard, setFocusedCard] = useState(3);
+  const [focusedCard, setFocusedCard] = useState(1);
 
   const cards = [
     {
       id: 1,
-      title: "Discover Insights",
+      title: "Discover your brand",
       description:
-        "We dive deep into your brand story to uncover key insights.",
-      icon: PanToolIcon,
+        "We'll dive into your vision, audience, and goals to align design with purpose and clarity.",
+      icon: SearchIcon,
       step: "1",
     },
     {
       id: 2,
       title: "Design with clarity",
       description:
-        "We translate strategy into visuals—crafted to be clean and on-brand.",
+        "We translate strategy into visuals—crafted to be clean, consistent, memorable, and always on-brand.",
       icon: DesignServicesIcon,
       step: "2",
     },
     {
       id: 3,
-      title: "Deliver and Launch",
-      description: "Final designs are delivered and launched flawlessly.",
+      title: "Deliver and refine with care",
+      description:
+        "Final designs are shared for review, with feedback shaping the perfect result every time.",
       icon: RocketLaunchIcon,
       step: "3",
     },
   ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFocusedCard((prev) => (prev % cards.length) + 1);
+    }, 6000); // Slower interval
+    return () => clearInterval(timer);
+  }, [cards.length]);
 
   const cardWidth = 600;
   const overlap = 420;
   const totalWidth = cardWidth + (cards.length - 1) * (cardWidth - overlap);
   const startLeft = `calc(50% - ${totalWidth / 2}px)`; // center
 
-  // Reorder cards: focused at the end
-  const orderedCards = [
-    ...cards.filter((c) => c.id !== focusedCard),
-    ...cards.filter((c) => c.id === focusedCard),
-  ];
+  // Reorder cards: [back, middle, front]
+  // if focused is 1: [3, 2, 1]
+  // if focused is 2: [1, 3, 2]
+  // if focused is 3: [2, 1, 3]
+  const getOrderedCards = () => {
+    const fIdx = cards.findIndex((c) => c.id === focusedCard);
+    return [cards[(fIdx + 2) % 3], cards[(fIdx + 1) % 3], cards[fIdx]];
+  };
+  const orderedCards = getOrderedCards();
 
   return (
-    <Fragment>
+    <Box component="section" id="process">
       <Container maxWidth="lg">
-        <Box sx={{ position: "relative", height: "100vh", pt: 15 }}>
+        <Box
+          sx={{
+            position: "relative",
+            minHeight: "100vh",
+            height: "100%",
+          }}
+        >
           <Stack
             direction={"row"}
             spacing={4}
@@ -172,25 +181,31 @@ const CardSection = () => {
             sx={{ mb: 16 }}
           >
             <Box>
-              <Typography variant="h2" color="text.primary">
+              <Typography variant="h2" color="text.primary" sx={{ mb: 2 }}>
                 Process is {""}
                 <Typography component="span" variant="gradientText">
-                  Results
+                  Result
                 </Typography>
+              </Typography>
+              <Typography variant="body1" color="text.secondary">
+                Thoughtful, intentional design is what makes brands stand out.
               </Typography>
             </Box>
             <CustomButton
-              text={"See PLans"}
-              variant="glow"
+              text={"See Plans"}
+              variant="outlined"
               startIcon={<ArrowOutwardIcon />}
             />
           </Stack>
           {orderedCards.map((card, index) => {
-            let blur = 0;
-            // Apply progressive blur to non-focused cards
-            if (card.id !== focusedCard) {
-              blur = index === orderedCards.length - 2 ? 2 : 5; // 1 card before focused: 5px, 2 cards before: 10px
-            }
+            // index 2 = front (focused)
+            // index 1 = middle
+            // index 0 = back
+            const isFocused = card.id === focusedCard;
+            const blur = index === 2 ? 0 : index === 1 ? 2 : 5;
+            const scale = index === 2 ? 1.05 : index === 1 ? 0.95 : 0.85;
+            const yOffset = index === 2 ? 0 : index === 1 ? 20 : 40;
+
             return (
               <ProcessCard
                 key={card.id}
@@ -198,18 +213,21 @@ const CardSection = () => {
                 description={card.description}
                 step={card.step}
                 icon={card.icon}
-                isFocused={card.id === focusedCard}
+                isFocused={isFocused}
                 blur={blur}
                 onClick={() => setFocusedCard(card.id)}
                 left={`calc(${startLeft} + ${index * (cardWidth - overlap)}px)`}
                 focusedCard={focusedCard}
                 totalCards={cards.length}
+                scale={scale}
+                yOffset={yOffset}
+                zIndex={index}
               />
             );
           })}
         </Box>
       </Container>
-    </Fragment>
+    </Box>
   );
 };
 

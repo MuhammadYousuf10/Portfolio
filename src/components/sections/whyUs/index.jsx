@@ -37,8 +37,9 @@ const comparisonThem = [
 const WhyUsSection = () => {
   return (
     <Box
+      component="section"
       id="why-us"
-      sx={{ py: 15, bgcolor: "background.default", color: "text.primary" }}
+      sx={{ bgcolor: "background.default", color: "text.primary" }}
     >
       <Container maxWidth="lg">
         {/* Header */}

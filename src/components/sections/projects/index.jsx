@@ -35,8 +35,9 @@ const projects = [
 const ProjectsSection = () => {
   return (
     <Box
+      component="section"
       id="projects"
-      sx={{ py: 15, bgcolor: "background.default", color: "text.primary" }}
+      sx={{ bgcolor: "background.default", color: "text.primary" }}
     >
       <Container maxWidth="lg">
         {/* Header */}

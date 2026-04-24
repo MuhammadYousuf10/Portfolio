@@ -103,6 +103,14 @@ let theme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        "section": {
+          paddingTop: "120px",
+          paddingBottom: "120px",
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

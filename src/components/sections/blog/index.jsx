@@ -26,8 +26,9 @@ const blogPosts = [
 const BlogSection = () => {
   return (
     <Box
+      component="section"
       id="blog"
-      sx={{ py: 15, bgcolor: "background.default", color: "text.primary" }}
+      sx={{ bgcolor: "background.default", color: "text.primary" }}
     >
       <Container maxWidth="lg">
         <Box sx={{ mb: 10 }}>

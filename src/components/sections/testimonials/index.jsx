@@ -30,8 +30,9 @@ const testimonials = [
 const TestimonialsSection = () => {
   return (
     <Box
+      component="section"
       id="testimonials"
-      sx={{ py: 15, bgcolor: "background.default", color: "text.primary" }}
+      sx={{ bgcolor: "background.default", color: "text.primary" }}
     >
       <Container maxWidth="lg">
         <Typography variant="h2" sx={{ mb: 8, textAlign: "center" }}>

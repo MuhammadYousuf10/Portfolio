@@ -40,8 +40,9 @@ const pricingPlans = [
 const PricingSection = () => {
   return (
     <Box
+      component="section"
       id="pricing"
-      sx={{ py: 15, bgcolor: "background.default", color: "text.primary" }}
+      sx={{ bgcolor: "background.default", color: "text.primary" }}
     >
       <Container maxWidth="lg">
         <Box sx={{ mb: 10, textAlign: "center" }}>

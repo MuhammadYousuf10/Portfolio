@@ -30,6 +30,7 @@ export default function Navbar() {
         backgroundColor: "rgba(10, 10, 10, 0.75)", // Using direct rgba for header background transparency since theme paper is fully opaque.
         borderBottom: `2px solid ${theme.palette.divider}`,
         opacity: 1,
+        zIndex: 100,
       }}
     >
       <Container

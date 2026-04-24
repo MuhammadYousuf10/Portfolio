@@ -25,7 +25,7 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <Box id="faq" sx={{ py: 15, bgcolor: "background.default", color: "text.primary" }}>
+    <Box component="section" id="faq" sx={{ bgcolor: "background.default", color: "text.primary" }}>
       <Container maxWidth="md">
         <Box sx={{ mb: 8, textAlign: "center" }}>
           <Typography variant="h2" sx={{ mb: 2 }}>Your Questions Answered</Typography>
