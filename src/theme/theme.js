@@ -31,10 +31,14 @@ let theme = createTheme({
     },
   },
   gradients: {
-    heroCard: "linear-gradient(275deg, rgb(154, 151, 130) -49%, rgb(20, 20, 20) 25%, rgba(4,3,3,0) 108%)",
-    textGradient: "linear-gradient(to right, #D3D3D3, #A8A8A8 20%, #E0E0E0 50%, #A8A8A8 80%, #D3D3D3)",
-    shadowLineUp: "linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent)",
-    shadowLineDown: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent)"
+    heroCard:
+      "linear-gradient(275deg, rgb(154, 151, 130) -49%, rgb(20, 20, 20) 25%, rgba(4,3,3,0) 108%)",
+    textGradient:
+      "linear-gradient(to right, #D3D3D3, #A8A8A8 20%, #E0E0E0 50%, #A8A8A8 80%, #D3D3D3)",
+    shadowLineUp:
+      "linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent)",
+    shadowLineDown:
+      "linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent)",
   },
   typography: {
     fontFamily: `"Inter", "Helvetica", "Arial", sans-serif`,
@@ -105,9 +109,9 @@ let theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: {
-        "section": {
-          paddingTop: "120px",
-          paddingBottom: "120px",
+        section: {
+          paddingTop: "80px",
+          paddingBottom: "80px",
         },
       },
     },

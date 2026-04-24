@@ -13,7 +13,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 const Hero = () => {
   // Scroll handler
   const handleScroll = () => {
-    const nextSection = document.getElementById("next-section"); // scroll id
+    const nextSection = document.getElementById("process"); // Point to the main section ID
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: "smooth" });
     }

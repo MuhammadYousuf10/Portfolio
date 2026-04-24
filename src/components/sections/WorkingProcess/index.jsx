@@ -27,7 +27,6 @@ const ProcessCard = ({
   zIndex,
 }) => (
   <MotionBox
-    id="next-section"
     layout
     onClick={onClick}
     initial={{ scale: 0.95, y: 20 }}
@@ -92,7 +91,10 @@ const ProcessCard = ({
       <Typography variant="h4" sx={{ mt: 4, mb: 2 }}>
         {title}
       </Typography>
-      <Typography variant="body1" sx={{ maxWidth: "70%" }}>
+      <Typography
+        variant="body1"
+        sx={{ maxWidth: "90%", color: "text.secondary" }}
+      >
         {description}
       </Typography>
       <CustomButton
@@ -148,8 +150,8 @@ const CardSection = () => {
     return () => clearInterval(timer);
   }, [cards.length]);
 
-  const cardWidth = 600;
-  const overlap = 420;
+  const cardWidth = 750;
+  const overlap = 550;
   const totalWidth = cardWidth + (cards.length - 1) * (cardWidth - overlap);
   const startLeft = `calc(50% - ${totalWidth / 2}px)`; // center
 
@@ -202,9 +204,9 @@ const CardSection = () => {
             // index 1 = middle
             // index 0 = back
             const isFocused = card.id === focusedCard;
-            const blur = index === 2 ? 0 : index === 1 ? 2 : 5;
-            const scale = index === 2 ? 1.05 : index === 1 ? 0.95 : 0.85;
-            const yOffset = index === 2 ? 0 : index === 1 ? 20 : 40;
+            const blur = index === 2 ? 0 : index === 1 ? 2 : 4;
+            const scale = index === 2 ? 1 : index === 1 ? 0.94 : 0.88;
+            const yOffset = index === 2 ? 0 : index === 1 ? 15 : 30;
 
             return (
               <ProcessCard

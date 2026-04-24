@@ -80,6 +80,7 @@ const ImageCarousel = ({ images }) => {
           {images.map((_, i) => (
             <Box
               key={i}
+              onClick={() => setCurrentIndex(i)}
               sx={{
                 width: 6,
                 height: 6,
@@ -88,6 +89,7 @@ const ImageCarousel = ({ images }) => {
                 boxShadow:
                   i === currentIndex ? "0 0 4px rgba(255,255,255,0.8)" : "none",
                 transition: "all 0.3s ease",
+                cursor: "pointer",
               }}
             />
           ))}
@@ -309,7 +311,7 @@ const WhatWeOffer = () => {
         </Box>
 
         {/* Services Grid */}
-        <Grid container spacing={3} sx={{ mb: 10 }}>
+        <Grid container spacing={3} sx={{ mb: 5 }}>
           {services.map((service, index) => (
             <Grid size={{ xs: 12, md: service.size }} key={index}>
               <Box

@@ -1,22 +1,24 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import CustomImage from "@/components/common/CustomImage";
-
 import { clientLogos } from "@/data/portfolio";
 
-const duplicatedLogos = [...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos];
-
 const BrandLogoMarquee = () => {
+  const duplicatedLogos = [
+    ...clientLogos,
+    ...clientLogos,
+    ...clientLogos,
+    ...clientLogos,
+    ...clientLogos,
+  ];
+
   return (
     <Box
       sx={{
         width: "100%",
-        mt: 8,
         pt: 8,
         position: "relative",
-        borderTop: "1px solid",
-        borderColor: "divider",
       }}
     >
       {/* Edge fade masks */}
@@ -47,13 +49,12 @@ const BrandLogoMarquee = () => {
 
       <Box sx={{ overflow: "hidden", width: "100%" }}>
         <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
           style={{
             display: "flex",
-            gap: "60px",
+            gap: "80px",
             whiteSpace: "nowrap",
-            paddingLeft: "30px",
             alignItems: "center",
           }}
         >
@@ -63,7 +64,8 @@ const BrandLogoMarquee = () => {
               sx={{
                 position: "relative",
                 height: 40,
-                width: 100, // Approximate width for contain
+                width: 90,
+                flexShrink: 0,
               }}
             >
               <CustomImage
@@ -71,10 +73,12 @@ const BrandLogoMarquee = () => {
                 alt="Client Logo"
                 objectFit="contain"
                 sx={{
-                  filter: "grayscale(100%) brightness(0.6)",
-                  transition: "filter 0.3s ease",
+                  filter: "grayscale(0%) brightness(1)",
+                  opacity: 1,
+                  transition: "all 0.3s ease",
                   "&:hover": {
-                    filter: "grayscale(0%) brightness(1)",
+                    filter: "grayscale(100%) brightness(0.7)",
+                    opacity: 0.5,
                   },
                 }}
               />

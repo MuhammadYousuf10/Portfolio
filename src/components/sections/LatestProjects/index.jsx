@@ -11,7 +11,11 @@ import BrandLogoMarquee from "@/components/common/BrandLogoMarquee";
 import { projects as portfolioProjects } from "@/data/portfolio";
 
 // Triplicate the projects so we can infinitely scroll them seamlessly
-const duplicatedProjects = [...portfolioProjects, ...portfolioProjects, ...portfolioProjects];
+const duplicatedProjects = [
+  ...portfolioProjects,
+  ...portfolioProjects,
+  ...portfolioProjects,
+];
 
 const LatestProjects = () => {
   return (
@@ -112,7 +116,7 @@ const LatestProjects = () => {
 
           <motion.div
             animate={{ x: ["0%", "-33.333333%"] }} // Moves exactly one set of the 3 duplicated arrays
-            transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
+            transition={{ repeat: Infinity, ease: "linear", duration: 15 }}
             style={{ display: "flex", gap: "32px", paddingLeft: "16px" }}
           >
             {duplicatedProjects.map((project, index) => (
@@ -120,13 +124,13 @@ const LatestProjects = () => {
                 key={index}
                 sx={{
                   flex: "0 0 auto",
-                  width: { xs: "85vw", sm: "380px", md: "420px" },
+                  width: { xs: "85vw", sm: "480px", md: "550px" },
                   display: "flex",
                   flexDirection: "column",
                   gap: 2,
                   cursor: "pointer",
-                  "&:hover .project-img": {
-                    transform: "scale(1.02)",
+                  "&:hover .main-img, &:hover .hover-img": {
+                    transform: "scale(1.08)",
                   },
                 }}
               >
@@ -138,22 +142,41 @@ const LatestProjects = () => {
                     bgcolor: "rgba(255,255,255,0.02)",
                     border: "1px solid",
                     borderColor: "divider",
-                    height: 280,
+                    height: 400,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+                    "&:hover .hover-img": {
+                      opacity: 1,
+                    },
+                    "&:hover .main-img": {
+                      opacity: 0,
+                    },
                   }}
                 >
                   <CustomImage
                     src={project.image}
                     alt={project.title}
-                    className="project-img"
+                    className="main-img"
                     objectFit="cover"
                     sx={{
-                      filter: "grayscale(30%)",
-                      transition: "transform 0.4s ease",
+                      transition: "opacity 0.8s ease, transform 0.8s ease",
                     }}
                   />
+                  {project.hoverImage && (
+                    <CustomImage
+                      src={project.hoverImage}
+                      alt={`${project.title} hover`}
+                      className="hover-img"
+                      objectFit="cover"
+                      sx={{
+                        position: "absolute",
+                        inset: 0,
+                        opacity: 0,
+                        transition: "opacity 0.8s ease, transform 0.8s ease",
+                      }}
+                    />
+                  )}
                 </Box>
                 <Box>
                   <Stack direction="row" spacing={1} sx={{ mb: 1.5 }}>
@@ -180,8 +203,10 @@ const LatestProjects = () => {
             ))}
           </motion.div>
         </Box>
+      </Container>
 
-        {/* Sliding Logos Marquee */}
+      {/* Sliding Logos Marquee - Moved outside container for full width */}
+      <Container maxWidth="lg">
         <BrandLogoMarquee />
       </Container>
     </Box>

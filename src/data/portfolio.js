@@ -18,9 +18,11 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
 // Image Imports - Projects
-import banner1 from "@/assests/projects/project-banner1.avif";
-import banner2 from "@/assests/projects/project-banner2.avif";
-import banner3 from "@/assests/projects/project-banner3.avif";
+import atomaiMain from "@/assests/projects/atomai-main.avif";
+import atomaiHover from "@/assests/projects/atomai-hover.avif";
+import landioMain from "@/assests/projects/landio-main.avif";
+import landioHover from "@/assests/projects/landio-hover.avif";
+import poloMain from "@/assests/projects/polo-main.avif";
 
 // Image Imports - Logos
 import logo1 from "@/assests/projects/project-logo1.avif";
@@ -68,22 +70,26 @@ export const projects = [
   {
     title: "AtomAI",
     tags: ["SaaS", "Template"],
-    image: banner1,
+    image: atomaiMain,
+    hoverImage: atomaiHover,
   },
   {
     title: "Landio",
     tags: ["SaaS", "Template"],
-    image: banner2,
+    image: landioMain,
+    hoverImage: landioHover,
   },
   {
     title: "Polo",
     tags: ["Portfolio", "Template"],
-    image: banner3,
+    image: poloMain,
+    hoverImage: atomaiHover, // Fallback
   },
   {
     title: "Portfolite",
     tags: ["Portfolio", "Template"],
-    image: banner1,
+    image: atomaiMain,
+    hoverImage: landioHover, // Variation
   },
 ];
 
