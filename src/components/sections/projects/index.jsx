@@ -1,134 +1,216 @@
 "use client";
 
-import { Box, Container, Grid, Typography, Stack, Chip } from "@mui/material";
+import React from "react";
+import { Box, Container, Typography, Stack, Chip } from "@mui/material";
+import { motion } from "framer-motion";
 import CustomButton from "@/components/common/customButtons";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import FolderOpenIcon from "@mui/icons-material/FolderOpen";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import LogoMarquee from "@/components/common/LogoMarquee";
+
+// Image Imports
+import banner1 from "@/assests/projects/project-banner1.avif";
+import banner2 from "@/assests/projects/project-banner2.avif";
+import banner3 from "@/assests/projects/project-banner3.avif";
 
 const projects = [
   {
+    title: "AtomAI",
+    tags: ["SaaS", "Template"],
+    image: banner1,
+  },
+  {
     title: "Landio",
-    category: "SaaS Template",
-    image:
-      "https://framerusercontent.com/images/ETKy6pcTVJ5pEm7xuvzpO0jv9cw.svg", // Placeholder
+    tags: ["SaaS", "Template"],
+    image: banner2,
   },
   {
     title: "Polo",
-    category: "Portfolio Template",
-    image:
-      "https://framerusercontent.com/images/ETKy6pcTVJ5pEm7xuvzpO0jv9cw.svg", // Placeholder
+    tags: ["Portfolio", "Template"],
+    image: banner3,
   },
   {
     title: "Portfolite",
-    category: "Portfolio Template",
-    image:
-      "https://framerusercontent.com/images/ETKy6pcTVJ5pEm7xuvzpO0jv9cw.svg", // Placeholder
-  },
-  {
-    title: "AtomAI",
-    category: "SaaS Template",
-    image:
-      "https://framerusercontent.com/images/ETKy6pcTVJ5pEm7xuvzpO0jv9cw.svg", // Placeholder
+    tags: ["Portfolio", "Template"],
+    image: banner1,
   },
 ];
+
+// Triplicate the projects so we can infinitely scroll them seamlessly
+const duplicatedProjects = [...projects, ...projects, ...projects];
 
 const ProjectsSection = () => {
   return (
     <Box
       component="section"
       id="projects"
-      sx={{ bgcolor: "background.default", color: "text.primary" }}
+      sx={{
+        bgcolor: "background.default",
+        color: "text.primary",
+        overflow: "hidden",
+      }}
     >
-      <Container maxWidth="lg">
-        {/* Header */}
-        <Box sx={{ mb: 8 }}>
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="flex-end"
-          >
-            <Box>
-              <Chip
-                label="Projects"
-                sx={{
-                  mb: 2,
-                  bgcolor: "rgba(255,255,255,0.1)",
-                  color: "text.primary",
-                }}
+      <Container
+        maxWidth="xl"
+        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      >
+        {/* Centered Header */}
+        <Box
+          sx={{
+            mb: 8,
+            textAlign: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Chip
+            icon={
+              <AutoAwesomeIcon
+                fontSize="small"
+                sx={{ color: "text.primary !important" }}
               />
-              <Typography variant="h2" sx={{ mb: 2 }}>
-                Our Latest Projects
-              </Typography>
-              <Typography
-                variant="body1"
-                color="text.secondary"
-                sx={{ maxWidth: 400 }}
-              >
-                Our projects showcase creativity and impact in every detail.
-              </Typography>
-            </Box>
-            <CustomButton
-              text="See All Projects"
-              variant="outlined"
-              startIcon={<FolderOpenIcon />}
-            />
-          </Stack>
+            }
+            label="Projects"
+            sx={{
+              mb: 3,
+              bgcolor: "rgba(255,255,255,0.08)",
+              color: "text.primary",
+              px: 1,
+            }}
+          />
+          <Typography variant="h2" sx={{ mb: 2 }}>
+            Our Latest{" "}
+            <Typography component="span" variant="gradientText">
+              Projects
+            </Typography>
+          </Typography>
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            sx={{ maxWidth: 500, mb: 4 }}
+          >
+            Our projects showcase creativity and impact in every detail.
+          </Typography>
+          <CustomButton
+            text="See All Projects"
+            variant="outlined"
+            startIcon={
+              <ArrowOutwardIcon sx={{ transform: "rotate(-45deg)" }} />
+            }
+          />
         </Box>
 
-        {/* Projects Grid */}
-        <Grid container spacing={4}>
-          {projects.map((project, index) => (
-            <Grid size={{ xs: 12, md: 6 }} key={index}>
+        {/* Projects Horizontal Carousel */}
+        <Box
+          sx={{
+            width: "100%",
+            overflow: "hidden",
+            pb: 4,
+            position: "relative",
+          }}
+        >
+          {/* Edge fade masks */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              width: "100px",
+              background: "linear-gradient(to right, #000, transparent)",
+              zIndex: 2,
+              pointerEvents: "none",
+            }}
+          />
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              right: 0,
+              width: "100px",
+              background: "linear-gradient(to left, #000, transparent)",
+              zIndex: 2,
+              pointerEvents: "none",
+            }}
+          />
+
+          <motion.div
+            animate={{ x: ["0%", "-33.333333%"] }} // Moves exactly one set of the 3 duplicated arrays
+            transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
+            style={{ display: "flex", gap: "32px", paddingLeft: "16px" }}
+          >
+            {duplicatedProjects.map((project, index) => (
               <Box
+                key={index}
                 sx={{
-                  position: "relative",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  bgcolor: "background.paper",
+                  flex: "0 0 auto",
+                  width: { xs: "85vw", sm: "380px", md: "420px" },
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2,
                   cursor: "pointer",
-                  "&:hover .project-overlay": {
-                    opacity: 1,
+                  "&:hover .project-img": {
+                    transform: "scale(1.02)",
                   },
                 }}
               >
                 <Box
                   sx={{
-                    height: 400,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    position: "relative",
+                    borderRadius: "16px",
+                    overflow: "hidden",
                     bgcolor: "rgba(255,255,255,0.02)",
                     border: "1px solid",
                     borderColor: "divider",
-                    borderRadius: "16px",
+                    height: 280,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
                 >
-                  {/* Placeholder for project image */}
-                  <Typography color="text.secondary">
-                    Project Image: {project.title}
-                  </Typography>
+                  <Box
+                    component="img"
+                    src={project.image.src || project.image}
+                    className="project-img"
+                    sx={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      filter: "grayscale(30%)",
+                      transition: "transform 0.4s ease",
+                    }}
+                  />
                 </Box>
-                <Box sx={{ p: 3 }}>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{ textTransform: "uppercase", letterSpacing: 1, mb: 1 }}
-                  >
-                    {project.category}
-                  </Typography>
-                  <Stack
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
-                  >
-                    <Typography variant="h4">{project.title}</Typography>
-                    <ArrowOutwardIcon />
+                <Box>
+                  <Stack direction="row" spacing={1} sx={{ mb: 1.5 }}>
+                    {project.tags.map((tag, i) => (
+                      <Chip
+                        key={i}
+                        label={tag}
+                        size="small"
+                        sx={{
+                          bgcolor: "rgba(255,255,255,0.05)",
+                          border: "1px solid rgba(255,255,255,0.1)",
+                          borderRadius: "8px",
+                          color: "text.secondary",
+                          fontSize: "0.75rem",
+                        }}
+                      />
+                    ))}
                   </Stack>
+                  <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                    {project.title}
+                  </Typography>
                 </Box>
               </Box>
-            </Grid>
-          ))}
-        </Grid>
+            ))}
+          </motion.div>
+        </Box>
+
+        {/* Sliding Logos Marquee */}
+        <LogoMarquee />
       </Container>
     </Box>
   );
