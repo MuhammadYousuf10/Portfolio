@@ -4,7 +4,9 @@ import Hero from "@/components/sections/Hero";
 import WorkingProcess from "@/components/sections/WorkingProcess";
 import WhatWeOffer from "@/components/sections/WhatWeOffer";
 import LatestProjects from "@/components/sections/LatestProjects";
+import About from "@/components/sections/About";
 import Testimonials from "@/components/sections/Testimonials";
+import ProvenResults from "@/components/sections/ProvenResults";
 import Pricing from "@/components/sections/Pricing";
 import WhyUs from "@/components/sections/WhyUs";
 import FAQ from "@/components/sections/FAQ";
@@ -17,8 +19,10 @@ const page = () => {
       <WorkingProcess />
       <WhatWeOffer />
       <LatestProjects />
-      <WhyUs />
+      <About />
       <Testimonials />
+      <ProvenResults />
+      <WhyUs />
       <Pricing />
       <FAQ />
       <Blog />

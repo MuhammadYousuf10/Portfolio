@@ -3,6 +3,8 @@
 import { Box, Container, Typography, Stack, Grid, Chip } from "@mui/material";
 import CustomButton from "@/components/common/CustomButton";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import PaymentsIcon from "@mui/icons-material/Payments";
+import SectionBadge from "@/components/common/SectionBadge";
 
 const pricingPlans = [
   {
@@ -46,14 +48,7 @@ const Pricing = () => {
     >
       <Container maxWidth="lg">
         <Box sx={{ mb: 10, textAlign: "center" }}>
-          <Chip
-            label="Pricing"
-            sx={{
-              mb: 2,
-              bgcolor: "rgba(255,255,255,0.1)",
-              color: "text.primary",
-            }}
-          />
+          <SectionBadge text="Pricing" icon={PaymentsIcon} />
           <Typography variant="h2" sx={{ mb: 2 }}>
             Choose a plan that fits
           </Typography>

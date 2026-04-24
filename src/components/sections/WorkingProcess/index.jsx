@@ -8,6 +8,8 @@ import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import CustomButton from "@/components/common/CustomButton";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import SectionBadge from "@/components/common/SectionBadge";
 
 const MotionBox = motion.create(Box);
 
@@ -182,6 +184,9 @@ const CardSection = () => {
             justifyContent={"space-between"}
             sx={{ mb: 16 }}
           >
+            <Box sx={{ mb: 2 }}>
+              <SectionBadge text="Process" icon={AutoAwesomeIcon} />
+            </Box>
             <Box>
               <Typography variant="h2" color="text.primary" sx={{ mb: 2 }}>
                 Process is {""}

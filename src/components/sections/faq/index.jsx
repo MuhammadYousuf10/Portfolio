@@ -2,7 +2,9 @@
 
 import { Box, Container, Typography, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import CustomButton from "@/components/common/CustomButton";
+import SectionBadge from "@/components/common/SectionBadge";
 
 const faqs = [
   {
@@ -28,6 +30,7 @@ const FAQ = () => {
     <Box component="section" id="faq" sx={{ bgcolor: "background.default", color: "text.primary" }}>
       <Container maxWidth="md">
         <Box sx={{ mb: 8, textAlign: "center" }}>
+          <SectionBadge text="FAQ" icon={QuestionAnswerIcon} />
           <Typography variant="h2" sx={{ mb: 2 }}>Your Questions Answered</Typography>
           <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
             Find the answers to our most common questions here, but if you still need help, feel free to contact me.

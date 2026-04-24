@@ -2,7 +2,9 @@
 
 import { Box, Container, Typography, Stack, Grid, Chip } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import ArticleIcon from "@mui/icons-material/Article";
 import CustomButton from "@/components/common/CustomButton";
+import SectionBadge from "@/components/common/SectionBadge";
 
 const blogPosts = [
   {
@@ -38,14 +40,7 @@ const Blog = () => {
             alignItems="flex-end"
           >
             <Box>
-              <Chip
-                label="Blog"
-                sx={{
-                  mb: 2,
-                  bgcolor: "rgba(255,255,255,0.1)",
-                  color: "text.primary",
-                }}
-              />
+              <SectionBadge text="Blog" icon={ArticleIcon} />
               <Typography variant="h2" sx={{ mb: 2 }}>
                 Our Latest Insights
               </Typography>

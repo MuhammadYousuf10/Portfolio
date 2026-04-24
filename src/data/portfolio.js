@@ -33,6 +33,54 @@ import logo3 from "@/assests/projects/project-logo3.avif";
 import offer1 from "@/assests/services/what-we-offer1.avif";
 import offer2 from "@/assests/services/what-we-offer2.avif";
 
+// Image Imports - About
+import redefiningDesignImg from "@/assests/about/redefining-design.avif";
+import whoWeAreImg from "@/assests/who-we-are/who-we-are.avif";
+
+export const aboutData = {
+  title: "The One Behind",
+  subtitle: "The Wheel",
+  image: whoWeAreImg,
+  rating: 4.7,
+  clientsCount: "100+",
+  skills: [
+    "Product Design",
+    "UX Design",
+    "UI Design",
+    "Framer",
+    "Branding",
+    "Animations",
+    "Interaction Design",
+    "Webflow",
+    "UX Research",
+    "Front-End Development",
+    "No-Code",
+    "Figma",
+  ],
+  experience: [
+    {
+      role: "Freelance",
+      company: "GreenLeaf Co., UrbanFit Studio",
+      period: "Jan 2020 - Present",
+    },
+    {
+      role: "UX/UI Designer",
+      company: "PixelCraft Studios",
+      period: "May 2018 - Dec 2018",
+    },
+    {
+      role: "Frontend Developer",
+      company: "BrightWave Technologies",
+      period: "March 2016 - April 2017",
+    },
+    {
+      role: "Graphic Designer",
+      company: "VistaWorks Agency",
+      period: "June 2013 - Aug 2021",
+    },
+  ],
+};
+
 export const services = [
   {
     title: "Product Design",
@@ -113,5 +161,43 @@ export const marqueeTags2 = [
   { label: "Visual Content Creation", icon: <ImageIcon fontSize="small" /> },
   { label: "Packaging Design", icon: <Inventory2Icon fontSize="small" /> },
   { label: "Art Direction", icon: <CameraAltIcon fontSize="small" /> },
-  { label: "Design Consulting", icon: <ChatBubbleOutlineIcon fontSize="small" /> },
+  {
+    label: "Design Consulting",
+    icon: <ChatBubbleOutlineIcon fontSize="small" />,
+  },
+];
+
+export const provenResults = [
+  {
+    company: "PixelRise Creative Solutions",
+    logoText: "Funnel",
+    metrics: [
+      { label: "new customers", value: "100k+" },
+      { label: "opportunity value", value: "$5m+" },
+    ],
+    testimonial: {
+      quote:
+        "The team delivered outstanding designs that perfectly captured our brand's essence. Every detail was thoughtful, polished, and user-centric. Collaborating with them was smooth and efficient.",
+      author: "jerry nelson",
+      rating: 5,
+    },
+    image:
+      "https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=1024",
+  },
+  {
+    company: "NexaCraft Innovations",
+    logoText: "Nexa",
+    metrics: [
+      { label: "user growth", value: "70k+" },
+      { label: "revenue increase", value: "120%" },
+    ],
+    testimonial: {
+      quote:
+        "Working with Fade Studio was a game-changer. They didn't just design a website; they built a brand identity that resonates with our audience.",
+      author: "sarah smith",
+      rating: 5,
+    },
+    image:
+      "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=1024",
+  },
 ];

@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Box, Container, Grid, Typography, Chip } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import AdjustIcon from "@mui/icons-material/Adjust";
 import CustomImage from "@/components/common/CustomImage";
 import { services } from "@/data/portfolio";
 import MarqueeTags from "@/components/common/MarqueeTags";
+import SectionBadge from "@/components/common/SectionBadge";
 
 const ImageCarousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -280,21 +281,7 @@ const WhatWeOffer = () => {
             alignItems: "center",
           }}
         >
-          <Chip
-            icon={
-              <AdjustIcon
-                fontSize="small"
-                sx={{ color: "text.primary !important" }}
-              />
-            }
-            label="Services"
-            sx={{
-              mb: 3,
-              bgcolor: "rgba(255,255,255,0.08)",
-              color: "text.primary",
-              px: 1,
-            }}
-          />
+          <SectionBadge text="Services" icon={AdjustIcon} />
           <Typography variant="h2" sx={{ mb: 2 }}>
             What We{" "}
             <Typography component="span" variant="gradientText">

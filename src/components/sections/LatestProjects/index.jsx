@@ -5,10 +5,10 @@ import { Box, Container, Typography, Stack, Chip } from "@mui/material";
 import { motion } from "framer-motion";
 import CustomButton from "@/components/common/CustomButton";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CustomImage from "@/components/common/CustomImage";
 import BrandLogoMarquee from "@/components/common/BrandLogoMarquee";
 import { projects as portfolioProjects } from "@/data/portfolio";
+import SectionBadge from "@/components/common/SectionBadge";
 
 // Triplicate the projects so we can infinitely scroll them seamlessly
 const duplicatedProjects = [
@@ -42,21 +42,7 @@ const LatestProjects = () => {
             alignItems: "center",
           }}
         >
-          <Chip
-            icon={
-              <AutoAwesomeIcon
-                fontSize="small"
-                sx={{ color: "text.primary !important" }}
-              />
-            }
-            label="Projects"
-            sx={{
-              mb: 3,
-              bgcolor: "rgba(255,255,255,0.08)",
-              color: "text.primary",
-              px: 1,
-            }}
-          />
+          <SectionBadge text="Projects" />
           <Typography variant="h2" sx={{ mb: 2 }}>
             Our Latest{" "}
             <Typography component="span" variant="gradientText">
