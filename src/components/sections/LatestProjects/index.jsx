@@ -3,43 +3,17 @@
 import React from "react";
 import { Box, Container, Typography, Stack, Chip } from "@mui/material";
 import { motion } from "framer-motion";
-import CustomButton from "@/components/common/customButtons";
+import CustomButton from "@/components/common/CustomButton";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
-import LogoMarquee from "@/components/common/LogoMarquee";
-
-// Image Imports
-import banner1 from "@/assests/projects/project-banner1.avif";
-import banner2 from "@/assests/projects/project-banner2.avif";
-import banner3 from "@/assests/projects/project-banner3.avif";
-
-const projects = [
-  {
-    title: "AtomAI",
-    tags: ["SaaS", "Template"],
-    image: banner1,
-  },
-  {
-    title: "Landio",
-    tags: ["SaaS", "Template"],
-    image: banner2,
-  },
-  {
-    title: "Polo",
-    tags: ["Portfolio", "Template"],
-    image: banner3,
-  },
-  {
-    title: "Portfolite",
-    tags: ["Portfolio", "Template"],
-    image: banner1,
-  },
-];
+import CustomImage from "@/components/common/CustomImage";
+import BrandLogoMarquee from "@/components/common/BrandLogoMarquee";
+import { projects as portfolioProjects } from "@/data/portfolio";
 
 // Triplicate the projects so we can infinitely scroll them seamlessly
-const duplicatedProjects = [...projects, ...projects, ...projects];
+const duplicatedProjects = [...portfolioProjects, ...portfolioProjects, ...portfolioProjects];
 
-const ProjectsSection = () => {
+const LatestProjects = () => {
   return (
     <Box
       component="section"
@@ -170,14 +144,12 @@ const ProjectsSection = () => {
                     justifyContent: "center",
                   }}
                 >
-                  <Box
-                    component="img"
-                    src={project.image.src || project.image}
+                  <CustomImage
+                    src={project.image}
+                    alt={project.title}
                     className="project-img"
+                    objectFit="cover"
                     sx={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
                       filter: "grayscale(30%)",
                       transition: "transform 0.4s ease",
                     }}
@@ -210,10 +182,10 @@ const ProjectsSection = () => {
         </Box>
 
         {/* Sliding Logos Marquee */}
-        <LogoMarquee />
+        <BrandLogoMarquee />
       </Container>
     </Box>
   );
 };
 
-export default ProjectsSection;
+export default LatestProjects;

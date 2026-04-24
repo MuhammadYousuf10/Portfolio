@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import NextLink from "next/link";
 import MuiLink from "@mui/material/Link";
-import CustomButton from "@/components/common/customButtons";
+import CustomButton from "@/components/common/CustomButton";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 const Footer = () => {

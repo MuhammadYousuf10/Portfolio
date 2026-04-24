@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import SearchIcon from "@mui/icons-material/Search";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
-import CustomButton from "@/components/common/customButtons";
+import CustomButton from "@/components/common/CustomButton";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 const MotionBox = motion.create(Box);

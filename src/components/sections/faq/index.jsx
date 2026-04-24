@@ -2,7 +2,7 @@
 
 import { Box, Container, Typography, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import CustomButton from "@/components/common/customButtons";
+import CustomButton from "@/components/common/CustomButton";
 
 const faqs = [
   {
@@ -23,7 +23,7 @@ const faqs = [
   },
 ];
 
-const FAQSection = () => {
+const FAQ = () => {
   return (
     <Box component="section" id="faq" sx={{ bgcolor: "background.default", color: "text.primary" }}>
       <Container maxWidth="md">
@@ -66,4 +66,4 @@ const FAQSection = () => {
   );
 };
 
-export default FAQSection;
+export default FAQ;

@@ -5,7 +5,7 @@ import { useTheme } from "@mui/material/styles";
 import { useState } from "react";
 import navItems from "@/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import ImageWrapper from "@/components/common/imageWrapper";
+import ImageWrapper from "@/components/common/ImageWrapper";
 import NextLink from "next/link";
 import MuiLink from "@mui/material/Link";
 

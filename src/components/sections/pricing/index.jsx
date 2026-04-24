@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Container, Typography, Stack, Grid, Chip } from "@mui/material";
-import CustomButton from "@/components/common/customButtons";
+import CustomButton from "@/components/common/CustomButton";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const pricingPlans = [
@@ -37,7 +37,7 @@ const pricingPlans = [
   },
 ];
 
-const PricingSection = () => {
+const Pricing = () => {
   return (
     <Box
       component="section"
@@ -159,4 +159,4 @@ const PricingSection = () => {
   );
 };
 
-export default PricingSection;
+export default Pricing;

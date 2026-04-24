@@ -34,7 +34,7 @@ const comparisonThem = [
   "Minimal Post-Project Support",
 ];
 
-const WhyUsSection = () => {
+const WhyUs = () => {
   return (
     <Box
       component="section"
@@ -176,4 +176,4 @@ const WhyUsSection = () => {
   );
 };
 
-export default WhyUsSection;
+export default WhyUs;

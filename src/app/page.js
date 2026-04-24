@@ -1,27 +1,27 @@
 "use client";
 
-import Hero from "@/components/sections/heroBanner";
-import ProcessCards from "@/components/sections/processCards";
-import ServicesSection from "@/components/sections/services";
-import ProjectsSection from "@/components/sections/projects";
-import TestimonialsSection from "@/components/sections/testimonials";
-import PricingSection from "@/components/sections/pricing";
-import WhyUsSection from "@/components/sections/whyUs";
-import FAQSection from "@/components/sections/faq";
-import BlogSection from "@/components/sections/blog";
+import Hero from "@/components/sections/Hero";
+import WorkingProcess from "@/components/sections/WorkingProcess";
+import WhatWeOffer from "@/components/sections/WhatWeOffer";
+import LatestProjects from "@/components/sections/LatestProjects";
+import Testimonials from "@/components/sections/Testimonials";
+import Pricing from "@/components/sections/Pricing";
+import WhyUs from "@/components/sections/WhyUs";
+import FAQ from "@/components/sections/FAQ";
+import Blog from "@/components/sections/Blog";
 
 const page = () => {
   return (
     <>
       <Hero />
-      <ProcessCards />
-      <ServicesSection />
-      <ProjectsSection />
-      <WhyUsSection />
-      <TestimonialsSection />
-      <PricingSection />
-      <FAQSection />
-      <BlogSection />
+      <WorkingProcess />
+      <WhatWeOffer />
+      <LatestProjects />
+      <WhyUs />
+      <Testimonials />
+      <Pricing />
+      <FAQ />
+      <Blog />
     </>
   );
 };

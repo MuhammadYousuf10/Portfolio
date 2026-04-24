@@ -3,53 +3,10 @@
 import React, { useState, useEffect } from "react";
 import { Box, Container, Grid, Typography, Chip } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
-import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-
-import WebIcon from "@mui/icons-material/Web";
-import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import GpsFixedIcon from "@mui/icons-material/GpsFixed";
 import AdjustIcon from "@mui/icons-material/Adjust";
-import MarqueeTags from "./MarqueeTags";
-
-const services = [
-  {
-    title: "Product Design",
-    description:
-      "We craft intuitive, user-centric digital products that drive engagement and conversion. We design for real-world.",
-    icon: <WebIcon />,
-    images: [
-      "https://framerusercontent.com/images/ETKy6pcTVJ5pEm7xuvzpO0jv9cw.svg",
-      "https://framerusercontent.com/images/ubO6hprNRTUPSD1LOKrAqhScc.png",
-    ],
-    size: 7,
-  },
-  {
-    title: "Brand Identity Design",
-    description:
-      "Your brand is more than a logo. We build complete brand systems that express your vision, values, and voice - helping you stand out.",
-    icon: <EmojiObjectsIcon />,
-    size: 5,
-  },
-  {
-    title: "Marketing & SEO",
-    description:
-      "We align creative storytelling with smart strategy. From content to technical SEO, we help you rank higher, and grow organically.",
-    icon: <TrendingUpIcon />,
-    size: 5,
-  },
-  {
-    title: "Ads & Others",
-    description:
-      "Maximize your ROI with targeted precision- ad campaigns. Whether it’s Google, Meta, or LinkedIn.",
-    icon: <GpsFixedIcon />,
-    images: [
-      "https://framerusercontent.com/images/ETKy6pcTVJ5pEm7xuvzpO0jv9cw.svg",
-      "https://framerusercontent.com/images/ubO6hprNRTUPSD1LOKrAqhScc.png",
-    ],
-    size: 7,
-  },
-];
+import CustomImage from "@/components/common/CustomImage";
+import { services } from "@/data/portfolio";
+import MarqueeTags from "@/components/common/MarqueeTags";
 
 const ImageCarousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -65,36 +22,61 @@ const ImageCarousel = ({ images }) => {
   if (!images || images.length === 0) return null;
 
   return (
-    <Box sx={{ flex: 1, position: "relative", width: "100%", height: 250, bgcolor: "rgba(255,255,255,0.02)", borderRadius: "16px", border: "1px solid", borderColor: "divider", overflow: "hidden" }}>
+    <Box
+      sx={{
+        flex: 1,
+        position: "relative",
+        width: "100%",
+        height: 250,
+        bgcolor: "rgba(255,255,255,0.02)",
+        borderRadius: "16px",
+        border: "1px solid",
+        borderColor: "divider",
+        overflow: "hidden",
+      }}
+    >
       <AnimatePresence mode="wait">
-        <motion.img
+        <Box
           key={currentIndex}
-          src={images[currentIndex]}
+          component={motion.div}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 0.8, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
-          style={{ position: "absolute", width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(100%)" }}
-        />
+          sx={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <CustomImage
+            src={images[currentIndex]}
+            alt="Service preview"
+            objectFit="cover"
+            sx={{ filter: "grayscale(100%)" }}
+          />
+        </Box>
       </AnimatePresence>
-      
+
       {/* Vertical carousel indicator */}
       {images.length > 1 && (
-        <Box sx={{
-          position: "absolute",
-          left: 12,
-          top: "50%",
-          transform: "translateY(-50%)",
-          display: "flex",
-          flexDirection: "column",
-          gap: 1,
-          p: 0.5,
-          borderRadius: "12px",
-          bgcolor: "rgba(0,0,0,0.4)",
-          backdropFilter: "blur(8px)",
-          border: "1px solid rgba(255,255,255,0.1)",
-          zIndex: 2
-        }}>
+        <Box
+          sx={{
+            position: "absolute",
+            left: 12,
+            top: "50%",
+            transform: "translateY(-50%)",
+            display: "flex",
+            flexDirection: "column",
+            gap: 1,
+            p: 0.5,
+            borderRadius: "12px",
+            bgcolor: "rgba(0,0,0,0.4)",
+            backdropFilter: "blur(8px)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            zIndex: 2,
+          }}
+        >
           {images.map((_, i) => (
             <Box
               key={i}
@@ -103,8 +85,9 @@ const ImageCarousel = ({ images }) => {
                 height: 6,
                 borderRadius: "50%",
                 bgcolor: i === currentIndex ? "#fff" : "rgba(255,255,255,0.3)",
-                boxShadow: i === currentIndex ? "0 0 4px rgba(255,255,255,0.8)" : "none",
-                transition: "all 0.3s ease"
+                boxShadow:
+                  i === currentIndex ? "0 0 4px rgba(255,255,255,0.8)" : "none",
+                transition: "all 0.3s ease",
               }}
             />
           ))}
@@ -114,7 +97,7 @@ const ImageCarousel = ({ images }) => {
   );
 };
 
-const ServicesSection = () => {
+const WhatWeOffer = () => {
   return (
     <Box
       component="section"
@@ -339,7 +322,10 @@ const ServicesSection = () => {
                   height: "100%",
                   display: "flex",
                   flexDirection: service.images
-                    ? { xs: "column", sm: index % 2 === 0 ? "row" : "row-reverse" }
+                    ? {
+                        xs: "column",
+                        sm: index % 2 === 0 ? "row" : "row-reverse",
+                      }
                     : "column",
                   gap: 4,
                   alignItems: service.images ? "center" : "flex-start",
@@ -361,17 +347,20 @@ const ServicesSection = () => {
                     justifyContent: "center",
                   }}
                 >
-                  <Box sx={{
-                    display: "inline-flex",
-                    alignSelf: "flex-start",
-                    p: 1.5,
-                    mb: 3,
-                    borderRadius: "12px",
-                    bgcolor: "rgba(255,255,255,0.02)",
-                    border: "1px solid rgba(255,255,255,0.05)",
-                    boxShadow: "inset 0 1px 1px rgba(255,255,255,0.1), 0 4px 10px rgba(0,0,0,0.5)",
-                    color: "text.secondary"
-                  }}>
+                  <Box
+                    sx={{
+                      display: "inline-flex",
+                      alignSelf: "flex-start",
+                      p: 1.5,
+                      mb: 3,
+                      borderRadius: "12px",
+                      bgcolor: "rgba(255,255,255,0.02)",
+                      border: "1px solid rgba(255,255,255,0.05)",
+                      boxShadow:
+                        "inset 0 1px 1px rgba(255,255,255,0.1), 0 4px 10px rgba(0,0,0,0.5)",
+                      color: "text.secondary",
+                    }}
+                  >
                     {service.icon}
                   </Box>
                   <Typography variant="h5" sx={{ mb: 2, fontWeight: 600 }}>
@@ -393,4 +382,4 @@ const ServicesSection = () => {
   );
 };
 
-export default ServicesSection;
+export default WhatWeOffer;

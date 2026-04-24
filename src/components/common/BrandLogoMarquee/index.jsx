@@ -1,22 +1,13 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
+import CustomImage from "@/components/common/CustomImage";
 
-import logo1 from "@/assests/projects/project-logo1.avif";
-import logo2 from "@/assests/projects/project-logo2.avif";
-import logo3 from "@/assests/projects/project-logo3.avif";
+import { clientLogos } from "@/data/portfolio";
 
-const logos = [
-  { image: logo1 },
-  { image: logo2 },
-  { image: logo3 },
-  { image: logo1 },
-  { image: logo2 },
-];
+const duplicatedLogos = [...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos];
 
-const duplicatedLogos = [...logos, ...logos, ...logos, ...logos, ...logos];
-
-const LogoMarquee = () => {
+const BrandLogoMarquee = () => {
   return (
     <Box
       sx={{
@@ -69,19 +60,25 @@ const LogoMarquee = () => {
           {duplicatedLogos.map((logo, index) => (
             <Box
               key={index}
-              component="img"
-              src={logo.image.src || logo.image}
-              alt="Client Logo"
               sx={{
+                position: "relative",
                 height: 40,
-                objectFit: "contain",
-                filter: "grayscale(100%) brightness(0.6)",
-                transition: "filter 0.3s ease",
-                "&:hover": {
-                  filter: "grayscale(0%) brightness(1)",
-                },
+                width: 100, // Approximate width for contain
               }}
-            />
+            >
+              <CustomImage
+                src={logo.image}
+                alt="Client Logo"
+                objectFit="contain"
+                sx={{
+                  filter: "grayscale(100%) brightness(0.6)",
+                  transition: "filter 0.3s ease",
+                  "&:hover": {
+                    filter: "grayscale(0%) brightness(1)",
+                  },
+                }}
+              />
+            </Box>
           ))}
         </motion.div>
       </Box>
@@ -89,4 +86,4 @@ const LogoMarquee = () => {
   );
 };
 
-export default LogoMarquee;
+export default BrandLogoMarquee;

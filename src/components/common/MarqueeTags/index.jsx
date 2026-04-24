@@ -2,34 +2,11 @@ import React from "react";
 import { Box, Chip } from "@mui/material";
 import { motion } from "framer-motion";
 
-import CodeIcon from "@mui/icons-material/Code";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import BadgeIcon from "@mui/icons-material/Badge";
-import PaletteIcon from "@mui/icons-material/Palette";
-import ArchitectureIcon from "@mui/icons-material/Architecture";
-import ImageIcon from "@mui/icons-material/Image";
-import Inventory2Icon from "@mui/icons-material/Inventory2";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
-import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
-
-const tags1 = [
-  { label: "Creative Direction", icon: <PaletteIcon fontSize="small" /> },
-  { label: "Web Development", icon: <CodeIcon fontSize="small" /> },
-  { label: "UI/UX", icon: <DashboardIcon fontSize="small" /> },
-  { label: "Brand Identity", icon: <BadgeIcon fontSize="small" /> },
-];
-
-const tags2 = [
-  { label: "Logo Design", icon: <ArchitectureIcon fontSize="small" /> },
-  { label: "Visual Content Creation", icon: <ImageIcon fontSize="small" /> },
-  { label: "Packaging Design", icon: <Inventory2Icon fontSize="small" /> },
-  { label: "Art Direction", icon: <CameraAltIcon fontSize="small" /> },
-  { label: "Design Consulting", icon: <ChatBubbleOutlineIcon fontSize="small" /> },
-];
+import { marqueeTags1, marqueeTags2 } from "@/data/portfolio";
 
 // Duplicate items multiple times to ensure smooth infinite scrolling even on ultra-wide screens
-const duplicatedTags1 = [...tags1, ...tags1, ...tags1, ...tags1, ...tags1];
-const duplicatedTags2 = [...tags2, ...tags2, ...tags2, ...tags2, ...tags2];
+const duplicatedTags1 = [...marqueeTags1, ...marqueeTags1, ...marqueeTags1, ...marqueeTags1, ...marqueeTags1];
+const duplicatedTags2 = [...marqueeTags2, ...marqueeTags2, ...marqueeTags2, ...marqueeTags2, ...marqueeTags2];
 
 const MarqueeRow = ({ items, direction = "left", speed = 40 }) => {
   return (

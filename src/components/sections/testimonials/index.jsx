@@ -27,7 +27,7 @@ const testimonials = [
   },
 ];
 
-const TestimonialsSection = () => {
+const Testimonials = () => {
   return (
     <Box
       component="section"
@@ -101,4 +101,4 @@ const TestimonialsSection = () => {
   );
 };
 
-export default TestimonialsSection;
+export default Testimonials;

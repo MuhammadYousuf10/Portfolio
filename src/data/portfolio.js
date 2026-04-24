@@ -1,0 +1,111 @@
+import React from "react";
+
+// Material UI Icons for Services
+import WebIcon from "@mui/icons-material/Web";
+import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import GpsFixedIcon from "@mui/icons-material/GpsFixed";
+
+// Material UI Icons for Tags
+import CodeIcon from "@mui/icons-material/Code";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import BadgeIcon from "@mui/icons-material/Badge";
+import PaletteIcon from "@mui/icons-material/Palette";
+import ArchitectureIcon from "@mui/icons-material/Architecture";
+import ImageIcon from "@mui/icons-material/Image";
+import Inventory2Icon from "@mui/icons-material/Inventory2";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+
+// Image Imports - Projects
+import banner1 from "@/assests/projects/project-banner1.avif";
+import banner2 from "@/assests/projects/project-banner2.avif";
+import banner3 from "@/assests/projects/project-banner3.avif";
+
+// Image Imports - Logos
+import logo1 from "@/assests/projects/project-logo1.avif";
+import logo2 from "@/assests/projects/project-logo2.avif";
+import logo3 from "@/assests/projects/project-logo3.avif";
+
+// Image Imports - Services
+import offer1 from "@/assests/services/what-we-offer1.avif";
+import offer2 from "@/assests/services/what-we-offer2.avif";
+
+export const services = [
+  {
+    title: "Product Design",
+    description:
+      "We craft intuitive, user-centric digital products that drive engagement and conversion. We design for real-world.",
+    icon: <WebIcon />,
+    images: [offer1, offer2],
+    size: 7,
+  },
+  {
+    title: "Brand Identity Design",
+    description:
+      "Your brand is more than a logo. We build complete brand systems that express your vision, values, and voice - helping you stand out.",
+    icon: <EmojiObjectsIcon />,
+    size: 5,
+  },
+  {
+    title: "Marketing & SEO",
+    description:
+      "We align creative storytelling with smart strategy. From content to technical SEO, we help you rank higher, and grow organically.",
+    icon: <TrendingUpIcon />,
+    size: 5,
+  },
+  {
+    title: "Ads & Others",
+    description:
+      "Maximize your ROI with targeted precision- ad campaigns. Whether it’s Google, Meta, or LinkedIn.",
+    icon: <GpsFixedIcon />,
+    images: [offer2, offer1],
+    size: 7,
+  },
+];
+
+export const projects = [
+  {
+    title: "AtomAI",
+    tags: ["SaaS", "Template"],
+    image: banner1,
+  },
+  {
+    title: "Landio",
+    tags: ["SaaS", "Template"],
+    image: banner2,
+  },
+  {
+    title: "Polo",
+    tags: ["Portfolio", "Template"],
+    image: banner3,
+  },
+  {
+    title: "Portfolite",
+    tags: ["Portfolio", "Template"],
+    image: banner1,
+  },
+];
+
+export const clientLogos = [
+  { image: logo1 },
+  { image: logo2 },
+  { image: logo3 },
+  { image: logo1 },
+  { image: logo2 },
+];
+
+export const marqueeTags1 = [
+  { label: "Creative Direction", icon: <PaletteIcon fontSize="small" /> },
+  { label: "Web Development", icon: <CodeIcon fontSize="small" /> },
+  { label: "UI/UX", icon: <DashboardIcon fontSize="small" /> },
+  { label: "Brand Identity", icon: <BadgeIcon fontSize="small" /> },
+];
+
+export const marqueeTags2 = [
+  { label: "Logo Design", icon: <ArchitectureIcon fontSize="small" /> },
+  { label: "Visual Content Creation", icon: <ImageIcon fontSize="small" /> },
+  { label: "Packaging Design", icon: <Inventory2Icon fontSize="small" /> },
+  { label: "Art Direction", icon: <CameraAltIcon fontSize="small" /> },
+  { label: "Design Consulting", icon: <ChatBubbleOutlineIcon fontSize="small" /> },
+];

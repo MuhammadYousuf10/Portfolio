@@ -2,7 +2,7 @@
 
 import { Box, Container, Typography, Stack, Grid, Chip } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import CustomButton from "@/components/common/customButtons";
+import CustomButton from "@/components/common/CustomButton";
 
 const blogPosts = [
   {
@@ -23,7 +23,7 @@ const blogPosts = [
   },
 ];
 
-const BlogSection = () => {
+const Blog = () => {
   return (
     <Box
       component="section"
@@ -112,4 +112,4 @@ const BlogSection = () => {
   );
 };
 
-export default BlogSection;
+export default Blog;
