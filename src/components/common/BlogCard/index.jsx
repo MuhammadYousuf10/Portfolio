@@ -1,24 +1,26 @@
 "use client";
 
 import React from "react";
-import { Box, Typography, alpha, Avatar, Stack } from "@mui/material";
+import { Box, Typography, alpha } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { motion } from "framer-motion";
 import NextLink from "next/link";
 import CustomImage from "@/components/common/CustomImage";
 
+const MotionBox = motion.create(Box);
+
 const BlogCard = ({ post, featured = false, compact = false, index = 0 }) => {
   return (
-    <Box
+    <MotionBox
       component={NextLink}
       href={`/blog/${post.slug}`}
       initial={{ opacity: 0, y: 20, scale: 0.98 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ 
-        duration: 0.6, 
+      transition={{
+        duration: 0.6,
         delay: index * 0.1,
-        ease: [0.215, 0.61, 0.355, 1]
+        ease: [0.215, 0.61, 0.355, 1],
       }}
       sx={(theme) => ({
         textDecoration: "none",
@@ -57,9 +59,7 @@ const BlogCard = ({ post, featured = false, compact = false, index = 0 }) => {
           position: "relative",
           overflow: "hidden",
           borderRadius: "16px",
-          height: featured 
-            ? { xs: 320, md: 480 } 
-            : compact ? 160 : 240,
+          height: featured ? { xs: 320, md: 480 } : compact ? 160 : 240,
           bgcolor: "background.default",
         }}
       >
@@ -80,7 +80,8 @@ const BlogCard = ({ post, featured = false, compact = false, index = 0 }) => {
           sx={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7) 100%)",
+            background:
+              "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7) 100%)",
             pointerEvents: "none",
           }}
         />
@@ -143,7 +144,7 @@ const BlogCard = ({ post, featured = false, compact = false, index = 0 }) => {
           {post.title}
         </Typography>
       </Box>
-    </Box>
+    </MotionBox>
   );
 };
 

@@ -34,7 +34,6 @@ import offer1 from "@/assests/services/what-we-offer1.avif";
 import offer2 from "@/assests/services/what-we-offer2.avif";
 
 // Image Imports - About
-import redefiningDesignImg from "@/assests/about/redefining-design.avif";
 import whoWeAreImg from "@/assests/who-we-are/who-we-are.avif";
 import professionalBgImg from "@/assests/why-us/professional-bg.avif";
 
@@ -525,3 +524,47 @@ export const blogData = {
     },
   ],
 };
+
+export const contactPageData = {
+  header: {
+    mainText: "Get in touch",
+    italicText: "Now",
+    description: "Find the answers to our most common questions here, but if you still need help, feel free to contact me.",
+  },
+  stats: [
+    { label: "Happy clients", value: "100+" },
+    { label: "Revenue added", value: "$250m" },
+    { label: "Average Rating", value: "4.8" },
+  ],
+  socials: [
+    { name: "Twitter", url: "#", icon: "X" },
+    { name: "Instagram", url: "#", icon: "IG" },
+    { name: "Facebook", url: "#", icon: "FB" },
+  ],
+  testimonial: {
+    rating: 5,
+    text: "Adrian Carter's precision and creativity are unmatched. He transformed our vision into a digital masterpiece.",
+    author: "Janny necolo",
+  },
+};
+
+export const footerData = {
+  header: {
+    badge: "Reach out anytime",
+    title: "Let’s Stay Connected",
+    description: "Got questions or want to collaborate? Feel free to reach out—We are open to new projects or just a casual chat!",
+  },
+  contact: {
+    buttonText: "Contact Me",
+    email: "Adriancarter@support.com",
+  },
+  bottom: {
+    copyright: "© 2025 Fade Template Clone",
+    links: [
+      { text: "Made by Muhammad Yousuf", url: "#" },
+      { text: "Built with Next.js & MUI", url: "#" },
+    ],
+  },
+};
+
+

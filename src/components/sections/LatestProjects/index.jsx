@@ -1,15 +1,15 @@
 "use client";
 
 import React from "react";
-import { Box, Container, Typography, Stack, Chip } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import CustomButton from "@/components/common/CustomButton";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import CustomImage from "@/components/common/CustomImage";
 import BrandLogoMarquee from "@/components/common/BrandLogoMarquee";
 import { projects as portfolioProjects } from "@/data/portfolio";
 import SectionBadge from "@/components/common/SectionBadge";
 import ProjectCard from "@/components/common/ProjectCard";
+import NextLink from "next/link";
 
 // Triplicate the projects so we can infinitely scroll them seamlessly
 const duplicatedProjects = [
@@ -58,10 +58,11 @@ const LatestProjects = () => {
             Our projects showcase creativity and impact in every detail.
           </Typography>
           <CustomButton
+            component={NextLink}
+            href="/projects"
             text="See All Projects"
             variant="glass"
             icon={<ArrowOutwardIcon fontSize="small" />}
-            onClick={() => window.location.href = '/projects'}
           />
         </Box>
 

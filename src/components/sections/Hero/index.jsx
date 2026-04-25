@@ -9,6 +9,7 @@ import Indicator from "@/components/common/IndicationPoint";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import FolderOpenIcon from "@mui/icons-material/FolderOpen";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import NextLink from "next/link";
 import { smoothScrollTo } from "@/utils/scroll";
 
 const Hero = () => {
@@ -136,14 +137,18 @@ const Hero = () => {
                 </Typography>
                 <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
                   <CustomButton
+                    component={NextLink}
+                    href="/projects"
                     text={"View Projects"}
                     variant="outlined"
-                    startIcon={<FolderOpenIcon />}
+                    icon={<FolderOpenIcon />}
                   />
                   <CustomButton
+                    component={NextLink}
+                    href="/contact"
                     text={"Get Started Now"}
                     variant="filled"
-                    startIcon={<ArrowOutwardIcon />}
+                    icon={<ArrowOutwardIcon />}
                   />
                 </Stack>
               </Grid>

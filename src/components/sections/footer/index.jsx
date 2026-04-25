@@ -12,6 +12,7 @@ import NextLink from "next/link";
 import MuiLink from "@mui/material/Link";
 import CustomButton from "@/components/common/CustomButton";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import { footerData } from "@/data/portfolio";
 
 const Footer = () => {
   return (
@@ -32,22 +33,26 @@ const Footer = () => {
         >
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography variant="h6" color="text.secondary" gutterBottom>
-              Reach out anytime
+              {footerData.header.badge}
             </Typography>
             <Typography variant="h2" sx={{ mb: 2 }}>
-              Let’s Stay Connected
+              {footerData.header.title}
             </Typography>
             <Typography variant="body1" sx={{ maxWidth: 400, mb: 4 }}>
-              Got questions or want to collaborate? Feel free to reach out—We
-              are open to new projects or just a casual chat!
+              {footerData.header.description}
             </Typography>
             <Stack direction="row" spacing={2} sx={{ mb: { xs: 4, md: 0 } }}>
               <CustomButton
-                text="Contact Me"
+                component={NextLink}
+                href="/contact"
+                text={footerData.contact.buttonText}
                 variant="outlined"
-                startIcon={<ArrowOutwardIcon />}
+                icon={<ArrowOutwardIcon />}
               />
-              <CustomButton text="Adriancarter@support.com" variant="glow" />
+              <CustomButton 
+                text={footerData.contact.email} 
+                variant="glow" 
+              />
             </Stack>
           </Grid>
         </Grid>
@@ -61,25 +66,24 @@ const Footer = () => {
           spacing={2}
         >
           <Typography variant="body2" color="text.secondary">
-            © 2025 Fade Template Clone
+            {footerData.bottom.copyright}
           </Typography>
           <Stack direction="row" spacing={3}>
-            <MuiLink
-              component={NextLink}
-              href="#"
-              variant="body2"
-              color="text.secondary"
-            >
-              Made by Antigravity
-            </MuiLink>
-            <MuiLink
-              component={NextLink}
-              href="#"
-              variant="body2"
-              color="text.secondary"
-            >
-              Built with Next.js & MUI
-            </MuiLink>
+            {footerData.bottom.links.map((link, index) => (
+              <MuiLink
+                key={index}
+                component={NextLink}
+                href={link.url}
+                variant="body2"
+                color="text.secondary"
+                sx={{ 
+                  textDecoration: "none",
+                  "&:hover": { color: "text.primary" }
+                }}
+              >
+                {link.text}
+              </MuiLink>
+            ))}
           </Stack>
         </Stack>
       </Container>
