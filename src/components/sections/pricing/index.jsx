@@ -18,50 +18,7 @@ import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import CustomButton from "@/components/common/CustomButton";
 import SectionBadge from "@/components/common/SectionBadge";
 
-const pricingData = {
-  header: {
-    mainText: "Simple Pricing,",
-    italicText: "No Surprises",
-    description:
-      "Choose a plan that fits your goals and creative needs perfectly.",
-  },
-  monthly: {
-    price: "$1750",
-    period: "/month",
-    features: [
-      "Unlimited Requests",
-      "Fast Turnarounds",
-      "Fixed Monthly Rate",
-      "Ongoing Collaboration",
-      "Pause or Cancel Anytime",
-    ],
-  },
-  project: {
-    price: "Custom",
-    period: "",
-    features: [
-      "One-Time Fee",
-      "Defined Timeline",
-      "Tailored to Scope",
-      "Revisions Included",
-      "Best for Launches",
-    ],
-  },
-  addOn: {
-    title: "Hero Section Revamp",
-    description:
-      "This is the service we are providing so that you can test our services as a demo.",
-    price: "$97",
-    period: "one time payment",
-  },
-  testimonial: {
-    quote:
-      '"Truly a talented team! They brought our brand to life with precision and creativity. Every design felt intentional, polished, and user-focused. Working with them was effortless."',
-    author: "Janny necolo",
-    avatar:
-      "https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=1024",
-  },
-};
+import { pricingData } from "@/data/portfolio";
 
 const Pricing = () => {
   const [activeTab, setActiveTab] = useState("monthly");
@@ -87,14 +44,10 @@ const Pricing = () => {
 
           <Typography
             component="h2"
-            sx={(theme) => ({
+            variant="h2"
+            sx={{
               mt: 2,
-              fontSize: { xs: "2.25rem", sm: "2.75rem", md: "3rem" },
-              lineHeight: 1.12,
-              fontWeight: 700,
-              letterSpacing: "-0.045em",
-              color: "text.primary",
-            })}
+            }}
           >
             {pricingData.header.mainText}{" "}
             <Box
@@ -200,14 +153,7 @@ const Pricing = () => {
                       spacing={0.75}
                       sx={{ mb: 2.5 }}
                     >
-                      <Typography
-                        variant="h3"
-                        sx={{
-                          fontWeight: 700,
-                          letterSpacing: "-0.045em",
-                          lineHeight: 1,
-                        }}
-                      >
+                      <Typography variant="h3">
                         {currentPlan.price}
                       </Typography>
 
@@ -227,7 +173,7 @@ const Pricing = () => {
                 </AnimatePresence>
 
                 <CustomButton
-                  text="Get Started Now"
+                  text={pricingData.buttonText}
                   variant="glass"
                   icon={<ArrowOutwardIcon fontSize="small" />}
                 />
@@ -247,14 +193,7 @@ const Pricing = () => {
                   )}`,
                 })}
               >
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontWeight: 700,
-                    color: "text.primary",
-                    mb: 1.25,
-                  }}
-                >
+                <Typography variant="subtitle1" sx={{ mb: 1.25 }}>
                   {pricingData.addOn.title}
                 </Typography>
 
@@ -271,24 +210,11 @@ const Pricing = () => {
                 </Typography>
 
                 <Stack direction="row" alignItems="baseline" spacing={0.75}>
-                  <Typography
-                    variant="h4"
-                    sx={{
-                      fontWeight: 700,
-                      lineHeight: 1,
-                      letterSpacing: "-0.04em",
-                    }}
-                  >
+                  <Typography variant="h4">
                     {pricingData.addOn.price}
                   </Typography>
 
-                  <Typography
-                    variant="caption"
-                    sx={{
-                      color: "text.secondary",
-                      fontWeight: 600,
-                    }}
-                  >
+                  <Typography variant="caption">
                     {pricingData.addOn.period}
                   </Typography>
                 </Stack>
@@ -313,15 +239,7 @@ const Pricing = () => {
                 )}`,
               })}
             >
-              <Typography
-                variant="body2"
-                sx={{
-                  color: "text.primary",
-                  fontWeight: 700,
-                  mb: 2.5,
-                  textTransform: "lowercase",
-                }}
-              >
+              <Typography variant="subtitle1" sx={{ mb: 2.5, textTransform: "lowercase" }}>
                 whats included
               </Typography>
 
@@ -350,14 +268,7 @@ const Pricing = () => {
                             }}
                           />
 
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              color: "text.primary",
-                              fontWeight: 500,
-                              lineHeight: 1.35,
-                            }}
-                          >
+                          <Typography variant="subtitle2">
                             {feature}
                           </Typography>
                         </Stack>
@@ -420,13 +331,7 @@ const Pricing = () => {
                   {pricingData.testimonial.quote}
                 </Typography>
 
-                <Typography
-                  variant="caption"
-                  sx={{
-                    color: "text.primary",
-                    fontWeight: 700,
-                  }}
-                >
+                <Typography variant="caption" sx={{ color: "text.primary" }}>
                   {pricingData.testimonial.author}
                 </Typography>
               </Box>

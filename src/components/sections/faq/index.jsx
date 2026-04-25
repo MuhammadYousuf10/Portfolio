@@ -40,8 +40,8 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
         }}
       >
         <Typography
-          variant="body1"
-          sx={{ fontWeight: 600, color: "rgba(255,255,255,0.9)", fontSize: "0.95rem" }}
+          variant="subtitle1"
+          sx={{ color: "rgba(255,255,255,0.9)" }}
         >
           {question}
         </Typography>
@@ -58,7 +58,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
       </Box>
       <Collapse in={isOpen}>
         <Box sx={{ px: 3, pb: 3, pt: 0 }}>
-          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>
+          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.5)" }}>
             {answer}
           </Typography>
         </Box>
@@ -86,12 +86,7 @@ const FAQ = () => {
           <Box sx={{ flex: 1, pr: { md: 8 } }}>
             <Typography
               variant="h2"
-              sx={{
-                fontWeight: 700,
-                mb: 3,
-                letterSpacing: -1,
-                fontSize: { xs: "2.5rem", md: "3.5rem" },
-              }}
+              sx={{ mb: 3 }}
             >
               {faqData.header.mainText}{" "}
               <Box
@@ -109,7 +104,7 @@ const FAQ = () => {
               {faqData.header.description}
             </Typography>
             <CustomButton
-              text="Contact Us"
+              text={faqData.buttonText}
               variant="glass"
               icon={<ArrowOutwardIcon fontSize="small" />}
             />

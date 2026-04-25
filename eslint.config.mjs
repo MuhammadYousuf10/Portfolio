@@ -9,6 +9,18 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [...compat.extends("next/core-web-vitals")];
+const eslintConfig = [
+  ...compat.extends("next/core-web-vitals"),
+  {
+    rules: {
+      "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+      "react/prop-types": "off",
+      "react/no-unescaped-entities": "off",
+      "react-hooks/exhaustive-deps": "warn",
+      "prefer-const": "warn",
+    },
+  },
+];
 
 export default eslintConfig;

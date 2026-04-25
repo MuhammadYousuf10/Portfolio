@@ -58,13 +58,12 @@ const ProfessionalBackground = () => {
                   }}
                 >
                   <Typography
-                    variant="body2"
+                    variant="subtitle2"
                     sx={{
                       mb: 2.5,
                       textAlign: "center",
                       color: "text.secondary",
                       fontStyle: "italic",
-                      fontWeight: 700,
                       opacity: 0.78,
                     }}
                   >
@@ -131,10 +130,9 @@ const ProfessionalBackground = () => {
                     />
 
                     <Typography
-                      variant="body2"
+                      variant="subtitle2"
                       sx={{
                         color: "text.secondary",
-                        fontWeight: 700,
                         whiteSpace: "nowrap",
                       }}
                     >
@@ -235,10 +233,9 @@ const ProfessionalBackground = () => {
                           >
                             <Grid size={{ xs: 12, sm: 4 }}>
                               <Typography
-                                variant="body2"
+                                variant="subtitle1"
                                 sx={{
                                   color: "text.primary",
-                                  fontWeight: 600,
                                   opacity: 0.86,
                                 }}
                               >
@@ -248,10 +245,9 @@ const ProfessionalBackground = () => {
 
                             <Grid size={{ xs: 12, sm: 4 }}>
                               <Typography
-                                variant="body2"
+                                variant="subtitle2"
                                 sx={{
                                   color: "text.secondary",
-                                  fontWeight: 500,
                                 }}
                               >
                                 {exp.company}
@@ -263,10 +259,9 @@ const ProfessionalBackground = () => {
                               sx={{ textAlign: { xs: "left", sm: "right" } }}
                             >
                               <Typography
-                                variant="body2"
+                                variant="subtitle2"
                                 sx={{
                                   color: "text.secondary",
-                                  fontWeight: 500,
                                 }}
                               >
                                 {exp.period}

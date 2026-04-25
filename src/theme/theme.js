@@ -50,50 +50,72 @@ let theme = createTheme({
       color: "#ffffffe6",
     },
     h2: {
-      fontSize: "4rem",
-      fontWeight: 600,
-      letterSpacing: "-0.01em",
-      lineHeight: 1.3,
+      fontSize: "3rem",
+      fontWeight: 700,
+      letterSpacing: "-0.045em",
+      lineHeight: 1.12,
       color: "#ffffffe6",
     },
     h3: {
-      fontSize: "2rem",
-      fontWeight: 600,
-      lineHeight: 1.4,
+      fontSize: "2.5rem",
+      fontWeight: 700,
+      letterSpacing: "-0.045em",
+      lineHeight: 1,
       color: "#ffffffe6",
     },
     h4: {
       fontSize: "1.5rem",
-      fontWeight: 500,
+      fontWeight: 700,
+      letterSpacing: "-0.04em",
+      lineHeight: 1,
       color: "#ffffffe6",
     },
     h5: {
       fontSize: "1.25rem",
-      fontWeight: 500,
+      fontWeight: 600,
       color: "#ffffffe6",
     },
     h6: {
       fontSize: "1rem",
-      fontWeight: 500,
-      textTransform: "uppercase",
+      fontWeight: 600,
       letterSpacing: "0.08em",
+      textTransform: "uppercase",
       color: "#ffffffcc",
+    },
+    subtitle1: {
+      fontSize: "1rem",
+      fontWeight: 700,
+      lineHeight: 1.5,
+      color: "#ffffffe6",
+    },
+    subtitle2: {
+      fontSize: "0.9rem",
+      fontWeight: 500,
+      lineHeight: 1.35,
+      color: "#ffffffb3",
     },
     body1: {
       fontSize: "1rem",
       lineHeight: 1.6,
-      color: "#ffffff99", // slightly muted
+      color: "#ffffff99",
     },
     body2: {
       fontSize: "0.9rem",
-      lineHeight: 1.5,
-      color: "#ffffff80", // more muted
+      lineHeight: 1.55,
+      color: "#ffffff80",
+    },
+    caption: {
+      fontSize: "0.75rem",
+      fontWeight: 600,
+      lineHeight: 1.2,
+      color: "#ffffff80",
+      display: "block",
     },
     gradientText: {
-      fontWeight: 200, // Thinner font weight
-      color: "#ffffff99", // slightly muted
+      fontWeight: 300,
+      color: "#ffffff99",
       fontStyle: "italic",
-      fontFamily: "'Georgia', 'serif'", // Use a serif font for the elegant look
+      fontFamily: "'Georgia', 'serif'",
       background:
         "linear-gradient(to right, #D3D3D3, #A8A8A8 20%, #E0E0E0 50%, #A8A8A8 80%, #D3D3D3)",
       WebkitBackgroundClip: "text",

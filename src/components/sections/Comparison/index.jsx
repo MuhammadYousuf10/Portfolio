@@ -190,11 +190,7 @@ const Comparison = () => {
               >
                 <Typography
                   variant="h5"
-                  sx={{
-                    color: "text.primary",
-                    fontWeight: 600,
-                    lineHeight: 1,
-                  }}
+                  sx={{ color: "text.primary" }}
                 >
                   {others.title}
                 </Typography>
@@ -244,15 +240,13 @@ const Comparison = () => {
               sx={{
                 maxWidth: 390,
                 color: "text.primary",
-                fontWeight: 600,
-                lineHeight: 1.15,
               }}
             >
-              Delivering Designs with unmatched precision and speed.
+              {comparisonData.footer.title}
             </Typography>
 
             <CustomButton
-              text="Contact Us"
+              text={comparisonData.footer.buttonText}
               variant="glass"
               icon={<ArrowOutwardIcon fontSize="small" />}
             />
