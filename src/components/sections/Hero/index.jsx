@@ -9,14 +9,12 @@ import Indicator from "@/components/common/IndicationPoint";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import FolderOpenIcon from "@mui/icons-material/FolderOpen";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { smoothScrollTo } from "@/utils/scroll";
 
 const Hero = () => {
   // Scroll handler
   const handleScroll = () => {
-    const nextSection = document.getElementById("process"); // Point to the main section ID
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
-    }
+    smoothScrollTo("services"); // Updated to point to services as per user preference
   };
   return (
     <Box

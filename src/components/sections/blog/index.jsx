@@ -5,9 +5,9 @@ import { Box, Container, Typography, Stack, Grid, alpha } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import ArticleIcon from "@mui/icons-material/Article";
 import CustomButton from "@/components/common/CustomButton";
-import SectionBadge from "@/components/common/SectionBadge";
-import CustomImage from "@/components/common/CustomImage";
 import { blogData } from "@/data/portfolio";
+import SectionBadge from "@/components/common/SectionBadge";
+import BlogCard from "@/components/common/BlogCard";
 
 const Blog = () => {
   const featuredPost = blogData.posts.find(p => p.featured) || blogData.posts[0];
@@ -74,152 +74,25 @@ const Blog = () => {
           </Stack>
 
           {/* Blog Grid */}
-          <Grid container spacing={2}>
+          <Grid container spacing={3}>
             {/* Featured Card */}
-            <Grid size={{ xs: 12, md: 6 }}>
-              <BlogCard post={featuredPost} featured />
+            <Grid size={{ xs: 12, md: 8 }}>
+              <BlogCard post={featuredPost} featured index={0} />
             </Grid>
-
-            {/* Right Cards */}
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Grid container spacing={2}>
-                {sidePosts.map((post, index) => (
-                  <Grid size={{ xs: 12, sm: 6 }} key={index}>
-                    <BlogCard post={post} />
-                  </Grid>
+ 
+            {/* Right Cards Stack */}
+            <Grid size={{ xs: 12, md: 4 }}>
+              <Stack spacing={3} sx={{ height: "100%" }}>
+                {sidePosts.slice(0, 2).map((post, index) => (
+                  <Box key={index} sx={{ flex: 1 }}>
+                    <BlogCard post={post} compact index={index + 1} />
+                  </Box>
                 ))}
-              </Grid>
+              </Stack>
             </Grid>
           </Grid>
         </Box>
       </Container>
-    </Box>
-  );
-};
-
-const BlogCard = ({ post, featured = false }) => {
-  return (
-    <Box
-      sx={(theme) => ({
-        height: "100%",
-        position: "relative",
-        overflow: "hidden",
-        cursor: "pointer",
-        borderRadius: "8px",
-        bgcolor: "background.paper",
-        border: `1px solid ${alpha(theme.palette.primary.main, 0.09)}`,
-        p: featured ? 1.25 : 1,
-        transition:
-          "border-color 240ms ease, transform 240ms ease, box-shadow 240ms ease",
-
-        "&:hover": {
-          borderColor: alpha(theme.palette.primary.main, 0.24),
-          boxShadow: `0 18px 60px ${alpha(theme.palette.primary.main, 0.08)}`,
-        },
-
-        "&:hover .blog-image": {
-          transform: "scale(1.055)",
-          filter: featured
-            ? "grayscale(0%) sepia(20%) saturate(115%) brightness(0.92)"
-            : "grayscale(0%) saturate(105%) brightness(0.92)",
-        },
-
-        "&:hover .blog-overlay-button": {
-          opacity: 1,
-          transform: "translate(-50%, -50%) scale(1)",
-        },
-      })}
-    >
-      <Box
-        sx={{
-          position: "relative",
-          overflow: "hidden",
-          borderRadius: "6px",
-          height: featured
-            ? { xs: 320, sm: 390, md: 390 }
-            : { xs: 220, sm: 135, md: 135 },
-          bgcolor: "background.default",
-        }}
-      >
-        <CustomImage
-          src={post.image}
-          alt={post.title}
-          className="blog-image"
-          sx={{
-            position: "absolute",
-            inset: 0,
-            filter: "grayscale(100%) brightness(0.72)",
-            transform: "scale(1)",
-            transition: "transform 500ms ease, filter 500ms ease",
-          }}
-        />
-
-        <Box
-          sx={(theme) => ({
-            position: "absolute",
-            inset: 0,
-            background: featured
-              ? `linear-gradient(to bottom, transparent 42%, ${alpha(
-                  theme.palette.background.default,
-                  0.46,
-                )} 100%)`
-              : `linear-gradient(to bottom, transparent 48%, ${alpha(
-                  theme.palette.background.default,
-                  0.24,
-                )} 100%)`,
-            pointerEvents: "none",
-          })}
-        />
-
-        <Box
-          className="blog-overlay-button"
-          sx={(theme) => ({
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%) scale(0.96)",
-            opacity: 0,
-            transition: "opacity 240ms ease, transform 240ms ease",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 0.75,
-            px: featured ? 2 : 1.5,
-            py: featured ? 0.9 : 0.7,
-            borderRadius: 999,
-            color: "text.primary",
-            bgcolor: alpha(theme.palette.background.default, 0.36),
-            border: `1px solid ${alpha(theme.palette.primary.main, 0.34)}`,
-            backdropFilter: "blur(8px)",
-            fontSize: featured ? "0.8rem" : "0.7rem",
-            fontWeight: 600,
-            whiteSpace: "nowrap",
-          })}
-        >
-          View Blog
-          <ArrowOutwardIcon sx={{ fontSize: featured ? 15 : 13 }} />
-        </Box>
-      </Box>
-
-      <Box sx={{ px: featured ? 0.25 : 0.15, pt: featured ? 1.7 : 1.2 }}>
-        <Typography
-          variant="caption"
-          sx={{
-            display: "block",
-            mb: featured ? 0.8 : 0.75,
-          }}
-        >
-          {post.date}
-        </Typography>
-
-        <Typography
-          variant={featured ? "h4" : "subtitle1"}
-          sx={{
-            pb: featured ? 0.6 : 0.4,
-          }}
-        >
-          {post.title}
-        </Typography>
-      </Box>
     </Box>
   );
 };

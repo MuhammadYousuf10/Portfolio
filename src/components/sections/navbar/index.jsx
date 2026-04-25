@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ImageWrapper from "@/components/common/ImageWrapper";
 import NextLink from "next/link";
 import MuiLink from "@mui/material/Link";
+import { smoothScrollTo } from "@/utils/scroll";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -59,9 +60,23 @@ export default function Navbar() {
             {navItems?.map((item) => (
               <MuiLink
                 key={item.name}
-                component={NextLink}
-                href={item.path}
+                component={item.path.startsWith("/#") ? "button" : NextLink}
+                href={item.path.startsWith("/#") ? undefined : item.path}
+                onClick={(e) => {
+                  if (item.path.startsWith("/#")) {
+                    e.preventDefault();
+                    smoothScrollTo(item.path.replace("/#", ""));
+                  }
+                }}
                 variant="body1"
+                sx={{ 
+                  background: "none", 
+                  border: "none", 
+                  padding: 0, 
+                  cursor: "pointer",
+                  font: "inherit",
+                  color: "inherit"
+                }}
               >
                 {item.name}
               </MuiLink>
@@ -147,10 +162,24 @@ export default function Navbar() {
                 >
                   <MuiLink
                     key={item.name}
-                    component={NextLink}
-                    href={item.path}
+                    component={item.path.startsWith("/#") ? "button" : NextLink}
+                    href={item.path.startsWith("/#") ? undefined : item.path}
+                    onClick={(e) => {
+                      handleDrawerToggle();
+                      if (item.path.startsWith("/#")) {
+                        e.preventDefault();
+                        smoothScrollTo(item.path.replace("/#", ""));
+                      }
+                    }}
                     variant="body1"
-                    onClick={handleDrawerToggle}
+                    sx={{ 
+                      background: "none", 
+                      border: "none", 
+                      padding: 0, 
+                      cursor: "pointer",
+                      font: "inherit",
+                      color: "inherit"
+                    }}
                   >
                     {item?.name}
                   </MuiLink>

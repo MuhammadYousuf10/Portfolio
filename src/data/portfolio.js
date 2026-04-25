@@ -236,30 +236,92 @@ export const services = [
 
 export const projects = [
   {
+    slug: "atomai",
     title: "AtomAI",
     tags: ["SaaS", "Template"],
     image: atomaiMain,
     hoverImage: atomaiHover,
+    description: "Scale Business with Automation. We transformed their digital presence with a focus on conversion and speed.",
+    services: "SaaS Design, UI/UX",
+    tools: "Framer, Figma",
+    value: "$2,200",
+    timeline: "4 Weeks",
+    introduction: {
+      badge: "Introduction",
+      title: "Building the future of AI automation",
+      description: "AtomAI needed a brand that felt both powerful and approachable. We focused on clean lines, dark aesthetics, and rapid load times.",
+      image: atomaiMain,
+    },
+    problem: {
+      badge: "Problem",
+      description: "The main challenge was presenting complex AI workflows in a way that non-technical users could easily understand and trust.",
+      image: atomaiHover,
+    },
+    solution: {
+      badge: "Solution",
+      description: "We implemented a visual-first approach using interactive demos and a modular design system that scaled across their entire platform.",
+      image: atomaiMain,
+    },
+    conclusion: "AtomAI saw a 45% increase in sign-ups within the first month of the new design launch.",
   },
   {
+    slug: "landio",
     title: "Landio",
     tags: ["SaaS", "Template"],
     image: landioMain,
     hoverImage: landioHover,
+    description: "Unleash Your Full Potential with Lio. A modern landing page template designed for high-growth startups.",
+    services: "Landing Page, SaaS",
+    tools: "Framer, Figma",
+    value: "$1,800",
+    timeline: "3 Weeks",
+    introduction: {
+      badge: "Introduction",
+      title: "A landing page for the next generation",
+      description: "Landio was built to solve the conversion problem for SaaS startups. We used bold typography and high-contrast elements.",
+      image: landioMain,
+    },
+    problem: {
+      badge: "Problem",
+      description: "Most landing pages are cluttered and fail to communicate value quickly. Landio needed to be different.",
+      image: landioHover,
+    },
+    solution: {
+      badge: "Solution",
+      description: "We focused on a single-column flow with clear CTAs and social proof integrated into every section.",
+      image: landioMain,
+    },
+    conclusion: "Landio is now one of the top-performing templates in the Framer marketplace.",
   },
   {
+    slug: "polo",
     title: "Polo",
     tags: ["Portfolio", "Template"],
     image: poloMain,
     hoverImage: atomaiHover, // Fallback
   },
   {
+    slug: "portfolite",
     title: "Portfolite",
     tags: ["Portfolio", "Template"],
     image: atomaiMain,
     hoverImage: landioHover, // Variation
   },
 ];
+
+export const projectsPageData = {
+  header: {
+    mainText: "The Design Of",
+    italicText: "Success",
+    trustedText: "Trusted by 10,000+ Audience worldwide",
+    buttonText: "Contact Me",
+  },
+  trustedAvatars: [
+    "https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=1024",
+    "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=1024",
+    "https://framerusercontent.com/images/JOe12C6fPKzVmRUdr0wnFdxrZE.jpg",
+  ]
+};
 
 export const clientLogos = [
   { image: logo1 },
@@ -364,30 +426,102 @@ export const blogData = {
   buttonText: "See All Posts",
   posts: [
     {
+      slug: "why-user-experience-is-the-most-valuable-part-of-your-website",
       date: "Nov 18, 2024",
       title: "Why User Experience Is the Most Valuable Part of Your Website",
       image: blogBanner,
       featured: true,
+      author: {
+        name: "Muhammad Yousuf",
+        role: "Frontend Engineer",
+        avatar: "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=512",
+      },
+      description: "User experience isn't just about how a website looks; it's about how it works and how it makes people feel. In a digital world where attention is the new currency, UX is your most valuable asset.",
+      content: `
+        <h2>The Foundation of Digital Trust</h2>
+        <p>In today's fast-paced digital landscape, users decide whether to stay on your site or leave within seconds. This split-second decision is rarely based on content alone—it's based on the initial experience.</p>
+        <p>A well-designed user experience builds trust. When a site is easy to navigate, loads quickly, and provides value intuitively, users feel respected. This respect translates into brand loyalty and, ultimately, conversions.</p>
+        
+        <h2>Designing for the Human Mind</h2>
+        <p>UX design is as much about psychology as it is about pixels. By understanding how users process information and what drives their behavior, we can create interfaces that feel natural rather than forced.</p>
+        <p>Consistency is key. Whether it's the placement of a button or the tone of the copy, every element must work in harmony to guide the user toward their goal without friction.</p>
+
+        <h2>Impact Beyond the Screen</h2>
+        <p>Great UX isn't just a design choice—it's a business strategy. Companies that prioritize user experience consistently outperform their competitors in terms of revenue growth and customer retention.</p>
+        <p>Investing in UX is investing in your brand's future. It's the difference between a one-time visitor and a lifelong advocate.</p>
+      `,
     },
     {
+      slug: "why-prioritizing-mobile-users-matters-more-than-ever",
       date: "Nov 12, 2024",
       title: "Why Prioritizing Mobile Users Matters More Than Ever",
       image: blog2,
+      author: {
+        name: "Muhammad Yousuf",
+        role: "Frontend Engineer",
+      },
+      description: "With over 60% of web traffic coming from mobile devices, a mobile-first approach is no longer optional—it's essential for survival.",
+      content: "Detailed content about mobile-first design...",
     },
     {
+      slug: "why-audience-centered-design-creates-more-impactful",
       date: "Nov 9, 2024",
       title: "Why Audience-Centered Design Creates More Impactful...",
       image: blog1,
+      author: {
+        name: "Muhammad Yousuf",
+        role: "Frontend Engineer",
+      },
+      description: "Designing for everyone often means designing for no one. Learn why niche-focused design leads to better results.",
+      content: "Detailed content about audience-centered design...",
     },
     {
-      date: "Nov 5, 2024",
-      title: "Emerging Web Design Shifts That Will Define 2024",
-      image: blog1,
-    },
-    {
+      slug: "how-testimonials-help-build-lasting-trust-online",
       date: "Oct 23, 2024",
       title: "How Testimonials Help Build Lasting Trust Online",
       image: blog2,
+      author: {
+        name: "Muhammad Yousuf",
+        role: "Frontend Engineer",
+      },
+      description: "Social proof is a powerful tool. Discover how to use testimonials to build credibility and trust.",
+      content: "Detailed content about testimonials...",
+    },
+    {
+      slug: "the-power-of-minimalist-design-in-modern-web",
+      date: "Oct 15, 2024",
+      title: "The Power of Minimalist Design in Modern Web",
+      image: blog1,
+      author: {
+        name: "Muhammad Yousuf",
+        role: "Frontend Engineer",
+      },
+      description: "Less is more. Explore the principles of minimalism and how they can improve your site's focus.",
+      content: "Detailed content about minimalism...",
+    },
+    {
+      slug: "why-speed-is-the-most-important-ux-feature",
+      date: "Oct 10, 2024",
+      title: "Why Speed is the Most Important UX Feature",
+      image: blogBanner,
+      author: {
+        name: "Muhammad Yousuf",
+        role: "Frontend Engineer",
+      },
+      description: "A slow site is a broken site. Learn why performance optimization should be your top priority.",
+      content: "Detailed content about site speed...",
+    },
+    {
+      slug: "mastering-the-art-of-color-theory-in-branding",
+      date: "Oct 5, 2024",
+      title: "Mastering the Art of Color Theory in Branding",
+      image: blog1,
+      author: {
+        name: "Muhammad Yousuf",
+        role: "Frontend Engineer",
+      },
+      description: "Colors speak louder than words. Learn how to choose the perfect palette for your brand identity.",
+      content: "Detailed content about color theory...",
     },
   ],
 };

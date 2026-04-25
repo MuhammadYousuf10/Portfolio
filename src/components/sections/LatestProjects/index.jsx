@@ -9,6 +9,7 @@ import CustomImage from "@/components/common/CustomImage";
 import BrandLogoMarquee from "@/components/common/BrandLogoMarquee";
 import { projects as portfolioProjects } from "@/data/portfolio";
 import SectionBadge from "@/components/common/SectionBadge";
+import ProjectCard from "@/components/common/ProjectCard";
 
 // Triplicate the projects so we can infinitely scroll them seamlessly
 const duplicatedProjects = [
@@ -58,10 +59,9 @@ const LatestProjects = () => {
           </Typography>
           <CustomButton
             text="See All Projects"
-            variant="outlined"
-            startIcon={
-              <ArrowOutwardIcon sx={{ transform: "rotate(-45deg)" }} />
-            }
+            variant="glass"
+            icon={<ArrowOutwardIcon fontSize="small" />}
+            onClick={() => window.location.href = '/projects'}
           />
         </Box>
 
@@ -111,80 +111,9 @@ const LatestProjects = () => {
                 sx={{
                   flex: "0 0 auto",
                   width: { xs: "85vw", sm: "480px", md: "550px" },
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 2,
-                  cursor: "pointer",
-                  "&:hover .main-img, &:hover .hover-img": {
-                    transform: "scale(1.08)",
-                  },
                 }}
               >
-                <Box
-                  sx={{
-                    position: "relative",
-                    borderRadius: "16px",
-                    overflow: "hidden",
-                    bgcolor: "rgba(255,255,255,0.02)",
-                    border: "1px solid",
-                    borderColor: "divider",
-                    height: 400,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    "&:hover .hover-img": {
-                      opacity: 1,
-                    },
-                    "&:hover .main-img": {
-                      opacity: 0,
-                    },
-                  }}
-                >
-                  <CustomImage
-                    src={project.image}
-                    alt={project.title}
-                    className="main-img"
-                    objectFit="cover"
-                    sx={{
-                      transition: "opacity 0.8s ease, transform 0.8s ease",
-                    }}
-                  />
-                  {project.hoverImage && (
-                    <CustomImage
-                      src={project.hoverImage}
-                      alt={`${project.title} hover`}
-                      className="hover-img"
-                      objectFit="cover"
-                      sx={{
-                        position: "absolute",
-                        inset: 0,
-                        opacity: 0,
-                        transition: "opacity 0.8s ease, transform 0.8s ease",
-                      }}
-                    />
-                  )}
-                </Box>
-                <Box>
-                  <Stack direction="row" spacing={1} sx={{ mb: 1.5 }}>
-                    {project.tags.map((tag, i) => (
-                      <Chip
-                        key={i}
-                        label={tag}
-                        size="small"
-                        sx={{
-                          bgcolor: "rgba(255,255,255,0.05)",
-                          border: "1px solid rgba(255,255,255,0.1)",
-                          borderRadius: "8px",
-                          color: "text.secondary",
-                          fontSize: "0.75rem",
-                        }}
-                      />
-                    ))}
-                  </Stack>
-                  <Typography variant="h5" sx={{ fontWeight: 600 }}>
-                    {project.title}
-                  </Typography>
-                </Box>
+                <ProjectCard project={project} />
               </Box>
             ))}
           </motion.div>
