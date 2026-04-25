@@ -13,6 +13,7 @@ const CustomButton = ({
   const isFilled = variant === "filled";
   const isOutlined = variant === "outlined";
   const isGlow = variant === "glow";
+  const isGlass = variant === "glass";
 
   const sizeStyles = {
     small: { px: 2, py: 0.8, fontSize: "14px" },
@@ -63,6 +64,20 @@ const CustomButton = ({
           "&:hover": !disableHover && {
             borderColor: "primary.main",
             backgroundColor: "rgba(255,255,255,0.08)",
+          },
+        }),
+
+        // Glass
+        ...(isGlass && {
+          backgroundColor: "transparent",
+          color: "text.primary",
+          border: "1px solid",
+          borderColor: "rgba(255,255,255,0.14)",
+          boxShadow: "0 18px 36px rgba(255,255,255,0.08)",
+          transition: "all 0.3s ease",
+          "&:hover": !disableHover && {
+            backgroundColor: "rgba(255,255,255,0.04)",
+            borderColor: "rgba(255,255,255,0.26)",
           },
         }),
 

@@ -10,8 +10,10 @@ import {
   Rating,
   Chip,
   Divider,
+  alpha,
 } from "@mui/material";
 import { motion } from "framer-motion";
+
 import CustomImage from "@/components/common/CustomImage";
 import { aboutData } from "@/data/portfolio";
 
@@ -26,172 +28,269 @@ const ProfessionalBackground = () => {
       sx={{
         bgcolor: "background.default",
         color: "text.primary",
-        py: { xs: 10, md: 15 },
+        py: { xs: 8, md: 12 },
+        overflow: "hidden",
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={8} alignItems="flex-start">
-          {/* Left Side: Image and Rating */}
-          <Grid size={{ xs: 12, md: 5 }}>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <Box sx={{ position: "relative", mb: 4 }}>
+        <Box
+          sx={(theme) => ({
+            maxWidth: 1160,
+            mx: "auto",
+            position: "relative",
+            pl: { xs: 0, md: 7 },
+          })}
+        >
+          <Grid container spacing={{ xs: 7, md: 8 }} alignItems="flex-start">
+            {/* Left */}
+            <Grid size={{ xs: 12, md: 4.35 }}>
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+              >
                 <Box
                   sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 2,
-                    mb: 4,
-                    opacity: 0.6,
+                    maxWidth: { xs: 360, md: 380 },
+                    mx: { xs: "auto", md: 0 },
+                    pt: { xs: 0, md: 3 },
                   }}
                 >
                   <Typography
-                    variant="caption"
+                    variant="body2"
                     sx={{
-                      textTransform: "capitalize",
-                      fontWeight: 600,
+                      mb: 2.5,
+                      textAlign: "center",
                       color: "text.secondary",
-                      fontSize: "0.7rem",
                       fontStyle: "italic",
+                      fontWeight: 700,
+                      opacity: 0.78,
                     }}
                   >
                     {title} {subtitle}
                   </Typography>
-                </Box>
 
-                <Box
-                  sx={{
-                    position: "relative",
-                    borderRadius: "16px",
-                    overflow: "hidden",
-                    border: "1px solid",
-                    borderColor: "rgba(255,255,255,0.05)",
-                    aspectRatio: "1/1",
-                    mb: 4,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.5)",
-                  }}
-                >
-                  <CustomImage src={image} alt="Who We Are" objectFit="cover" />
-                </Box>
+                  <Box
+                    sx={(theme) => ({
+                      position: "relative",
+                      borderRadius: "14px",
+                      overflow: "hidden",
+                      aspectRatio: "1 / 1",
+                      border: `1px solid ${alpha(
+                        theme.palette.primary.main,
+                        0.08,
+                      )}`,
+                      bgcolor: "transparent",
+                      boxShadow: `-40px 0px 100px ${alpha(
+                        theme.palette.primary.main,
+                        0.05,
+                      )}`,
 
-                <Stack
-                  direction="row"
-                  alignItems="center"
-                  spacing={1}
-                  justifyContent="center"
-                  sx={{ opacity: 0.8 }}
-                >
-                  <Rating
-                    value={rating}
-                    readOnly
-                    size="small"
-                    sx={{
-                      "& .MuiRating-iconFilled": { color: "#fff" },
-                      "& .MuiRating-iconEmpty": { color: "rgba(255,255,255,0.1)" },
-                    }}
-                  />
-                  <Typography
-                    variant="caption"
-                    sx={{
-                      fontWeight: 600,
-                      color: "text.secondary",
-                      letterSpacing: 0.5,
-                      fontSize: "0.7rem"
-                    }}
+                      "&::after": {
+                        content: '""',
+                        position: "absolute",
+                        inset: 0,
+                        background: `linear-gradient(to bottom, transparent 62%, ${alpha(
+                          theme.palette.background.default,
+                          0.24,
+                        )})`,
+                        pointerEvents: "none",
+                      },
+                    })}
                   >
-                    {rating}/5 stars ({clientsCount}Clients)
-                  </Typography>
-                </Stack>
-              </Box>
-            </motion.div>
-          </Grid>
-
-          {/* Right Side: Skills and Experience */}
-          <Grid size={{ xs: 12, md: 7 }}>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              {/* Skills Box */}
-              <Box
-                sx={{
-                  p: { xs: 4, md: 5 },
-                  bgcolor: "rgba(255,255,255,0.02)",
-                  borderRadius: "24px",
-                  border: "1px solid",
-                  borderColor: "rgba(255,255,255,0.05)",
-                  mb: 6,
-                }}
-              >
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
-                  {skills.map((skill, i) => (
-                    <Chip
-                      key={i}
-                      label={skill}
-                      variant="outlined"
-                      sx={{
-                        borderRadius: "8px",
-                        borderColor: "rgba(255,255,255,0.1)",
-                        color: "text.secondary",
-                        fontSize: "0.75rem",
-                        fontWeight: 500,
-                        px: 1,
-                        height: "32px",
-                        bgcolor: "transparent",
-                        "&:hover": {
-                          bgcolor: "rgba(255,255,255,0.05)",
-                          borderColor: "#fff",
-                          color: "#fff",
-                        },
-                      }}
+                    <CustomImage
+                      src={image}
+                      alt="Professional Background"
+                      objectFit="cover"
                     />
-                  ))}
-                </Box>
-              </Box>
+                  </Box>
 
-              {/* Experience List */}
-              <Box sx={{ px: { xs: 2, md: 4 } }}>
-                <Stack spacing={4}>
-                  {experience.map((exp, i) => (
-                    <Box key={i}>
-                      <Grid container alignItems="center" spacing={2}>
-                        <Grid size={{ xs: 12, sm: 4 }}>
-                          <Typography variant="body2" sx={{ fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
-                            {exp.role}
-                          </Typography>
-                        </Grid>
-                        <Grid size={{ xs: 12, sm: 4 }}>
-                          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.6)", fontSize: "0.8rem" }}>
-                            {exp.company}
-                          </Typography>
-                        </Grid>
-                        <Grid
-                          size={{ xs: 12, sm: 4 }}
-                          sx={{ textAlign: { sm: "right" } }}
-                        >
-                          <Typography
-                            variant="caption"
-                            sx={{ color: "rgba(255,255,255,0.5)", fontWeight: 500 }}
-                          >
-                            {exp.period}
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                      <Divider sx={{ mt: 4, borderColor: "rgba(255,255,255,0.05)" }} />
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="center"
+                    spacing={1.35}
+                    sx={{ mt: 4, opacity: 0.9 }}
+                  >
+                    <Rating
+                      value={rating}
+                      readOnly
+                      size="medium"
+                      sx={(theme) => ({
+                        "& .MuiRating-iconFilled": {
+                          color: theme.palette.primary.main,
+                        },
+                        "& .MuiRating-iconEmpty": {
+                          color: alpha(theme.palette.primary.main, 0.18),
+                        },
+                        "& .MuiSvgIcon-root": {
+                          fontSize: { xs: 20, md: 23 },
+                        },
+                      })}
+                    />
+
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: "text.secondary",
+                        fontWeight: 700,
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {rating}/5 stars ({clientsCount}+Clients)
+                    </Typography>
+                  </Stack>
+                </Box>
+              </motion.div>
+            </Grid>
+
+            {/* Right */}
+            <Grid size={{ xs: 12, md: 7.65 }}>
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.12 }}
+                viewport={{ once: true }}
+              >
+                <Box sx={{ pt: { xs: 0, md: 3 } }}>
+                  {/* Skills */}
+                  <Box
+                    sx={(theme) => ({
+                      mb: { xs: 4.5, md: 5 },
+                      p: { xs: 2.5, md: 3 },
+                      minHeight: { xs: "auto", md: 140 },
+                      display: "flex",
+                      alignItems: "center",
+                      borderRadius: "16px",
+                      bgcolor: "background.paper",
+                      border: `1px solid ${alpha(
+                        theme.palette.primary.main,
+                        0.09,
+                      )}`,
+                      boxShadow: `inset 0 1px 0 ${alpha(
+                        theme.palette.primary.main,
+                        0.035,
+                      )}`,
+                      position: "relative",
+                      overflow: "hidden",
+                    })}
+                  >
+                    <Box
+                      sx={{
+                        position: "relative",
+                        zIndex: 1,
+                        display: "flex",
+                        flexWrap: "wrap",
+                        gap: 1.35,
+                      }}
+                    >
+                      {skills.map((skill, index) => (
+                        <Chip
+                          key={index}
+                          label={skill}
+                          variant="outlined"
+                          sx={(theme) => ({
+                            height: 31,
+                            px: 0.25,
+                            borderRadius: "7px",
+                            bgcolor: "transparent",
+                            color: "text.secondary",
+                            borderColor: alpha(
+                              theme.palette.primary.main,
+                              0.09,
+                            ),
+                            fontSize: "0.82rem",
+                            fontWeight: 500,
+
+                            "& .MuiChip-label": {
+                              px: 1.2,
+                            },
+
+                            "&:hover": {
+                              bgcolor: alpha(theme.palette.primary.main, 0.04),
+                              borderColor: alpha(
+                                theme.palette.primary.main,
+                                0.22,
+                              ),
+                              color: "text.primary",
+                            },
+                          })}
+                        />
+                      ))}
                     </Box>
-                  ))}
-                </Stack>
-              </Box>
-            </motion.div>
+                  </Box>
+
+                  {/* Experience */}
+                  <Box sx={{ px: { xs: 0, md: 2 } }}>
+                    <Stack spacing={0}>
+                      {experience.map((exp, index) => (
+                        <Box key={index}>
+                          <Grid
+                            container
+                            alignItems="center"
+                            columnSpacing={3}
+                            rowSpacing={1.25}
+                            sx={{ py: { xs: 2, md: 2.25 } }}
+                          >
+                            <Grid size={{ xs: 12, sm: 4 }}>
+                              <Typography
+                                variant="body2"
+                                sx={{
+                                  color: "text.primary",
+                                  fontWeight: 600,
+                                  opacity: 0.86,
+                                }}
+                              >
+                                {exp.role}
+                              </Typography>
+                            </Grid>
+
+                            <Grid size={{ xs: 12, sm: 4 }}>
+                              <Typography
+                                variant="body2"
+                                sx={{
+                                  color: "text.secondary",
+                                  fontWeight: 500,
+                                }}
+                              >
+                                {exp.company}
+                              </Typography>
+                            </Grid>
+
+                            <Grid
+                              size={{ xs: 12, sm: 4 }}
+                              sx={{ textAlign: { xs: "left", sm: "right" } }}
+                            >
+                              <Typography
+                                variant="body2"
+                                sx={{
+                                  color: "text.secondary",
+                                  fontWeight: 500,
+                                }}
+                              >
+                                {exp.period}
+                              </Typography>
+                            </Grid>
+                          </Grid>
+
+                          <Divider
+                            sx={(theme) => ({
+                              borderColor: alpha(
+                                theme.palette.primary.main,
+                                0.075,
+                              ),
+                            })}
+                          />
+                        </Box>
+                      ))}
+                    </Stack>
+                  </Box>
+                </Box>
+              </motion.div>
+            </Grid>
           </Grid>
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );

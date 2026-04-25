@@ -13,6 +13,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import CheckIcon from "@mui/icons-material/Check";
 import StarIcon from "@mui/icons-material/Star";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 import CustomButton from "@/components/common/CustomButton";
 import SectionBadge from "@/components/common/SectionBadge";
@@ -227,38 +228,8 @@ const Pricing = () => {
 
                 <CustomButton
                   text="Get Started Now"
-                  variant="outlined"
-                  icon={
-                    <Box
-                      component="span"
-                      sx={{
-                        display: "inline-flex",
-                        fontSize: "1rem",
-                        lineHeight: 1,
-                      }}
-                    >
-                      ↗
-                    </Box>
-                  }
-                  sx={(theme) => ({
-                    px: 2.6,
-                    py: 1.1,
-                    bgcolor: "transparent",
-                    borderRadius: 999,
-                    color: "text.primary",
-                    border: `1px solid ${alpha(
-                      theme.palette.primary.main,
-                      0.14,
-                    )}`,
-                    boxShadow: `0 18px 36px ${alpha(
-                      theme.palette.primary.main,
-                      0.12,
-                    )}`,
-                    "&:hover": {
-                      bgcolor: alpha(theme.palette.primary.main, 0.04),
-                      borderColor: alpha(theme.palette.primary.main, 0.26),
-                    },
-                  })}
+                  variant="glass"
+                  icon={<ArrowOutwardIcon fontSize="small" />}
                 />
               </Box>
 

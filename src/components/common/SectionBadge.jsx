@@ -12,8 +12,8 @@ const SectionBadge = ({ text, icon: Icon = AutoAwesomeIcon, sx = {} }) => {
         alignItems: "center",
         gap: 1.5,
         mb: 2,
-        px: 2.5,
-        py: 0.75,
+        px: 2,
+        py: 0.5,
         bgcolor: "background.paper",
         borderRadius: "999px",
         border: "1px solid",
@@ -26,9 +26,8 @@ const SectionBadge = ({ text, icon: Icon = AutoAwesomeIcon, sx = {} }) => {
         variant="caption"
         sx={{
           color: "text.secondary",
-          fontWeight: 600,
-          textTransform: "uppercase",
-          letterSpacing: 1.5,
+          fontWeight: 400,
+          textTransform: "capitalize",
           fontSize: "1rem",
         }}
       >

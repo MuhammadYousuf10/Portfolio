@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import SectionBadge from "@/components/common/SectionBadge";
 import SectionTitle from "@/components/common/SectionTitle";
 import CustomImage from "@/components/common/CustomImage";
@@ -252,32 +253,8 @@ const Comparison = () => {
 
             <CustomButton
               text="Contact Us"
-              variant="outlined"
-              icon={
-                <Box
-                  component="span"
-                  sx={{
-                    display: "inline-flex",
-                    fontSize: "1.1rem",
-                    lineHeight: 1,
-                    mr: 1,
-                  }}
-                >
-                  ↗
-                </Box>
-              }
-              sx={(theme) => ({
-                px: 4,
-                py: 1.5,
-                bgcolor: "transparent",
-                borderRadius: "100px",
-                border: `1px solid ${alpha(theme.palette.primary.main, 0.22)}`,
-                boxShadow: `0 0 24px ${alpha(theme.palette.primary.main, 0.08)}`,
-                "&:hover": {
-                  bgcolor: "rgba(255,255,255,0.05)",
-                  borderColor: "rgba(255,255,255,0.3)",
-                },
-              })}
+              variant="glass"
+              icon={<ArrowOutwardIcon fontSize="small" />}
             />
           </Box>
         </Stack>

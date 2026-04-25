@@ -11,6 +11,7 @@ import {
 import { motion } from "framer-motion";
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import CustomButton from "@/components/common/CustomButton";
 import { faqData } from "@/data/portfolio";
 
@@ -95,12 +96,11 @@ const FAQ = () => {
               {faqData.header.mainText}{" "}
               <Box
                 component="span"
-                sx={{
-                  fontStyle: "italic",
-                  color: "rgba(255,255,255,0.7)",
-                  fontWeight: 400,
-                  fontFamily: "Georgia, serif",
-                }}
+                sx={(theme) => ({
+                  ...theme.typography.gradientText,
+                  fontSize: "inherit",
+                  fontWeight: 300,
+                })}
               >
                 {faqData.header.italicText}
               </Box>
@@ -110,31 +110,8 @@ const FAQ = () => {
             </Typography>
             <CustomButton
               text="Contact Us"
-              variant="outlined"
-              icon={
-                <Box
-                  component="span"
-                  sx={{
-                    display: "inline-flex",
-                    fontSize: "1.1rem",
-                    lineHeight: 1,
-                    mr: 1,
-                  }}
-                >
-                  ↗
-                </Box>
-              }
-              sx={{
-                px: 4,
-                py: 1.5,
-                bgcolor: "transparent",
-                borderRadius: "100px",
-                border: "1px solid rgba(255,255,255,0.15)",
-                "&:hover": {
-                  bgcolor: "rgba(255,255,255,0.05)",
-                  borderColor: "rgba(255,255,255,0.3)",
-                },
-              }}
+              variant="glass"
+              icon={<ArrowOutwardIcon fontSize="small" />}
             />
           </Box>
 
