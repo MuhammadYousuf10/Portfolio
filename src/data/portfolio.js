@@ -262,3 +262,29 @@ export const provenResults = [
       "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=1024",
   },
 ];
+
+export const faqData = {
+  header: {
+    mainText: "Your Questions",
+    italicText: "Answered",
+    description: "Find the answers to our most common questions here, but if you still need help, feel free to contact me.",
+  },
+  items: [
+    {
+      question: "What services does you offer?",
+      answer: "I specialize in branding, UI/UX design, web design, and creative strategy— delivering tailored solutions that elevate your business visually and functionally."
+    },
+    {
+      question: "What's your typical design process?",
+      answer: "My process typically involves research, ideation, prototyping, and final implementation, ensuring clear communication at every step."
+    },
+    {
+      question: "What is your approach to web design?",
+      answer: "I focus on creating user-centric, aesthetically pleasing, and highly functional designs that perfectly align with your brand's core values."
+    },
+    {
+      question: "How long does project usually take?",
+      answer: "Project timelines vary depending on scope and complexity, but generally range from a few weeks to a couple of months."
+    }
+  ]
+};

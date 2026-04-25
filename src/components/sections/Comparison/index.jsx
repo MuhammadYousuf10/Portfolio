@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import {
   Box,
@@ -8,12 +6,16 @@ import {
   Typography,
   Stack,
   Divider,
+  alpha,
 } from "@mui/material";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import SectionBadge from "@/components/common/SectionBadge";
 import SectionTitle from "@/components/common/SectionTitle";
+import CustomImage from "@/components/common/CustomImage";
+import CustomButton from "@/components/common/CustomButton";
 import { comparisonData } from "@/data/portfolio";
+import fadeLogo from "@/assests/logo/fade-logo.svg";
 
 const Comparison = () => {
   const { header, fade, others } = comparisonData;
@@ -25,144 +27,306 @@ const Comparison = () => {
       sx={{
         bgcolor: "background.default",
         color: "text.primary",
-        py: { xs: 10, md: 15 },
+        py: { xs: 8, md: 10 },
+        overflow: "hidden",
       }}
     >
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: "center", mb: 10 }}>
+        <Box sx={{ textAlign: "center", mb: { xs: 5, md: 6 } }}>
           <SectionBadge text="Comparison" icon={VerifiedIcon} />
-          <SectionTitle mainText={header.mainText} italicText={header.italicText} />
+
+          <SectionTitle
+            mainText={header.mainText}
+            italicText={header.italicText}
+          />
+
           <Typography
             variant="body2"
-            color="text.secondary"
-            sx={{ mt: 2, maxWidth: 500, mx: "auto" }}
+            sx={{
+              mt: 2,
+              mx: "auto",
+              maxWidth: 520,
+              color: "text.secondary",
+            }}
           >
             {header.description}
           </Typography>
         </Box>
 
-        <Grid container spacing={4}>
-          {/* Card: Fade */}
-          <Grid size={{ xs: 12, md: 7.5 }}>
+        <Grid container spacing={{ xs: 3, md: 2 }}>
+          {/* Fade */}
+          <Grid size={{ xs: 12, md: 7 }}>
             <Box
-              sx={{
-                p: { xs: 4, md: 6 },
-                bgcolor: "#080808",
-                borderRadius: "40px",
-                border: "1px solid",
-                borderColor: "rgba(255,255,255,0.05)",
-                height: "100%",
+              sx={(theme) => ({
                 position: "relative",
                 overflow: "hidden",
-                boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
-                // Top white glow line
+                height: "100%",
+                borderRadius: "14px",
+                px: { xs: 2.25, md: 2.5 },
+                py: { xs: 2.5, md: 2.75 },
+                bgcolor: "background.paper",
+                border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: 64,
+                  background: theme.gradients.heroCard,
+                  opacity: 0.25,
+                  pointerEvents: "none",
+                  zIndex: 0,
+                },
+
                 "&::after": {
                   content: '""',
                   position: "absolute",
                   top: 0,
-                  left: "10%",
-                  width: "80%",
-                  height: "1px",
-                  background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)",
-                }
-              }}
+                  left: "18%",
+                  right: "18%",
+                  height: 90,
+                  background: `radial-gradient(ellipse at top, ${alpha(
+                    theme.palette.primary.main,
+                    0.12,
+                  )}, transparent 70%)`,
+                  pointerEvents: "none",
+                  zIndex: 0,
+                },
+              })}
             >
-              <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
-                 <Stack direction="row" spacing={1.5} alignItems="center">
-                    <Box sx={{ p: 0.5, border: "1px solid rgba(255,255,255,0.2)", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <Typography variant="h5" sx={{ fontWeight: 900, lineHeight: 1 }}>{fade.title.charAt(0)}</Typography>
-                    </Box>
-                    <Typography variant="h4" sx={{ fontWeight: 800, letterSpacing: -1 }}>{fade.title}</Typography>
-                 </Stack>
+              <Box
+                sx={{
+                  position: "relative",
+                  zIndex: 1,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: 44,
+                  mb: 2,
+                }}
+              >
+                <Box
+                  sx={{
+                    position: "relative",
+                    width: 118,
+                    height: 36,
+                  }}
+                >
+                  <CustomImage
+                    src={fadeLogo}
+                    alt="Fade Logo"
+                    objectFit="contain"
+                  />
+                </Box>
               </Box>
 
-              <Divider sx={{ mb: 6, borderColor: "rgba(255,255,255,0.05)" }} />
+              <Divider
+                sx={(theme) => ({
+                  position: "relative",
+                  zIndex: 1,
+                  mb: 2.5,
+                  height: "1px",
+                  border: 0,
+                  background: theme.gradients.shadowLineUp,
+                  opacity: 0.9,
+                })}
+              />
 
-              <Grid container spacing={4}>
-                {fade.items.map((item, i) => (
-                  <Grid size={{ xs: 12, sm: 6 }} key={i}>
-                    <Stack direction="row" spacing={2} alignItems="center">
-                      <AutoAwesomeIcon
-                        sx={{
-                          fontSize: "0.9rem",
-                          color: "text.primary",
-                          opacity: 0.9,
-                        }}
-                      />
-                      <Typography
-                        variant="body2"
-                        sx={{ fontWeight: 600, color: "rgba(255,255,255,0.9)", letterSpacing: 0.3 }}
-                      >
-                        {item}
-                      </Typography>
-                    </Stack>
+              <Grid
+                container
+                columnSpacing={1.5}
+                rowSpacing={1.5}
+                sx={{ position: "relative", zIndex: 1 }}
+              >
+                {fade.items.map((item, index) => (
+                  <Grid size={{ xs: 12, sm: 6 }} key={index}>
+                    <ComparisonItem>{item}</ComparisonItem>
                   </Grid>
                 ))}
               </Grid>
             </Box>
           </Grid>
 
-          {/* Card: Others */}
-          <Grid size={{ xs: 12, md: 4.5 }}>
+          {/* Others */}
+          <Grid size={{ xs: 12, md: 5 }}>
             <Box
-              sx={{
-                p: { xs: 4, md: 6 },
-                bgcolor: "rgba(255,255,255,0.01)",
-                borderRadius: "40px",
-                border: "1px solid",
-                borderColor: "rgba(255,255,255,0.05)",
+              sx={(theme) => ({
+                position: "relative",
+                overflow: "hidden",
                 height: "100%",
-                display: "flex",
-                flexDirection: "column",
-              }}
+                borderRadius: "14px",
+                px: { xs: 2.25, md: 2.5 },
+                py: { xs: 2.5, md: 2.75 },
+                bgcolor: "background.paper",
+                border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: 64,
+                  background: theme.gradients.heroCard,
+                  opacity: 0.16,
+                  pointerEvents: "none",
+                  zIndex: 0,
+                },
+              })}
             >
-              <Typography
-                variant="h4"
+              <Box
                 sx={{
-                  textAlign: "center",
-                  fontWeight: 800,
-                  mb: 4,
-                  opacity: 0.5,
-                  letterSpacing: -1
+                  position: "relative",
+                  zIndex: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 44,
+                  mb: 2,
                 }}
               >
-                {others.title}
-              </Typography>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    color: "text.primary",
+                    fontWeight: 600,
+                    lineHeight: 1,
+                  }}
+                >
+                  {others.title}
+                </Typography>
+              </Box>
 
-              <Divider sx={{ mb: 6, borderColor: "rgba(255,255,255,0.05)" }} />
+              <Divider
+                sx={(theme) => ({
+                  position: "relative",
+                  zIndex: 1,
+                  mb: 2.5,
+                  height: "1px",
+                  border: 0,
+                  background: theme.gradients.shadowLineUp,
+                  opacity: 0.35,
+                })}
+              />
 
-              <Stack spacing={4}>
-                {others.items.map((item, i) => (
-                  <Stack
-                    direction="row"
-                    spacing={2}
-                    alignItems="center"
-                    key={i}
-                  >
-                    <AutoAwesomeIcon
-                      sx={{
-                        fontSize: "0.9rem",
-                        color: "text.secondary",
-                        opacity: 0.3,
-                      }}
-                    />
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontWeight: 500,
-                        color: "text.secondary",
-                        opacity: 0.5,
-                      }}
-                    >
-                      {item}
-                    </Typography>
-                  </Stack>
+              <Stack spacing={1.5} sx={{ position: "relative", zIndex: 1 }}>
+                {others.items.map((item, index) => (
+                  <ComparisonItem muted key={index}>
+                    {item}
+                  </ComparisonItem>
                 ))}
               </Stack>
             </Box>
           </Grid>
         </Grid>
+        <Stack
+          direction={"row"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <Box
+            sx={(theme) => ({
+              mt: { xs: 5, md: 6 },
+              pt: { xs: 3, md: 4 },
+              borderTop: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+              display: "flex",
+              alignItems: { xs: "flex-start", sm: "center" },
+              justifyContent: "space-between",
+              gap: 3,
+              flexDirection: { xs: "column", sm: "row" },
+            })}
+          >
+            <Typography
+              variant="h5"
+              sx={{
+                maxWidth: 390,
+                color: "text.primary",
+                fontWeight: 600,
+                lineHeight: 1.15,
+              }}
+            >
+              Delivering Designs with unmatched precision and speed.
+            </Typography>
+
+            <CustomButton
+              text="Contact Us"
+              variant="outlined"
+              icon={
+                <Box
+                  component="span"
+                  sx={{
+                    display: "inline-flex",
+                    fontSize: "1.1rem",
+                    lineHeight: 1,
+                    mr: 1,
+                  }}
+                >
+                  ↗
+                </Box>
+              }
+              sx={(theme) => ({
+                px: 4,
+                py: 1.5,
+                bgcolor: "transparent",
+                borderRadius: "100px",
+                border: `1px solid ${alpha(theme.palette.primary.main, 0.22)}`,
+                boxShadow: `0 0 24px ${alpha(theme.palette.primary.main, 0.08)}`,
+                "&:hover": {
+                  bgcolor: "rgba(255,255,255,0.05)",
+                  borderColor: "rgba(255,255,255,0.3)",
+                },
+              })}
+            />
+          </Box>
+        </Stack>
       </Container>
+    </Box>
+  );
+};
+
+const ComparisonItem = ({ children, muted = false }) => {
+  return (
+    <Box
+      sx={(theme) => ({
+        minHeight: 42,
+        display: "flex",
+        alignItems: "center",
+        px: 1.5,
+        py: 1.2,
+        borderRadius: "8px",
+        border: `1px solid ${alpha(
+          theme.palette.primary.main,
+          muted ? 0.055 : 0.09,
+        )}`,
+        bgcolor: "transparent",
+      })}
+    >
+      <Stack direction="row" spacing={1.2} alignItems="center">
+        <AutoAwesomeIcon
+          sx={{
+            fontSize: 15,
+            color: "primary.main",
+            opacity: muted ? 0.45 : 0.9,
+            flexShrink: 0,
+          }}
+        />
+
+        <Typography
+          variant="body2"
+          sx={(theme) => ({
+            color: muted
+              ? alpha(theme.palette.text.secondary, 0.82)
+              : alpha(theme.palette.text.primary, 0.88),
+            fontWeight: muted ? 400 : 500,
+            lineHeight: 1.25,
+            fontSize: "0.82rem",
+          })}
+        >
+          {children}
+        </Typography>
+      </Stack>
     </Box>
   );
 };

@@ -1,69 +1,158 @@
 "use client";
 
-import { Box, Container, Typography, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+import React, { useState } from "react";
+import {
+  Box,
+  Container,
+  Typography,
+  Stack,
+  Collapse,
+} from "@mui/material";
+import { motion } from "framer-motion";
+import AddIcon from "@mui/icons-material/Add";
+import CloseIcon from "@mui/icons-material/Close";
 import CustomButton from "@/components/common/CustomButton";
-import SectionBadge from "@/components/common/SectionBadge";
+import { faqData } from "@/data/portfolio";
 
-const faqs = [
-  {
-    question: "What services does you offer?",
-    answer: "I specialize in branding, UI/UX design, web design, and creative strategy—delivering tailored solutions that elevate your business visually and functionally.",
-  },
-  {
-    question: "What’s your typical design process?",
-    answer: "We start with discovery, move into wireframing and design, then gather feedback before final delivery and launch.",
-  },
-  {
-    question: "What is your approach to web design?",
-    answer: "Our approach focuses on user-centric layouts, clean aesthetics, and conversion-optimized experiences.",
-  },
-  {
-    question: "How long does a project usually take?",
-    answer: "Depending on the scope, most projects take between 2 to 6 weeks from kickoff to launch.",
-  },
-];
+const FAQItem = ({ question, answer, isOpen, onClick }) => {
+  return (
+    <Box
+      sx={{
+        bgcolor: isOpen ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.01)",
+        borderRadius: "16px",
+        border: "1px solid rgba(255,255,255,0.05)",
+        overflow: "hidden",
+        transition: "background-color 0.3s ease",
+        "&:hover": {
+          bgcolor: "rgba(255,255,255,0.03)",
+        },
+      }}
+    >
+      <Box
+        onClick={onClick}
+        sx={{
+          p: 3,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          cursor: "pointer",
+        }}
+      >
+        <Typography
+          variant="body1"
+          sx={{ fontWeight: 600, color: "rgba(255,255,255,0.9)", fontSize: "0.95rem" }}
+        >
+          {question}
+        </Typography>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          {isOpen ? (
+            <CloseIcon sx={{ fontSize: "1.2rem", color: "rgba(255,255,255,0.7)" }} />
+          ) : (
+            <AddIcon sx={{ fontSize: "1.2rem", color: "rgba(255,255,255,0.7)" }} />
+          )}
+        </motion.div>
+      </Box>
+      <Collapse in={isOpen}>
+        <Box sx={{ px: 3, pb: 3, pt: 0 }}>
+          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>
+            {answer}
+          </Typography>
+        </Box>
+      </Collapse>
+    </Box>
+  );
+};
 
 const FAQ = () => {
-  return (
-    <Box component="section" id="faq" sx={{ bgcolor: "background.default", color: "text.primary" }}>
-      <Container maxWidth="md">
-        <Box sx={{ mb: 8, textAlign: "center" }}>
-          <SectionBadge text="FAQ" icon={QuestionAnswerIcon} />
-          <Typography variant="h2" sx={{ mb: 2 }}>Your Questions Answered</Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-            Find the answers to our most common questions here, but if you still need help, feel free to contact me.
-          </Typography>
-          <Box display="flex" justifyContent="center">
-            <CustomButton text="Contact Us" variant="outlined" />
-          </Box>
-        </Box>
+  const [openIndex, setOpenIndex] = useState(0);
 
-        <Box>
-          {faqs.map((faq, index) => (
-            <Accordion 
-              key={index} 
-              sx={{ 
-                bgcolor: "background.paper", 
-                mb: 2, 
-                borderRadius: "12px !important", 
-                "&:before": { display: "none" },
-                border: "1px solid",
-                borderColor: "divider",
+  return (
+    <Box
+      component="section"
+      id="faq"
+      sx={{
+        bgcolor: "background.default",
+        color: "text.primary",
+        py: { xs: 10, md: 15 },
+      }}
+    >
+      <Container maxWidth="lg">
+        <Stack direction={{ xs: "column", md: "row" }} spacing={{ xs: 8, md: 4 }}>
+          {/* Left Column: Header */}
+          <Box sx={{ flex: 1, pr: { md: 8 } }}>
+            <Typography
+              variant="h2"
+              sx={{
+                fontWeight: 700,
+                mb: 3,
+                letterSpacing: -1,
+                fontSize: { xs: "2.5rem", md: "3.5rem" },
               }}
             >
-              <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "primary.main" }} />}>
-                <Typography variant="h6">{faq.question}</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="body1" color="text.secondary">
-                  {faq.answer}
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          ))}
-        </Box>
+              {faqData.header.mainText}{" "}
+              <Box
+                component="span"
+                sx={{
+                  fontStyle: "italic",
+                  color: "rgba(255,255,255,0.7)",
+                  fontWeight: 400,
+                  fontFamily: "Georgia, serif",
+                }}
+              >
+                {faqData.header.italicText}
+              </Box>
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 5, maxWidth: 400 }}>
+              {faqData.header.description}
+            </Typography>
+            <CustomButton
+              text="Contact Us"
+              variant="outlined"
+              icon={
+                <Box
+                  component="span"
+                  sx={{
+                    display: "inline-flex",
+                    fontSize: "1.1rem",
+                    lineHeight: 1,
+                    mr: 1,
+                  }}
+                >
+                  ↗
+                </Box>
+              }
+              sx={{
+                px: 4,
+                py: 1.5,
+                bgcolor: "transparent",
+                borderRadius: "100px",
+                border: "1px solid rgba(255,255,255,0.15)",
+                "&:hover": {
+                  bgcolor: "rgba(255,255,255,0.05)",
+                  borderColor: "rgba(255,255,255,0.3)",
+                },
+              }}
+            />
+          </Box>
+
+          {/* Right Column: Accordions */}
+          <Box sx={{ flex: 1 }}>
+            <Stack spacing={2}>
+              {faqData.items.map((item, index) => (
+                <FAQItem
+                  key={index}
+                  question={item.question}
+                  answer={item.answer}
+                  isOpen={openIndex === index}
+                  onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
+                />
+              ))}
+            </Stack>
+          </Box>
+        </Stack>
       </Container>
     </Box>
   );
