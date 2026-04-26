@@ -28,7 +28,6 @@ const Comparison = () => {
       sx={{
         bgcolor: "background.default",
         color: "text.primary",
-        py: { xs: 8, md: 10 },
         overflow: "hidden",
       }}
     >
@@ -261,11 +260,11 @@ const ComparisonItem = ({ children, muted = false }) => {
   return (
     <Box
       sx={(theme) => ({
-        minHeight: 42,
+        minHeight: { xs: 38, md: 42 },
         display: "flex",
         alignItems: "center",
         px: 1.5,
-        py: 1.2,
+        py: { xs: 1, md: 1.2 },
         borderRadius: "8px",
         border: `1px solid ${alpha(
           theme.palette.primary.main,
@@ -277,7 +276,7 @@ const ComparisonItem = ({ children, muted = false }) => {
       <Stack direction="row" spacing={1.2} alignItems="center">
         <AutoAwesomeIcon
           sx={{
-            fontSize: 15,
+            fontSize: { xs: 13, md: 15 },
             color: "primary.main",
             opacity: muted ? 0.45 : 0.9,
             flexShrink: 0,
@@ -292,7 +291,7 @@ const ComparisonItem = ({ children, muted = false }) => {
               : alpha(theme.palette.text.primary, 0.88),
             fontWeight: muted ? 400 : 500,
             lineHeight: 1.25,
-            fontSize: "0.82rem",
+            fontSize: { xs: "0.75rem", md: "0.82rem" },
           })}
         >
           {children}

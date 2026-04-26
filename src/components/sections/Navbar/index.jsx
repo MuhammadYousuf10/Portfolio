@@ -137,20 +137,24 @@ export default function Navbar() {
         {mobileOpen && isMobile && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
+            animate={{ height: "100vh", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
             style={{
               overflow: "hidden",
+              backgroundColor: "rgba(10, 10, 10, 0.98)", // Darker, more solid mobile menu
+              backdropFilter: "blur(20px)",
             }}
           >
             <Box
               sx={{
-                padding: "2rem",
+                height: "100%",
+                padding: "4rem 2rem",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "42px",
+                alignItems: "center", // Centered for better mobile feel
+                justifyContent: "center",
+                gap: "32px",
               }}
             >
               {navItems.map((item, i) => (
@@ -171,14 +175,20 @@ export default function Navbar() {
                         smoothScrollTo(item.path.replace("/#", ""));
                       }
                     }}
-                    variant="body1"
+                    variant="h4" // Larger text for mobile links
                     sx={{ 
                       background: "none", 
                       border: "none", 
                       padding: 0, 
                       cursor: "pointer",
-                      font: "inherit",
-                      color: "inherit"
+                      fontFamily: "inherit",
+                      fontWeight: 700,
+                      color: "inherit",
+                      textDecoration: "none",
+                      letterSpacing: "-0.02em",
+                      "&:hover": {
+                        color: "primary.main",
+                      }
                     }}
                   >
                     {item?.name}

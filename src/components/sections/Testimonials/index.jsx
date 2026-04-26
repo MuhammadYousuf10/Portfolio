@@ -158,7 +158,6 @@ const Testimonials = () => {
       sx={{
         bgcolor: "background.default",
         color: "text.primary",
-        py: 10,
         position: "relative",
         overflow: "hidden",
       }}
@@ -169,7 +168,7 @@ const Testimonials = () => {
           position: "absolute",
           top: 0,
           left: 0,
-          width: "15%",
+          width: { xs: "50px", md: "15%" },
           height: "100%",
           background: "linear-gradient(to right, #000000, transparent)",
           zIndex: 2,
@@ -181,7 +180,7 @@ const Testimonials = () => {
           position: "absolute",
           top: 0,
           right: 0,
-          width: "15%",
+          width: { xs: "50px", md: "15%" },
           height: "100%",
           background: "linear-gradient(to left, #000000, transparent)",
           zIndex: 2,
@@ -190,19 +189,19 @@ const Testimonials = () => {
       />
 
       <Container maxWidth="lg">
-        <Box sx={{ mb: 8, textAlign: "center" }}>
+        <Box sx={{ mb: { xs: 6, md: 8 }, textAlign: "center" }}>
           <SectionBadge text="Testimonials" icon={RateReviewIcon} />
         </Box>
         <Box sx={{ mb: 8 }}>
           <TestimonialRow
             items={duplicatedTestimonials}
             direction="left"
-            speed={50}
+            speed={60} // Slower for mobile readability
           />
           <TestimonialRow
             items={duplicatedTestimonials}
             direction="right"
-            speed={60}
+            speed={70}
           />
         </Box>
       </Container>
@@ -210,11 +209,11 @@ const Testimonials = () => {
       {/* Trusted By Footer */}
       <Container maxWidth="lg">
         <Stack
-          direction="row"
+          direction={{ xs: "column", sm: "row" }}
           alignItems="center"
           justifyContent="center"
           spacing={2}
-          sx={{ mt: 8, opacity: 0.8 }}
+          sx={{ mt: { xs: 4, md: 8 }, opacity: 0.8, textAlign: "center" }}
         >
           <AvatarGroup max={4}>
             <Avatar alt="User 1" src="https://i.pravatar.cc/150?u=1" />
@@ -222,11 +221,11 @@ const Testimonials = () => {
             <Avatar alt="User 3" src="https://i.pravatar.cc/150?u=3" />
             <Avatar alt="User 4" src="https://i.pravatar.cc/150?u=4" />
           </AvatarGroup>
-          <Typography variant="body2" sx={{ color: "text.secondary" }}>
+          <Typography variant="body2" sx={{ color: "text.secondary", fontSize: { xs: "0.8rem", md: "0.875rem" } }}>
             Trusted by{" "}
             <Typography
               component="span"
-              sx={{ fontWeight: 700, color: "text.primary" }}
+              sx={{ fontWeight: 700, color: "text.primary", fontSize: "inherit" }}
             >
               10,000+
             </Typography>{" "}

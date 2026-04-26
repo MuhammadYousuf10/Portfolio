@@ -1,6 +1,14 @@
 import React from "react";
-import { Box, Container, Grid, Rating, Stack, Typography } from "@mui/material";
-import theme from "@/theme/theme";
+import {
+  Box,
+  Container,
+  Grid,
+  Rating,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import CircularText from "@/components/common/CircularText";
 import CustomButton from "@/components/common/CustomButton";
@@ -13,6 +21,9 @@ import NextLink from "next/link";
 import { smoothScrollTo } from "@/utils/scroll";
 
 const Hero = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   // Scroll handler
   const handleScroll = () => {
     smoothScrollTo("services"); // Updated to point to services as per user preference
@@ -104,9 +115,9 @@ const Hero = () => {
           <Box
             sx={{
               py: {
-                xs: 25,
-                md: 15,
-                lg: 10,
+                xs: 15,
+                md: 8,
+                lg: 0,
               },
               zIndex: 1,
               position: "relative",
@@ -115,33 +126,68 @@ const Hero = () => {
             <Grid container spacing={4} justifyContent={"space-between"}>
               <Grid
                 size={{ xs: 12, md: 6, lg: 7 }}
-                sx={{ pb: { xs: 10, md: 0 } }}
+                sx={{
+                  pb: { xs: 8, md: 0 },
+                  textAlign: { xs: "center", md: "left" }, // Centered on mobile
+                }}
               >
                 <Box
-                  sx={{ position: "relative", display: "inline-block", mb: 4 }}
+                  sx={{
+                    position: "relative",
+                    display: "inline-block",
+                    mb: 4,
+                    width: "100%",
+                  }}
                 >
-                  <Typography variant="h1" sx={{ textAlign: "left" }}>
+                  <Typography
+                    variant="h1"
+                    sx={{
+                      textAlign: { xs: "center", md: "left" },
+                    }}
+                  >
                     Building brands to drive{" "}
                     <Typography component="span" variant="gradientText">
                       Results
                     </Typography>
                   </Typography>
-                  <Box sx={{ position: "absolute", top: "-50px", left: 0 }}>
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: { xs: "-40px", md: "-50px" },
+                      left: { xs: "50%", md: 0 },
+                      transform: { xs: "translateX(-50%)", md: "none" },
+                    }}
+                  >
                     <Indicator text="Available for work" />
                   </Box>
                 </Box>
-                <Typography variant="body1" sx={{ textAlign: "left" }}>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    textAlign: { xs: "center", md: "left" },
+                    maxWidth: { xs: "100%", md: "90%" },
+                    mx: { xs: "auto", md: 0 },
+                  }}
+                >
                   We merge bold strategy, compelling storytelling, and timeless
                   design to craft unforgettable brand experiences that truly
                   resonate.
                 </Typography>
-                <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
+                <Stack
+                  direction={{ xs: "column", sm: "row" }} // Stack on mobile
+                  spacing={2}
+                  sx={{
+                    mt: 4,
+                    justifyContent: { xs: "center", md: "flex-start" },
+                  }}
+                >
                   <CustomButton
                     component={NextLink}
                     href="/projects"
                     text={"View Projects"}
                     variant="outlined"
                     icon={<FolderOpenIcon />}
+                    sx={{ width: { xs: "100%", sm: "auto" } }}
                   />
                   <CustomButton
                     component={NextLink}
@@ -149,10 +195,18 @@ const Hero = () => {
                     text={"Get Started Now"}
                     variant="filled"
                     icon={<ArrowOutwardIcon />}
+                    sx={{ width: { xs: "100%", sm: "auto" } }}
                   />
                 </Stack>
               </Grid>
-              <Grid size={{ xs: 12, md: 6, lg: 4 }}>
+              <Grid
+                size={{ xs: 12, md: 6, lg: 4 }}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  mt: { xs: 4, md: 0 },
+                }}
+              >
                 <Box
                   sx={{
                     position: "relative",
@@ -162,7 +216,7 @@ const Hero = () => {
                     background: (theme) => theme.gradients.heroCard,
                     width: "fit-content",
                     opacity: 1,
-                    transform: "rotate(-3deg)",
+                    transform: { xs: "rotate(0deg)", md: "rotate(-3deg)" }, // Remove rotation on mobile
                   }}
                 >
                   {/* vertical shadow line*/}
@@ -208,12 +262,12 @@ const Hero = () => {
                     <ImageWrapper
                       src="https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=512"
                       alt="profile pic"
-                      width={320}
-                      height={320}
+                      width={280} // Slightly smaller for mobile
+                      height={280}
                       priority
                     />
                   </Box>
-                  <Box>
+                  <Box sx={{ mt: 2 }}>
                     <Rating
                       name="half-rating"
                       defaultValue={4.7}
@@ -239,15 +293,15 @@ const Hero = () => {
                   <Box
                     sx={{
                       position: "absolute",
-                      top: -50,
-                      right: -60,
+                      top: { xs: -30, md: -50 },
+                      right: { xs: -30, md: -60 },
                       zIndex: -1,
                     }}
                   >
                     <CircularText
                       text="Sr. Frontend Eng."
-                      size={150}
-                      fontSize={12}
+                      size={isMobile ? 100 : 150} // Responsive size
+                      fontSize={isMobile ? 8 : 12}
                     />
                   </Box>
                 </Box>

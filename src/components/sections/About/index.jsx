@@ -19,7 +19,6 @@ const About = () => {
       sx={{
         bgcolor: "background.default",
         color: "text.primary",
-        py: { xs: 10, md: 15 },
         position: "relative",
       }}
     >
@@ -37,7 +36,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Box sx={{ mb: 4 }}>
+              <Box sx={{ mb: { xs: 6, md: 4 } }}>
                 <LineHeader text={`${title} ${subtitle}`} sx={{ mb: 3 }} />
                 
                 <Box
@@ -82,7 +81,7 @@ const About = () => {
                   />
                   <Typography
                     variant="body2"
-                    sx={{ fontWeight: 600, color: "text.primary", fontSize: "0.8rem" }}
+                    sx={{ fontWeight: 600, color: "text.primary" }}
                   >
                     {rating}/5 stars ({clientsCount} Clients)
                   </Typography>
@@ -94,7 +93,7 @@ const About = () => {
           {/* Right Side: Skills and Experience */}
           <Grid size={{ xs: 12, md: 7 }}>
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: { xs: 0, md: 30 } }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
@@ -102,7 +101,7 @@ const About = () => {
               {/* Skills Grid */}
               <Box
                 sx={{
-                  p: 4,
+                  p: { xs: 3, md: 4 },
                   bgcolor: "background.paper",
                   borderRadius: "24px",
                   border: "1px solid",
@@ -110,7 +109,7 @@ const About = () => {
                   mb: 4,
                 }}
               >
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5 }}>
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, justifyContent: { xs: "center", md: "flex-start" } }}>
                   {skills.map((skill, i) => (
                     <Chip
                       key={i}
@@ -120,7 +119,6 @@ const About = () => {
                         borderRadius: "8px",
                         borderColor: "divider",
                         color: "text.secondary",
-                        fontSize: "0.8rem",
                         height: "32px",
                         bgcolor: "rgba(255,255,255,0.02)",
                         "&:hover": {
@@ -136,7 +134,7 @@ const About = () => {
               {/* Experience Table */}
               <Box
                 sx={{
-                  p: 4,
+                  p: { xs: 3, md: 4 },
                   bgcolor: "background.paper",
                   borderRadius: "24px",
                   border: "1px solid",
@@ -146,18 +144,18 @@ const About = () => {
                 <Stack spacing={3}>
                   {experience.map((exp, i) => (
                     <Box key={i}>
-                      <Grid container alignItems="center" spacing={2}>
-                        <Grid size={{ xs: 12, sm: 3 }}>
+                      <Grid container alignItems="center" spacing={1}>
+                        <Grid size={{ xs: 12, sm: 4 }}>
                           <Typography variant="body2" sx={{ fontWeight: 700 }}>
                             {exp.role}
                           </Typography>
                         </Grid>
-                        <Grid size={{ xs: 12, sm: 6 }}>
+                        <Grid size={{ xs: 12, sm: 5 }}>
                           <Typography variant="body2" color="text.secondary">
                             {exp.company}
                           </Typography>
                         </Grid>
-                        <Grid size={{ xs: 12, sm: 3 }} sx={{ textAlign: { sm: "right" } }}>
+                        <Grid size={{ xs: 12, sm: 3 }} sx={{ textAlign: { xs: "left", sm: "right" } }}>
                           <Typography variant="caption" color="text.secondary" sx={{ fontSize: "0.7rem" }}>
                             {exp.period}
                           </Typography>

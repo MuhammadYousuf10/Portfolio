@@ -28,12 +28,12 @@ const Blog = () => {
           {/* Header */}
           <Stack
             direction={{ xs: "column", md: "row" }}
-            alignItems={{ xs: "flex-start", md: "flex-end" }}
+            alignItems={{ xs: "center", md: "flex-end" }}
             justifyContent="space-between"
             spacing={4}
-            sx={{ mb: { xs: 5, md: 6 } }}
+            sx={{ mb: { xs: 6, md: 8 }, textAlign: { xs: "center", md: "left" } }}
           >
-            <Box>
+            <Box sx={{ display: "flex", flexDirection: "column", alignItems: { xs: "center", md: "flex-start" } }}>
               <SectionBadge text="Blog" icon={ArticleIcon} />
 
               <Typography
@@ -60,6 +60,7 @@ const Blog = () => {
                 sx={{
                   mt: 2,
                   maxWidth: 520,
+                  mx: { xs: "auto", md: 0 }
                 }}
               >
                 {blogData.header.description}
@@ -70,6 +71,7 @@ const Blog = () => {
               text={blogData.buttonText}
               variant="glass"
               icon={<ArrowOutwardIcon fontSize="small" />}
+              sx={{ width: { xs: "100%", sm: "auto" } }}
             />
           </Stack>
 

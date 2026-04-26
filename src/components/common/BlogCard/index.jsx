@@ -59,7 +59,7 @@ const BlogCard = ({ post, featured = false, compact = false, index = 0 }) => {
           position: "relative",
           overflow: "hidden",
           borderRadius: "16px",
-          height: featured ? { xs: 320, md: 480 } : compact ? 160 : 240,
+          height: featured ? { xs: 260, sm: 320, md: 480 } : compact ? { xs: 200, md: 160 } : 240,
           bgcolor: "background.default",
         }}
       >
@@ -116,13 +116,13 @@ const BlogCard = ({ post, featured = false, compact = false, index = 0 }) => {
         </Box>
       </Box>
 
-      <Box sx={{ mt: 3, px: 1 }}>
+      <Box sx={{ mt: { xs: 2, md: 3 }, px: 1 }}>
         <Typography
           variant="caption"
           sx={{
             display: "block",
             color: "text.secondary",
-            mb: 1.2,
+            mb: 1,
             fontWeight: 500,
             letterSpacing: "0.03em",
             textTransform: "uppercase",

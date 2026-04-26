@@ -33,7 +33,6 @@ const Pricing = () => {
       sx={{
         bgcolor: "background.default",
         color: "text.primary",
-        py: { xs: 8, md: 10 },
         overflow: "hidden",
       }}
     >
@@ -117,13 +116,13 @@ const Pricing = () => {
         >
           <Stack
             direction={{ xs: "column", md: "row" }}
-            spacing={{ xs: 3, md: 3.5 }}
+            spacing={{ xs: 4, md: 3.5 }}
             sx={{ position: "relative", zIndex: 1 }}
           >
             {/* Left side */}
             <Box
               sx={{
-                flex: "0 0 38%",
+                flex: { xs: "1 1 auto", md: "0 0 38%" },
                 minWidth: 0,
                 display: "flex",
                 flexDirection: "column",
@@ -138,7 +137,7 @@ const Pricing = () => {
                 onChange={setActiveTab}
               />
 
-              <Box sx={{ mt: 3, mb: { xs: 5, md: "auto" } }}>
+              <Box sx={{ mt: 3, mb: { xs: 4, md: "auto" } }}>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeTab}
@@ -176,13 +175,14 @@ const Pricing = () => {
                   text={pricingData.buttonText}
                   variant="glass"
                   icon={<ArrowOutwardIcon fontSize="small" />}
+                  sx={{ width: { xs: "100%", sm: "auto" } }}
                 />
               </Box>
 
               {/* Add-on card */}
               <Box
                 sx={(theme) => ({
-                  mt: { xs: 0, md: 5.5 },
+                  mt: { xs: 2, md: 5.5 },
                   p: { xs: 2.25, md: 2.5 },
                   borderRadius: "14px",
                   border: `1px solid ${alpha(theme.palette.primary.main, 0.09)}`,
