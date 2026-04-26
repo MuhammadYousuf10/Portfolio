@@ -57,6 +57,8 @@ const Footer = () => {
                 sx={{ width: { xs: "100%", sm: "auto" } }}
               />
               <CustomButton 
+                component="a"
+                href={`mailto:${footerData.contact.email}`}
                 text={footerData.contact.email} 
                 variant="glow" 
                 sx={{ width: { xs: "100%", sm: "auto" } }}

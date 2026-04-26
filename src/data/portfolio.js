@@ -556,7 +556,7 @@ export const footerData = {
   },
   contact: {
     buttonText: "Contact Me",
-    email: "Adriancarter@support.com",
+    email: "m.yousufuddin10@gmail.com",
   },
   bottom: {
     copyright: "© 2025 Fade Template Clone",
