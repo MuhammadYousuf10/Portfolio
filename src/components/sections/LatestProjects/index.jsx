@@ -36,7 +36,7 @@ const LatestProjects = () => {
         {/* Centered Header */}
         <Box
           sx={{
-            mb: 8,
+            mb: { xs: 6, md: 12 },
             textAlign: "center",
             display: "flex",
             flexDirection: "column",
@@ -46,7 +46,7 @@ const LatestProjects = () => {
           <SectionBadge text="Projects" />
           <Typography variant="h2" sx={{ mb: 2 }}>
             Our Latest{" "}
-            <Typography component="span" variant="gradientText">
+            <Typography component="span" variant="gradientText" sx={{ fontSize: "inherit" }}>
               Projects
             </Typography>
           </Typography>
@@ -63,13 +63,16 @@ const LatestProjects = () => {
             text="See All Projects"
             variant="glass"
             icon={<ArrowOutwardIcon fontSize="small" />}
+            sx={{ width: { xs: "100%", sm: "auto" } }}
           />
         </Box>
 
         {/* Projects Horizontal Carousel */}
         <Box
           sx={{
-            width: "100%",
+            width: "100vw", // Full viewport width for better carousel feel
+            marginLeft: "calc(-50vw + 50%)",
+            marginRight: "calc(-50vw + 50%)",
             overflow: "hidden",
             pb: 4,
             position: "relative",
@@ -82,7 +85,7 @@ const LatestProjects = () => {
               top: 0,
               bottom: 0,
               left: 0,
-              width: "100px",
+              width: { xs: "40px", md: "100px" },
               background: "linear-gradient(to right, #000, transparent)",
               zIndex: 2,
               pointerEvents: "none",
@@ -94,7 +97,7 @@ const LatestProjects = () => {
               top: 0,
               bottom: 0,
               right: 0,
-              width: "100px",
+              width: { xs: "40px", md: "100px" },
               background: "linear-gradient(to left, #000, transparent)",
               zIndex: 2,
               pointerEvents: "none",
@@ -102,16 +105,16 @@ const LatestProjects = () => {
           />
 
           <motion.div
-            animate={{ x: ["0%", "-33.333333%"] }} // Moves exactly one set of the 3 duplicated arrays
-            transition={{ repeat: Infinity, ease: "linear", duration: 15 }}
-            style={{ display: "flex", gap: "32px", paddingLeft: "16px" }}
+            animate={{ x: ["0%", "-33.333333%"] }}
+            transition={{ repeat: Infinity, ease: "linear", duration: 25 }} // Slower speed for better readability
+            style={{ display: "flex", gap: "24px", paddingLeft: "24px" }}
           >
             {duplicatedProjects.map((project, index) => (
               <Box
                 key={index}
                 sx={{
                   flex: "0 0 auto",
-                  width: { xs: "85vw", sm: "480px", md: "550px" },
+                  width: { xs: "280px", sm: "400px", md: "500px" },
                 }}
               >
                 <ProjectCard project={project} />

@@ -11,6 +11,8 @@ const nextConfig = {
         hostname: "images.unsplash.com",
       },
     ],
+    formats: ["image/avif", "image/webp"],
+    qualities: [75, 90],
   },
   transpilePackages: ["@mui/material", "@emotion/react", "@emotion/styled"],
 };

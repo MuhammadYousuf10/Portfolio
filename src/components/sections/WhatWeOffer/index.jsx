@@ -46,6 +46,7 @@ const ImageCarousel = ({ images }) => {
           transition={{ duration: 0.5 }}
           sx={{
             position: "absolute",
+            inset: 0, // Shorthand for top/left/right/bottom: 0
             width: "100%",
             height: "100%",
           }}
@@ -54,7 +55,8 @@ const ImageCarousel = ({ images }) => {
             src={images[currentIndex]}
             alt="Service preview"
             objectFit="cover"
-            sx={{ filter: "grayscale(100%)" }}
+            fill={true}
+            sx={{ filter: "grayscale(100%)", height: "100%", width: "100%" }}
           />
         </Box>
       </AnimatePresence>
@@ -116,27 +118,28 @@ const WhatWeOffer = () => {
       <Box
         sx={{
           position: "absolute",
-          top: 100, // adjust this so center aligns with header
+          top: { xs: 50, md: 100 }, // Shifted up for mobile
           left: "50%",
           transform: "translateX(-50%)",
-          width: "800px",
-          height: "400px", // Only show top half
+          width: { xs: "100%", sm: "800px" },
+          maxWidth: "800px",
+          height: { xs: "200px", sm: "400px" }, // Scaled for mobile
           overflow: "hidden",
           zIndex: 0,
         }}
       >
-        {/* Full circle container shifted down to only show top half */}
         <Box
           sx={{
             position: "absolute",
-            bottom: "-400px",
-            left: "0",
-            width: "800px",
-            height: "800px",
+            bottom: { xs: "-200px", sm: "-400px" },
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: { xs: "400px", sm: "800px" },
+            height: { xs: "400px", sm: "800px" },
             borderRadius: "50%",
           }}
         >
-          {/* Border light spool - animated rotate (Behind main border) */}
+          {/* Border light spool */}
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
@@ -184,42 +187,18 @@ const WhatWeOffer = () => {
               justifyContent: "center",
             }}
           >
-            <Box
-              sx={{
-                position: "absolute",
-                width: "25%",
-                height: "25%",
-                border: "2px solid rgba(255,255,255,0.03)",
-                borderRadius: "50%",
-              }}
-            />
-            <Box
-              sx={{
-                position: "absolute",
-                width: "50%",
-                height: "50%",
-                border: "2px solid rgba(255,255,255,0.03)",
-                borderRadius: "50%",
-              }}
-            />
-            <Box
-              sx={{
-                position: "absolute",
-                width: "75%",
-                height: "75%",
-                border: "2px solid rgba(255,255,255,0.03)",
-                borderRadius: "50%",
-              }}
-            />
-            <Box
-              sx={{
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                border: "2px solid rgba(255,255,255,0.03)",
-                borderRadius: "50%",
-              }}
-            />
+            {[25, 50, 75, 100].map((size) => (
+              <Box
+                key={size}
+                sx={{
+                  position: "absolute",
+                  width: `${size}%`,
+                  height: `${size}%`,
+                  border: "2px solid rgba(255,255,255,0.03)",
+                  borderRadius: "50%",
+                }}
+              />
+            ))}
             <Box
               sx={{
                 position: "absolute",
@@ -251,22 +230,6 @@ const WhatWeOffer = () => {
               zIndex: 1,
             }}
           />
-
-          {/* Element on the radar */}
-          <Box
-            sx={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: 8,
-              height: 8,
-              bgcolor: "rgba(255,255,255,0.5)",
-              borderRadius: "50%",
-              boxShadow: "0 0 10px rgba(255,255,255,0.5)",
-              zIndex: 2,
-            }}
-          />
         </Box>
       </Box>
 
@@ -274,7 +237,7 @@ const WhatWeOffer = () => {
         {/* Header */}
         <Box
           sx={{
-            mb: 12,
+            mb: { xs: 8, md: 12 },
             textAlign: "center",
             display: "flex",
             flexDirection: "column",
@@ -284,7 +247,7 @@ const WhatWeOffer = () => {
           <SectionBadge text="Services" icon={AdjustIcon} />
           <Typography variant="h2" sx={{ mb: 2 }}>
             What We{" "}
-            <Typography component="span" variant="gradientText">
+            <Typography component="span" variant="gradientText" sx={{ fontSize: "inherit" }}>
               Offer
             </Typography>
           </Typography>
@@ -303,7 +266,7 @@ const WhatWeOffer = () => {
             <Grid size={{ xs: 12, md: service.size }} key={index}>
               <Box
                 sx={{
-                  p: 4,
+                  p: { xs: 3, md: 4 },
                   borderRadius: "24px",
                   bgcolor: "background.paper",
                   border: "1px solid",
@@ -313,14 +276,14 @@ const WhatWeOffer = () => {
                   flexDirection: service.images
                     ? {
                         xs: "column",
-                        sm: index % 2 === 0 ? "row" : "row-reverse",
+                        md: index % 2 === 0 ? "row" : "row-reverse",
                       }
                     : "column",
-                  gap: 4,
+                  gap: { xs: 3, md: 4 },
                   alignItems: service.images ? "center" : "flex-start",
                   transition: "transform 0.3s ease",
                   "&:hover": {
-                    transform: "translateY(-5px)",
+                    transform: { md: "translateY(-5px)" },
                   },
                 }}
               >
@@ -341,7 +304,7 @@ const WhatWeOffer = () => {
                       display: "inline-flex",
                       alignSelf: "flex-start",
                       p: 1.5,
-                      mb: 3,
+                      mb: { xs: 2, md: 3 },
                       borderRadius: "12px",
                       bgcolor: "rgba(255,255,255,0.02)",
                       border: "1px solid rgba(255,255,255,0.05)",

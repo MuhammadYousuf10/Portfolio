@@ -32,7 +32,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
       <Box
         onClick={onClick}
         sx={{
-          p: 3,
+          p: { xs: 2.25, md: 3 },
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -41,7 +41,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
       >
         <Typography
           variant="subtitle1"
-          sx={{ color: "rgba(255,255,255,0.9)" }}
+          sx={{ color: "rgba(255,255,255,0.9)", fontSize: { xs: "0.9rem", md: "1rem" } }}
         >
           {question}
         </Typography>
@@ -50,15 +50,15 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           {isOpen ? (
-            <CloseIcon sx={{ fontSize: "1.2rem", color: "rgba(255,255,255,0.7)" }} />
+            <CloseIcon sx={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)" }} />
           ) : (
-            <AddIcon sx={{ fontSize: "1.2rem", color: "rgba(255,255,255,0.7)" }} />
+            <AddIcon sx={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.7)" }} />
           )}
         </motion.div>
       </Box>
       <Collapse in={isOpen}>
-        <Box sx={{ px: 3, pb: 3, pt: 0 }}>
-          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.5)" }}>
+        <Box sx={{ px: { xs: 2.25, md: 3 }, pb: { xs: 2.25, md: 3 }, pt: 0 }}>
+          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>
             {answer}
           </Typography>
         </Box>
@@ -77,13 +77,12 @@ const FAQ = () => {
       sx={{
         bgcolor: "background.default",
         color: "text.primary",
-        py: { xs: 10, md: 15 },
       }}
     >
       <Container maxWidth="lg">
-        <Stack direction={{ xs: "column", md: "row" }} spacing={{ xs: 8, md: 4 }}>
+        <Stack direction={{ xs: "column", md: "row" }} spacing={{ xs: 6, md: 4 }}>
           {/* Left Column: Header */}
-          <Box sx={{ flex: 1, pr: { md: 8 } }}>
+          <Box sx={{ flex: 1, pr: { md: 8 }, textAlign: { xs: "center", md: "left" } }}>
             <Typography
               variant="h2"
               sx={{ mb: 3 }}
@@ -100,19 +99,20 @@ const FAQ = () => {
                 {faqData.header.italicText}
               </Box>
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ mb: 5, maxWidth: 400 }}>
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 4, maxWidth: 400, mx: { xs: "auto", md: 0 } }}>
               {faqData.header.description}
             </Typography>
             <CustomButton
               text={faqData.buttonText}
               variant="glass"
               icon={<ArrowOutwardIcon fontSize="small" />}
+              sx={{ width: { xs: "100%", sm: "auto" } }}
             />
           </Box>
 
           {/* Right Column: Accordions */}
           <Box sx={{ flex: 1 }}>
-            <Stack spacing={2}>
+            <Stack spacing={1.5}>
               {faqData.items.map((item, index) => (
                 <FAQItem
                   key={index}

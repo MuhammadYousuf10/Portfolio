@@ -39,9 +39,10 @@ const ProfessionalBackground = () => {
             mx: "auto",
             position: "relative",
             pl: { xs: 0, md: 7 },
+            textAlign: { xs: "center", md: "left" }
           })}
         >
-          <Grid container spacing={{ xs: 7, md: 8 }} alignItems="flex-start">
+          <Grid container spacing={{ xs: 5, md: 8 }} alignItems="flex-start">
             {/* Left */}
             <Grid size={{ xs: 12, md: 4.35 }}>
               <motion.div
@@ -52,7 +53,7 @@ const ProfessionalBackground = () => {
               >
                 <Box
                   sx={{
-                    maxWidth: { xs: 360, md: 380 },
+                    maxWidth: { xs: "100%", sm: 380 },
                     mx: { xs: "auto", md: 0 },
                     pt: { xs: 0, md: 3 },
                   }}
@@ -61,7 +62,6 @@ const ProfessionalBackground = () => {
                     variant="subtitle2"
                     sx={{
                       mb: 2.5,
-                      textAlign: "center",
                       color: "text.secondary",
                       fontStyle: "italic",
                       opacity: 0.78,
@@ -81,10 +81,10 @@ const ProfessionalBackground = () => {
                         0.08,
                       )}`,
                       bgcolor: "transparent",
-                      boxShadow: `-40px 0px 100px ${alpha(
-                        theme.palette.primary.main,
-                        0.05,
-                      )}`,
+                      boxShadow: { 
+                        xs: `0px 10px 40px ${alpha(theme.palette.primary.main, 0.05)}`,
+                        md: `-40px 0px 100px ${alpha(theme.palette.primary.main, 0.05)}`
+                      },
 
                       "&::after": {
                         content: '""',
@@ -108,7 +108,7 @@ const ProfessionalBackground = () => {
                   <Stack
                     direction="row"
                     alignItems="center"
-                    justifyContent="center"
+                    justifyContent={{ xs: "center", md: "flex-start" }}
                     spacing={1.35}
                     sx={{ mt: 4, opacity: 0.9 }}
                   >
@@ -134,6 +134,7 @@ const ProfessionalBackground = () => {
                       sx={{
                         color: "text.secondary",
                         whiteSpace: "nowrap",
+                        fontSize: { xs: "0.8rem", md: "0.875rem" }
                       }}
                     >
                       {rating}/5 stars ({clientsCount}+Clients)

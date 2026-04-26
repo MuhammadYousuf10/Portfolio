@@ -44,13 +44,25 @@ let theme = createTheme({
     fontFamily: `"Inter", "Helvetica", "Arial", sans-serif`,
     h1: {
       fontSize: "5rem",
+      "@media (max-width:900px)": {
+        fontSize: "3.5rem",
+      },
+      "@media (max-width:600px)": {
+        fontSize: "2.8rem",
+      },
       fontWeight: 700,
       letterSpacing: "-0.02em",
       lineHeight: 1.2,
       color: "#ffffffe6",
     },
     h2: {
-      fontSize: "3rem",
+      fontSize: "3.75rem",
+      "@media (max-width:900px)": {
+        fontSize: "3rem",
+      },
+      "@media (max-width:600px)": {
+        fontSize: "2.5rem",
+      },
       fontWeight: 700,
       letterSpacing: "-0.045em",
       lineHeight: 1.12,
@@ -58,20 +70,29 @@ let theme = createTheme({
     },
     h3: {
       fontSize: "2.5rem",
+      "@media (max-width:600px)": {
+        fontSize: "1.75rem",
+      },
       fontWeight: 700,
       letterSpacing: "-0.045em",
       lineHeight: 1,
       color: "#ffffffe6",
     },
     h4: {
-      fontSize: "1.5rem",
+      fontSize: "2.125rem",
+      "@media (max-width:600px)": {
+        fontSize: "1.5rem",
+      },
       fontWeight: 700,
       letterSpacing: "-0.04em",
-      lineHeight: 1,
+      lineHeight: 1.2,
       color: "#ffffffe6",
     },
     h5: {
-      fontSize: "1.25rem",
+      fontSize: "1.5rem",
+      "@media (max-width:600px)": {
+        fontSize: "1.25rem",
+      },
       fontWeight: 600,
       color: "#ffffffe6",
     },
@@ -96,11 +117,17 @@ let theme = createTheme({
     },
     body1: {
       fontSize: "1rem",
+      "@media (max-width:600px)": {
+        fontSize: "0.9rem",
+      },
       lineHeight: 1.6,
       color: "#ffffff99",
     },
     body2: {
       fontSize: "0.9rem",
+      "@media (max-width:600px)": {
+        fontSize: "0.85rem",
+      },
       lineHeight: 1.55,
       color: "#ffffff80",
     },
@@ -132,8 +159,16 @@ let theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         section: {
-          paddingTop: "40px",
-          paddingBottom: "40px",
+          paddingTop: "80px", // lg: 10
+          paddingBottom: "80px",
+          "@media (max-width:900px)": {
+            paddingTop: "64px", // md: 8
+            paddingBottom: "64px",
+          },
+          "@media (max-width:600px)": {
+            paddingTop: "40px", // xs: 5
+            paddingBottom: "40px",
+          },
         },
       },
     },

@@ -18,11 +18,11 @@ const WhyUs = () => {
     <Box
       component="section"
       id="why-us"
-      sx={{ bgcolor: "background.default", color: "text.primary", py: 15 }}
+      sx={{ bgcolor: "background.default", color: "text.primary" }}
     >
       <Container maxWidth="lg">
         {/* Header */}
-        <Box sx={{ mb: 10, textAlign: "center" }}>
+        <Box sx={{ mb: { xs: 6, md: 10 }, textAlign: "center" }}>
           <SectionBadge text="Why Us" icon={VerifiedIcon} />
           <SectionTitle
             mainText={header.mainText}
@@ -44,7 +44,7 @@ const WhyUs = () => {
             <Box
               sx={{
                 position: "relative",
-                height: 550,
+                height: { xs: 450, md: 550 },
                 borderRadius: "32px",
                 overflow: "hidden",
                 border: "1px solid",
@@ -64,7 +64,7 @@ const WhyUs = () => {
                   inset: 0,
                   background:
                     "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 40%, transparent 100%)",
-                  p: 4,
+                  p: { xs: 3, md: 4 },
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "flex-end",
@@ -79,7 +79,6 @@ const WhyUs = () => {
                     letterSpacing: 2,
                     mb: 1.5,
                     opacity: 0.6,
-                    fontSize: "0.6rem",
                     borderBottom: "1px solid rgba(255,255,255,0.1)",
                     pb: 0.5,
                   }}
@@ -125,12 +124,13 @@ const WhyUs = () => {
           <Grid size={{ xs: 12, md: 4 }}>
             <Box
               sx={{
-                p: 4,
+                p: { xs: 3, md: 4 },
                 bgcolor: "#0A0A0A",
                 borderRadius: "32px",
                 border: "1px solid",
                 borderColor: "rgba(255,255,255,0.05)",
-                height: 550,
+                height: { xs: "auto", md: 550 },
+                minHeight: { xs: 450, md: 550 },
                 display: "flex",
                 flexDirection: "column",
                 position: "relative",
@@ -140,7 +140,7 @@ const WhyUs = () => {
               {/* Radar Graphic Container */}
               <Box
                 sx={{
-                  height: 250,
+                  height: { xs: 200, md: 250 },
                   position: "relative",
                   mb: 4,
                   display: "flex",
@@ -164,8 +164,8 @@ const WhyUs = () => {
 
                 <Box
                   sx={{
-                    width: 160,
-                    height: 160,
+                    width: { xs: 140, md: 160 },
+                    height: { xs: 140, md: 160 },
                     borderRadius: "50%",
                     bgcolor: "rgba(255,255,255,0.02)",
                     border: "1px solid rgba(255,255,255,0.05)",
@@ -224,12 +224,12 @@ const WhyUs = () => {
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{ mb: 4, lineHeight: 1.6, fontSize: "0.9rem" }}
+                sx={{ mb: 4, lineHeight: 1.6 }}
               >
                 {card2.description}
               </Typography>
 
-              <Stack spacing={2.5} sx={{ mt: "auto" }}>
+              <Stack spacing={2.5} sx={{ mt: "auto", mb: { xs: 2, md: 0 } }}>
                 {card2.features.map((feature, i) => (
                   <Stack
                     key={i}
@@ -259,12 +259,13 @@ const WhyUs = () => {
           <Grid size={{ xs: 12, md: 4 }}>
             <Box
               sx={{
-                p: 4,
+                p: { xs: 3, md: 4 },
                 bgcolor: "#0A0A0A",
                 borderRadius: "32px",
                 border: "1px solid",
                 borderColor: "rgba(255,255,255,0.05)",
-                height: 550,
+                height: { xs: "auto", md: 550 },
+                minHeight: { xs: 450, md: 550 },
                 display: "flex",
                 flexDirection: "column",
                 position: "relative",
@@ -277,7 +278,7 @@ const WhyUs = () => {
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{ mb: 4, lineHeight: 1.6, fontSize: "0.9rem" }}
+                sx={{ mb: 4, lineHeight: 1.6 }}
               >
                 {card3.description}
               </Typography>
@@ -294,6 +295,7 @@ const WhyUs = () => {
                   border: "1px solid rgba(255,255,255,0.05)",
                   display: "flex",
                   flexDirection: "column",
+                  minHeight: 200,
                 }}
               >
                 <Stack

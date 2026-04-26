@@ -49,7 +49,6 @@ const ProvenResults = () => {
       sx={{
         bgcolor: "background.default",
         color: "text.primary",
-        py: { xs: 10, md: 15 },
       }}
     >
       <Container maxWidth="lg">
@@ -57,11 +56,11 @@ const ProvenResults = () => {
         <Stack
           direction={{ xs: "column", md: "row" }}
           justifyContent="space-between"
-          alignItems={{ xs: "flex-start", md: "flex-end" }}
-          sx={{ mb: 8 }}
+          alignItems={{ xs: "center", md: "flex-end" }}
+          sx={{ mb: { xs: 6, md: 8 }, textAlign: { xs: "center", md: "left" } }}
           spacing={4}
         >
-          <Box>
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: { xs: "center", md: "flex-start" } }}>
             <SectionBadge text="Results" icon={TrendingUpIcon} />
             <SectionTitle mainText="Proven" italicText="Results" sx={{ mb: 2 }} />
             <Typography variant="body1" sx={{ color: "text.secondary" }}>
@@ -71,7 +70,7 @@ const ProvenResults = () => {
           <CustomButton
             text="Contact Us"
             variant="outlined"
-            sx={{ borderRadius: "999px", px: 4 }}
+            sx={{ borderRadius: "999px", px: 4, width: { xs: "100%", sm: "auto" } }}
           />
         </Stack>
 
@@ -81,11 +80,11 @@ const ProvenResults = () => {
             <motion.div
               key={currentIndex}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              <Grid container spacing={6} alignItems="center">
+              <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center">
                 {/* Left: Project Image */}
                 <Grid size={{ xs: 12, md: 6 }}>
                   <Box
@@ -94,7 +93,7 @@ const ProvenResults = () => {
                       overflow: "hidden",
                       border: "1px solid",
                       borderColor: "divider",
-                      aspectRatio: "1/1",
+                      aspectRatio: { xs: "1.2/1", sm: "1/1" }, // Slightly shorter on mobile
                     }}
                   >
                     <CustomImage
@@ -107,8 +106,8 @@ const ProvenResults = () => {
 
                 {/* Right: Project Metrics and Testimonial */}
                 <Grid size={{ xs: 12, md: 6 }}>
-                  <Box>
-                    <Stack alignItems="center" sx={{ mb: 4 }}>
+                  <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
+                    <Stack alignItems={{ xs: "center", md: "flex-start" }} sx={{ mb: 4 }}>
                       <Stack
                         direction="row"
                         alignItems="center"
@@ -118,14 +117,14 @@ const ProvenResults = () => {
                         <AutoAwesomeIcon sx={{ fontSize: "1rem" }} />
                         <Typography
                           variant="h6"
-                          sx={{ fontSize: "1rem", letterSpacing: 1 }}
+                          sx={{ fontSize: "0.85rem", letterSpacing: 1 }}
                         >
                           {current.logoText}
                         </Typography>
                       </Stack>
                       <Typography
                         variant="h4"
-                        sx={{ mb: 0, fontWeight: 600, textAlign: "center" }}
+                        sx={{ mb: 0, fontWeight: 600 }}
                       >
                         {current.company}
                       </Typography>
@@ -136,7 +135,7 @@ const ProvenResults = () => {
                         <Grid size={6} key={i}>
                           <Box
                             sx={{
-                              p: 3,
+                              p: { xs: 2, md: 3 },
                               bgcolor: "background.paper",
                               borderRadius: "16px",
                               border: "1px solid",
@@ -148,15 +147,15 @@ const ProvenResults = () => {
                             <Box
                               sx={{
                                 position: "absolute",
-                                top: 12,
+                                top: { xs: 8, md: 12 },
                                 left: "50%",
                                 transform: "translateX(-50%)",
                                 opacity: 0.5,
                               }}
                             >
                               <svg
-                                width="16"
-                                height="16"
+                                width="14"
+                                height="14"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
@@ -169,7 +168,11 @@ const ProvenResults = () => {
                             </Box>
                             <Typography
                               variant="h3"
-                              sx={{ fontWeight: 700, mb: 1, mt: 1 }}
+                              sx={{ 
+                                fontWeight: 700, 
+                                mb: 0.5, 
+                                mt: 1.5,
+                              }}
                             >
                               {metric.value}
                             </Typography>
@@ -178,7 +181,7 @@ const ProvenResults = () => {
                               sx={{
                                 color: "text.secondary",
                                 textTransform: "uppercase",
-                                fontSize: "0.7rem",
+                                letterSpacing: 1
                               }}
                             >
                               {metric.label}
@@ -190,22 +193,26 @@ const ProvenResults = () => {
 
                     <Box
                       sx={{
-                        p: 3,
-                        textAlign: "left",
+                        p: { xs: 2, md: 3 },
+                        textAlign: { xs: "center", md: "left" },
+                        bgcolor: "rgba(255,255,255,0.02)",
+                        borderRadius: "16px",
+                        border: "1px solid",
+                        borderColor: "divider",
                       }}
                     >
                       <Stack
                         direction="row"
                         alignItems="center"
-                        justifyContent="flex-start"
+                        justifyContent={{ xs: "center", md: "flex-start" }}
                         spacing={1}
                         sx={{ mb: 2 }}
                       >
                         <Avatar
                           sx={{
-                            width: 35,
-                            height: 35,
-                            fontSize: "1rem",
+                            width: 32,
+                            height: 32,
+                            fontSize: "0.9rem",
                           }}
                         >
                           {current.testimonial.author.charAt(0)}
@@ -230,7 +237,6 @@ const ProvenResults = () => {
                           fontStyle: "italic",
                           mb: 2,
                           color: "text.secondary",
-                          fontSize: "0.85rem",
                           lineHeight: 1.6,
                         }}
                       >
@@ -241,27 +247,28 @@ const ProvenResults = () => {
                         sx={{
                           fontWeight: 700,
                           textTransform: "capitalize",
+                          color: "text.primary"
                         }}
                       >
                         {current.testimonial.author}
                       </Typography>
                     </Box>
 
-                    {/* Navigation Arrows - Repositioned to bottom right of this column */}
+                    {/* Navigation Arrows */}
                     <Stack
                       direction="row"
                       spacing={2}
                       sx={{
                         mt: 4,
-                        justifyContent: "flex-end",
+                        justifyContent: { xs: "center", md: "flex-end" },
                         alignItems: "center",
                       }}
                     >
                       <IconButton
                         onClick={prevSlide}
                         sx={{
-                          width: 40,
-                          height: 40,
+                          width: 44, // Slightly larger for better tap target
+                          height: 44,
                           border: "1px solid",
                           borderColor: "divider",
                           color: "text.primary",
@@ -277,8 +284,8 @@ const ProvenResults = () => {
                       <IconButton
                         onClick={nextSlide}
                         sx={{
-                          width: 40,
-                          height: 40,
+                          width: 44,
+                          height: 44,
                           border: "1px solid",
                           borderColor: "divider",
                           color: "text.primary",

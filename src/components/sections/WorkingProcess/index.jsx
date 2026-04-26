@@ -27,22 +27,25 @@ const ProcessCard = ({
   scale,
   yOffset,
   zIndex,
+  isMobile,
 }) => (
   <MotionBox
     layout
     onClick={onClick}
-    initial={{ scale: 0.95, y: 20 }}
-    animate={{
+    initial={isMobile ? { opacity: 0, y: 20 } : { scale: 0.95, y: 20 }}
+    whileInView={isMobile ? { opacity: 1, y: 0 } : undefined}
+    viewport={{ once: true }}
+    animate={!isMobile ? {
       scale: scale,
       y: yOffset,
       zIndex: zIndex,
-    }}
+    } : {}}
     transition={{ duration: 1.2, ease: "easeInOut" }}
     sx={{
-      position: "absolute",
-      left,
-      p: 4,
-      width: 600,
+      position: isMobile ? "relative" : "absolute",
+      left: isMobile ? 0 : left,
+      p: { xs: 3, md: 4 },
+      width: isMobile ? "100%" : 600,
       borderRadius: "24px",
       color: "text.primary",
       cursor: "pointer",
@@ -55,42 +58,45 @@ const ProcessCard = ({
       boxShadow: isFocused
         ? "inset 0px 1px 0px rgba(255, 255, 255, 0.15), 0px 20px 40px rgba(0, 0, 0, 0.5)"
         : "0px 10px 20px rgba(0, 0, 0, 0.3)",
-      filter: isFocused ? "none" : `blur(${blur}px)`,
+      filter: !isMobile && !isFocused ? `blur(${blur}px)` : "none",
+      mb: isMobile ? 4 : 0, // Spacing between stacked cards on mobile
     }}
   >
     <Box
       sx={{
-        py: 2,
-        px: 2,
+        py: { xs: 1, md: 2 },
+        px: { xs: 1, md: 2 },
         borderRadius: "16px",
         backgroundColor: "transparent",
         position: "relative",
       }}
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <IconButton sx={{ color: "text.primary" }}>
-          <Icon style={{ fontSize: 40 }} color="inherit" />
+        <IconButton sx={{ color: "text.primary", p: 0 }}>
+          <Icon sx={{ fontSize: { xs: 32, md: 40 } }} color="inherit" />
         </IconButton>
 
-        <Stack direction="row" spacing={1}>
-          {[...Array(totalCards)].map((_, i) => (
-            <Box
-              key={i}
-              sx={{
-                width: 8,
-                height: 8,
-                borderRadius: "50%",
-                backgroundColor:
-                  i + 1 === focusedCard ? "text.primary" : "text.secondary",
-                transition: "all 0.3s ease",
-                cursor: "pointer",
-              }}
-            />
-          ))}
-        </Stack>
+        {!isMobile && (
+          <Stack direction="row" spacing={1}>
+            {[...Array(totalCards)].map((_, i) => (
+              <Box
+                key={i}
+                sx={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  backgroundColor:
+                    i + 1 === focusedCard ? "text.primary" : "text.secondary",
+                  transition: "all 0.3s ease",
+                  cursor: "pointer",
+                }}
+              />
+            ))}
+          </Stack>
+        )}
       </Stack>
 
-      <Typography variant="h4" sx={{ mt: 4, mb: 2 }}>
+      <Typography variant="h4" sx={{ mt: { xs: 3, md: 4 }, mb: 2 }}>
         {title}
       </Typography>
       <Typography
@@ -105,7 +111,7 @@ const ProcessCard = ({
         size={"small"}
         disableHover
         sx={{
-          mt: 8,
+          mt: { xs: 4, md: 8 },
           color: "text.secondary",
           borderRadius: "999px",
           px: 3,
@@ -117,6 +123,14 @@ const ProcessCard = ({
 
 const CardSection = () => {
   const [focusedCard, setFocusedCard] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 900);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const cards = [
     {
@@ -146,22 +160,20 @@ const CardSection = () => {
   ];
 
   useEffect(() => {
+    if (isMobile) return;
     const timer = setInterval(() => {
       setFocusedCard((prev) => (prev % cards.length) + 1);
-    }, 6000); // Slower interval
+    }, 6000);
     return () => clearInterval(timer);
-  }, [cards.length]);
+  }, [cards.length, isMobile]);
 
   const cardWidth = 750;
   const overlap = 550;
   const totalWidth = cardWidth + (cards.length - 1) * (cardWidth - overlap);
-  const startLeft = `calc(50% - ${totalWidth / 2}px)`; // center
+  const startLeft = `calc(50% - ${totalWidth / 2}px)`;
 
-  // Reorder cards: [back, middle, front]
-  // if focused is 1: [3, 2, 1]
-  // if focused is 2: [1, 3, 2]
-  // if focused is 3: [2, 1, 3]
   const getOrderedCards = () => {
+    if (isMobile) return cards; // Keep original order for stacking
     const fIdx = cards.findIndex((c) => c.id === focusedCard);
     return [cards[(fIdx + 2) % 3], cards[(fIdx + 1) % 3], cards[fIdx]];
   };
@@ -173,24 +185,24 @@ const CardSection = () => {
         <Box
           sx={{
             position: "relative",
-            minHeight: "100vh",
+            minHeight: isMobile ? "auto" : "100vh",
             height: "100%",
           }}
         >
-          <Box>
+          <Box sx={{ textAlign: { xs: "center", md: "left" }, mb: 2 }}>
             <SectionBadge text="Process" icon={AutoAwesomeIcon} />
           </Box>
           <Stack
-            direction={"row"}
+            direction={{ xs: "column", md: "row" }}
             spacing={4}
-            alignItems={"center"}
+            alignItems={{ xs: "center", md: "center" }}
             justifyContent={"space-between"}
-            sx={{ mb: 16 }}
+            sx={{ mb: { xs: 8, md: 16 }, textAlign: { xs: "center", md: "left" } }}
           >
             <Box>
               <Typography variant="h2" color="text.primary" sx={{ mb: 2 }}>
                 Process is {""}
-                <Typography component="span" variant="gradientText">
+                <Typography component="span" variant="gradientText" sx={{ fontSize: "inherit" }}>
                   Result
                 </Typography>
               </Typography>
@@ -201,37 +213,45 @@ const CardSection = () => {
             <CustomButton
               text={"See Plans"}
               variant="outlined"
-              startIcon={<ArrowOutwardIcon />}
+              icon={<ArrowOutwardIcon />}
+              sx={{ width: { xs: "100%", sm: "auto" } }}
             />
           </Stack>
-          {orderedCards.map((card, index) => {
-            // index 2 = front (focused)
-            // index 1 = middle
-            // index 0 = back
-            const isFocused = card.id === focusedCard;
-            const blur = index === 2 ? 0 : index === 1 ? 2 : 4;
-            const scale = index === 2 ? 1 : index === 1 ? 0.94 : 0.88;
-            const yOffset = index === 2 ? 0 : index === 1 ? 15 : 30;
 
-            return (
-              <ProcessCard
-                key={card.id}
-                title={card.title}
-                description={card.description}
-                step={card.step}
-                icon={card.icon}
-                isFocused={isFocused}
-                blur={blur}
-                onClick={() => setFocusedCard(card.id)}
-                left={`calc(${startLeft} + ${index * (cardWidth - overlap)}px)`}
-                focusedCard={focusedCard}
-                totalCards={cards.length}
-                scale={scale}
-                yOffset={yOffset}
-                zIndex={index}
-              />
-            );
-          })}
+          <Box sx={{ 
+            position: isMobile ? "relative" : "absolute", 
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            gap: isMobile ? 0 : 0
+          }}>
+            {orderedCards.map((card, index) => {
+              const isFocused = card.id === focusedCard;
+              const blur = index === 2 ? 0 : index === 1 ? 2 : 4;
+              const scale = index === 2 ? 1 : index === 1 ? 0.94 : 0.88;
+              const yOffset = index === 2 ? 0 : index === 1 ? 15 : 30;
+
+              return (
+                <ProcessCard
+                  key={card.id}
+                  title={card.title}
+                  description={card.description}
+                  step={card.step}
+                  icon={card.icon}
+                  isFocused={isMobile || isFocused}
+                  blur={blur}
+                  onClick={() => !isMobile && setFocusedCard(card.id)}
+                  left={`calc(${startLeft} + ${index * (cardWidth - overlap)}px)`}
+                  focusedCard={focusedCard}
+                  totalCards={cards.length}
+                  scale={scale}
+                  yOffset={yOffset}
+                  zIndex={index}
+                  isMobile={isMobile}
+                />
+              );
+            })}
+          </Box>
         </Box>
       </Container>
     </Box>
