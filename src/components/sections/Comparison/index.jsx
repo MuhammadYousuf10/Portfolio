@@ -16,7 +16,7 @@ import SectionTitle from "@/components/common/SectionTitle";
 import CustomImage from "@/components/common/CustomImage";
 import CustomButton from "@/components/common/CustomButton";
 import { comparisonData } from "@/data/portfolio";
-import fadeLogo from "@/assests/logo/fade-logo.svg";
+import fadeLogo from "@/assets/logo/fade-logo.svg";
 
 const Comparison = () => {
   const { header, fade, others } = comparisonData;

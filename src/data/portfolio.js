@@ -18,29 +18,29 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
 // Image Imports - Projects
-import atomaiMain from "@/assests/projects/atomai-main.avif";
-import atomaiHover from "@/assests/projects/atomai-hover.avif";
-import landioMain from "@/assests/projects/landio-main.avif";
-import landioHover from "@/assests/projects/landio-hover.avif";
-import poloMain from "@/assests/projects/polo-main.avif";
+import atomaiMain from "@/assets/projects/atomai-main.avif";
+import atomaiHover from "@/assets/projects/atomai-hover.avif";
+import landioMain from "@/assets/projects/landio-main.avif";
+import landioHover from "@/assets/projects/landio-hover.avif";
+import poloMain from "@/assets/projects/polo-main.avif";
 
 // Image Imports - Logos
-import logo1 from "@/assests/projects/project-logo1.avif";
-import logo2 from "@/assests/projects/project-logo2.avif";
-import logo3 from "@/assests/projects/project-logo3.avif";
+import logo1 from "@/assets/projects/project-logo1.avif";
+import logo2 from "@/assets/projects/project-logo2.avif";
+import logo3 from "@/assets/projects/project-logo3.avif";
 
 // Image Imports - Services
-import offer1 from "@/assests/services/what-we-offer1.avif";
-import offer2 from "@/assests/services/what-we-offer2.avif";
+import offer1 from "@/assets/services/what-we-offer1.avif";
+import offer2 from "@/assets/services/what-we-offer2.avif";
 
 // Image Imports - About
-import whoWeAreImg from "@/assests/who-we-are/who-we-are.avif";
-import professionalBgImg from "@/assests/why-us/professional-bg.avif";
+import whoWeAreImg from "@/assets/who-we-are/who-we-are.avif";
+import professionalBgImg from "@/assets/why-us/professional-bg.avif";
 
 // Image Imports - Blogs
-import blog1 from "@/assests/blogs/blog1.avif";
-import blog2 from "@/assests/blogs/blog2.avif";
-import blogBanner from "@/assests/blogs/blog-banner.avif";
+import blog1 from "@/assets/blogs/blog1.avif";
+import blog2 from "@/assets/blogs/blog2.avif";
+import blogBanner from "@/assets/blogs/blog-banner.avif";
 
 export const aboutData = {
   title: "The One Behind",
