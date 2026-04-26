@@ -9,6 +9,7 @@ import {
   Collapse,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import NextLink from "next/link";
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
@@ -103,6 +104,8 @@ const FAQ = () => {
               {faqData.header.description}
             </Typography>
             <CustomButton
+              component={NextLink}
+              href="/contact"
               text={faqData.buttonText}
               variant="glass"
               icon={<ArrowOutwardIcon fontSize="small" />}

@@ -13,8 +13,11 @@ import {
   Rating,
   Snackbar,
   Alert,
+  IconButton,
 } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { contactPageData } from "@/data/portfolio";
 import CustomButton from "@/components/common/CustomButton";
 
@@ -309,23 +312,33 @@ const ContactPage = () => {
                 Connect with me
               </Typography>
               <Stack direction="row" spacing={3}>
-                {contactPageData.socials.map((social, index) => (
-                  <Typography
-                    key={index}
-                    component="a"
-                    href={social.url}
-                    variant="subtitle1"
-                    sx={{
-                      color: "text.primary",
-                      textDecoration: "none",
-                      fontWeight: 600,
-                      transition: "color 0.2s",
-                      "&:hover": { color: "text.secondary" },
-                    }}
-                  >
-                    {social.name}
-                  </Typography>
-                ))}
+                {contactPageData.socials.map((social, index) => {
+                  let IconComponent = null;
+                  if (social.name === "LinkedIn")
+                    IconComponent = <LinkedInIcon fontSize="large" />;
+                  if (social.name === "WhatsApp")
+                    IconComponent = <WhatsAppIcon fontSize="large" />;
+
+                  return (
+                    <IconButton
+                      key={index}
+                      component="a"
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{
+                        color: "text.secondary",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          color: "primary.main",
+                          transform: "scale(1.15)",
+                        },
+                      }}
+                    >
+                      {IconComponent || social.name}
+                    </IconButton>
+                  );
+                })}
               </Stack>
             </Box>
           </Grid>

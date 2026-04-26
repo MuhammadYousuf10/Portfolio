@@ -537,9 +537,8 @@ export const contactPageData = {
     { label: "Average Rating", value: "4.8" },
   ],
   socials: [
-    { name: "Twitter", url: "#", icon: "X" },
-    { name: "Instagram", url: "#", icon: "IG" },
-    { name: "Facebook", url: "#", icon: "FB" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/yousuf-frontenddev", icon: "IN" },
+    { name: "WhatsApp", url: "https://wa.me/92310293747", icon: "WA" },
   ],
   testimonial: {
     rating: 5,
@@ -559,8 +558,9 @@ export const footerData = {
     email: "m.yousufuddin10@gmail.com",
   },
   bottom: {
-    copyright: "© 2025 Fade Template Clone",
+    copyright: "Muhammad Yousuf. All rights reserved.",
     links: [
+      { text: "Download Resume", url: "/resume.pdf" },
       { text: "Made by Muhammad Yousuf", url: "#" },
       { text: "Built with Next.js & MUI", url: "#" },
     ],

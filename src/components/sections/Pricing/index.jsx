@@ -17,6 +17,7 @@ import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 import CustomButton from "@/components/common/CustomButton";
 import SectionBadge from "@/components/common/SectionBadge";
+import NextLink from "next/link";
 
 import { pricingData } from "@/data/portfolio";
 
@@ -172,6 +173,8 @@ const Pricing = () => {
                 </AnimatePresence>
 
                 <CustomButton
+                  component={NextLink}
+                  href="/contact"
                   text={pricingData.buttonText}
                   variant="glass"
                   icon={<ArrowOutwardIcon fontSize="small" />}

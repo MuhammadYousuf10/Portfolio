@@ -17,6 +17,7 @@ import CustomButton from "@/components/common/CustomButton";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import NextLink from "next/link";
 import { provenResults } from "@/data/portfolio";
 import SectionBadge from "@/components/common/SectionBadge";
 import SectionTitle from "@/components/common/SectionTitle";
@@ -78,8 +79,8 @@ const ProvenResults = () => {
             </Typography>
           </Box>
           <CustomButton
-            component="a"
-            href="mailto:m.yousufuddin10@gmail.com"
+            component={NextLink}
+            href="/contact"
             text="Contact Us"
             variant="outlined"
             sx={{

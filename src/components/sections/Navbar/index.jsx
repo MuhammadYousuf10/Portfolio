@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, useMediaQuery } from "@mui/material";
+import { Box, Container, useMediaQuery, IconButton, Tooltip } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useState } from "react";
 import navItems from "@/navigation";
@@ -9,6 +9,7 @@ import ImageWrapper from "@/components/common/ImageWrapper";
 import NextLink from "next/link";
 import MuiLink from "@mui/material/Link";
 import { smoothScrollTo } from "@/utils/scroll";
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -175,7 +176,7 @@ export default function Navbar() {
                         smoothScrollTo(item.path.replace("/#", ""));
                       }
                     }}
-                    variant="h4" // Larger text for mobile links
+                    variant="h4"
                     sx={{ 
                       background: "none", 
                       border: "none", 

@@ -10,6 +10,7 @@ import CustomButton from "@/components/common/CustomButton";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import SectionBadge from "@/components/common/SectionBadge";
+import { smoothScrollTo } from "@/utils/scroll";
 
 const MotionBox = motion.create(Box);
 
@@ -215,6 +216,7 @@ const CardSection = () => {
               variant="outlined"
               icon={<ArrowOutwardIcon />}
               sx={{ width: { xs: "100%", sm: "auto" } }}
+              onClick={() => smoothScrollTo("pricing")}
             />
           </Stack>
 

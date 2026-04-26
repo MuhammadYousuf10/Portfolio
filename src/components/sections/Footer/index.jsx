@@ -12,9 +12,13 @@ import NextLink from "next/link";
 import MuiLink from "@mui/material/Link";
 import CustomButton from "@/components/common/CustomButton";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import { footerData } from "@/data/portfolio";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
+  
   return (
     <Box
       sx={{
@@ -49,18 +53,26 @@ const Footer = () => {
               sx={{ mb: { xs: 6, md: 0 } }}
             >
               <CustomButton
-                component={NextLink}
-                href="/contact"
+                component={pathname === "/contact" ? "button" : NextLink}
+                href={pathname === "/contact" ? undefined : "/contact"}
+                onClick={() => {
+                  if (pathname === "/contact") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
                 text={footerData.contact.buttonText}
                 variant="outlined"
                 icon={<ArrowOutwardIcon />}
                 sx={{ width: { xs: "100%", sm: "auto" } }}
               />
-              <CustomButton 
+               <CustomButton 
                 component="a"
-                href={`mailto:${footerData.contact.email}`}
-                text={footerData.contact.email} 
-                variant="glow" 
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                text="Download CV" 
+                variant="glass" 
+                icon={<DescriptionOutlinedIcon />}
                 sx={{ width: { xs: "100%", sm: "auto" } }}
               />
             </Stack>
@@ -76,7 +88,7 @@ const Footer = () => {
           spacing={3}
         >
           <Typography variant="body2" color="text.secondary" sx={{ opacity: 0.7 }}>
-            {footerData.bottom.copyright}
+            © {new Date().getFullYear()} {footerData.bottom.copyright}
           </Typography>
           <Stack direction="row" spacing={{ xs: 2, sm: 4 }}>
             {footerData.bottom.links.map((link, index) => (
@@ -84,6 +96,8 @@ const Footer = () => {
                 key={index}
                 component={NextLink}
                 href={link.url}
+                target={link.url.endsWith(".pdf") ? "_blank" : undefined}
+                rel={link.url.endsWith(".pdf") ? "noopener noreferrer" : undefined}
                 variant="body2"
                 color="text.secondary"
                 sx={{ 
