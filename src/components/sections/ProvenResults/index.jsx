@@ -82,7 +82,7 @@ const ProvenResults = () => {
             component={NextLink}
             href="/contact"
             text="Contact Us"
-            variant="outlined"
+            variant="glow"
             sx={{
               borderRadius: "999px",
               px: 4,
@@ -99,7 +99,7 @@ const ProvenResults = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               style={{ gridArea: "1 / 1" }}
             >
               <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center">

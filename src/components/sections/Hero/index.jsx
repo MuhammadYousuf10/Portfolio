@@ -185,7 +185,7 @@ const Hero = () => {
                     component={NextLink}
                     href="/projects"
                     text={"View Projects"}
-                    variant="outlined"
+                    variant="glass"
                     icon={<FolderOpenIcon />}
                     sx={{ width: { xs: "100%", sm: "auto" } }}
                   />
@@ -193,7 +193,7 @@ const Hero = () => {
                     component={NextLink}
                     href="/contact"
                     text={"Get Started Now"}
-                    variant="filled"
+                    variant="primary"
                     icon={<ArrowOutwardIcon />}
                     sx={{ width: { xs: "100%", sm: "auto" } }}
                   />

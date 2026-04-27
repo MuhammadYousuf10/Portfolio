@@ -249,7 +249,7 @@ const Comparison = () => {
               component={NextLink}
               href="/contact"
               text={comparisonData.footer.buttonText}
-              variant="glass"
+              variant="glow"
               icon={<ArrowOutwardIcon fontSize="small" />}
               sx={{ flexShrink: 0 }}
             />

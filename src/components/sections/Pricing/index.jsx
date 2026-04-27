@@ -176,7 +176,7 @@ const Pricing = () => {
                   component={NextLink}
                   href="/contact"
                   text={pricingData.buttonText}
-                  variant="glass"
+                  variant="glow"
                   icon={<ArrowOutwardIcon fontSize="small" />}
                   sx={{ width: { xs: "100%", sm: "auto" } }}
                 />

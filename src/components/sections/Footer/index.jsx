@@ -61,7 +61,7 @@ const Footer = () => {
                   }
                 }}
                 text={footerData.contact.buttonText}
-                variant="outlined"
+                variant="glow"
                 icon={<ArrowOutwardIcon />}
                 sx={{ width: { xs: "100%", sm: "auto" } }}
               />

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import CustomButton from "@/components/common/CustomButton";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
@@ -19,6 +19,9 @@ const duplicatedProjects = [
 ];
 
 const LatestProjects = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Box
       component="section"
@@ -106,7 +109,7 @@ const LatestProjects = () => {
 
           <motion.div
             animate={{ x: ["0%", "-33.333333%"] }}
-            transition={{ repeat: Infinity, ease: "linear", duration: 25 }} // Slower speed for better readability
+            transition={{ repeat: Infinity, ease: "linear", duration: isMobile ? 8 : 15 }} 
             style={{ display: "flex", gap: "24px", paddingLeft: "24px" }}
           >
             {duplicatedProjects.map((project, index) => (

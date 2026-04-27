@@ -14,6 +14,7 @@ import {
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import ProjectCard from "@/components/common/ProjectCard";
 import CustomButton from "@/components/common/CustomButton";
+import NextLink from "next/link";
 import { projects, projectsPageData } from "@/data/portfolio";
 
 const ProjectsPage = () => {
@@ -78,8 +79,10 @@ const ProjectsPage = () => {
           </Stack>
 
           <CustomButton
+            component={NextLink}
+            href="/contact"
             text={header.buttonText}
-            variant="glass"
+            variant="glow"
             icon={<ArrowOutwardIcon fontSize="small" />}
           />
         </Box>

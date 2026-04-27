@@ -107,7 +107,7 @@ const FAQ = () => {
               component={NextLink}
               href="/contact"
               text={faqData.buttonText}
-              variant="glass"
+              variant="glow"
               icon={<ArrowOutwardIcon fontSize="small" />}
               sx={{ width: { xs: "100%", sm: "auto" } }}
             />

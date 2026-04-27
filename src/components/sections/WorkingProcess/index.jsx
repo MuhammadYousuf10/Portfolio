@@ -36,17 +36,23 @@ const ProcessCard = ({
     initial={isMobile ? { opacity: 0, y: 20 } : { scale: 0.95, y: 20 }}
     whileInView={isMobile ? { opacity: 1, y: 0 } : undefined}
     viewport={{ once: true }}
-    animate={!isMobile ? {
+    animate={isMobile ? {
+      scale: 1,
+      y: 0,
+      opacity: 1,
+    } : {
       scale: scale,
       y: yOffset,
       zIndex: zIndex,
-    } : {}}
-    transition={{ duration: 1.2, ease: "easeInOut" }}
+    }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
     sx={{
       position: isMobile ? "relative" : "absolute",
       left: isMobile ? 0 : left,
       p: { xs: 3, md: 4 },
-      width: isMobile ? "100%" : 600,
+      width: "100%",
+      maxWidth: isMobile ? "none" : 750,
+      margin: isMobile ? "0 auto" : "unset",
       borderRadius: "24px",
       color: "text.primary",
       cursor: "pointer",
@@ -225,6 +231,7 @@ const CardSection = () => {
             width: "100%",
             display: "flex",
             flexDirection: "column",
+            alignItems: "stretch", // Stretch to full width on mobile
             gap: isMobile ? 0 : 0
           }}>
             {orderedCards.map((card, index) => {
