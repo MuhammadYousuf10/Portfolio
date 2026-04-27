@@ -10,7 +10,12 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals"),
+  {
+    ignores: [".next/**", "node_modules/**"],
+  },
+  ...compat.config({
+    extends: ["next/core-web-vitals"],
+  }),
   {
     rules: {
       "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
@@ -24,3 +29,4 @@ const eslintConfig = [
 ];
 
 export default eslintConfig;
+

@@ -36,22 +36,26 @@ const ProcessCard = ({
     initial={isMobile ? { opacity: 0, y: 20 } : { scale: 0.95, y: 20 }}
     whileInView={isMobile ? { opacity: 1, y: 0 } : undefined}
     viewport={{ once: true }}
-    animate={isMobile ? {
-      scale: 1,
-      y: 0,
-      opacity: 1,
-    } : {
-      scale: scale,
-      y: yOffset,
-      zIndex: zIndex,
-    }}
+    animate={
+      isMobile
+        ? {
+            scale: 1,
+            y: 0,
+            opacity: 1,
+          }
+        : {
+            scale: scale,
+            y: yOffset,
+            zIndex: zIndex,
+          }
+    }
     transition={{ duration: 0.8, ease: "easeOut" }}
     sx={{
       position: isMobile ? "relative" : "absolute",
       left: isMobile ? 0 : left,
       p: { xs: 3, md: 4 },
       width: "100%",
-      maxWidth: isMobile ? "none" : 750,
+      maxWidth: isMobile ? "none" : 600,
       margin: isMobile ? "0 auto" : "unset",
       borderRadius: "24px",
       color: "text.primary",
@@ -128,43 +132,29 @@ const ProcessCard = ({
   </MotionBox>
 );
 
+import { processData } from "@/data/portfolio";
+
+const iconMap = {
+  SearchIcon: SearchIcon,
+  DesignServicesIcon: DesignServicesIcon,
+  RocketLaunchIcon: RocketLaunchIcon,
+};
+
 const CardSection = () => {
   const [focusedCard, setFocusedCard] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 900);
+    const handleResize = () => setIsMobile(window.innerWidth < 1000);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const cards = [
-    {
-      id: 1,
-      title: "Discover your brand",
-      description:
-        "We'll dive into your vision, audience, and goals to align design with purpose and clarity.",
-      icon: SearchIcon,
-      step: "1",
-    },
-    {
-      id: 2,
-      title: "Design with clarity",
-      description:
-        "We translate strategy into visuals—crafted to be clean, consistent, memorable, and always on-brand.",
-      icon: DesignServicesIcon,
-      step: "2",
-    },
-    {
-      id: 3,
-      title: "Deliver and refine with care",
-      description:
-        "Final designs are shared for review, with feedback shaping the perfect result every time.",
-      icon: RocketLaunchIcon,
-      step: "3",
-    },
-  ];
+  const cards = processData.steps.map((step) => ({
+    ...step,
+    icon: iconMap[step.icon],
+  }));
 
   useEffect(() => {
     if (isMobile) return;
@@ -174,8 +164,10 @@ const CardSection = () => {
     return () => clearInterval(timer);
   }, [cards.length, isMobile]);
 
-  const cardWidth = 750;
-  const overlap = 550;
+
+  const cardWidth = 600;
+  const overlap = 450;
+
   const totalWidth = cardWidth + (cards.length - 1) * (cardWidth - overlap);
   const startLeft = `calc(50% - ${totalWidth / 2}px)`;
 
@@ -187,7 +179,7 @@ const CardSection = () => {
   const orderedCards = getOrderedCards();
 
   return (
-    <Box component="section" id="process">
+    <Box component="section" id="process" sx={{ overflowX: "hidden" }}>
       <Container maxWidth="lg">
         <Box
           sx={{
@@ -204,17 +196,24 @@ const CardSection = () => {
             spacing={4}
             alignItems={{ xs: "center", md: "center" }}
             justifyContent={"space-between"}
-            sx={{ mb: { xs: 8, md: 16 }, textAlign: { xs: "center", md: "left" } }}
+            sx={{
+              mb: { xs: 8, md: 16 },
+              textAlign: { xs: "center", md: "left" },
+            }}
           >
             <Box>
               <Typography variant="h2" color="text.primary" sx={{ mb: 2 }}>
-                Process is {""}
-                <Typography component="span" variant="gradientText" sx={{ fontSize: "inherit" }}>
-                  Result
+                {processData.header.mainText} {""}
+                <Typography
+                  component="span"
+                  variant="gradientText"
+                  sx={{ fontSize: "inherit" }}
+                >
+                  {processData.header.italicText}
                 </Typography>
               </Typography>
               <Typography variant="body1" color="text.secondary">
-                Thoughtful, intentional design is what makes brands stand out.
+                {processData.header.description}
               </Typography>
             </Box>
             <CustomButton
@@ -226,14 +225,16 @@ const CardSection = () => {
             />
           </Stack>
 
-          <Box sx={{ 
-            position: isMobile ? "relative" : "absolute", 
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "stretch", // Stretch to full width on mobile
-            gap: isMobile ? 0 : 0
-          }}>
+          <Box
+            sx={{
+              position: isMobile ? "relative" : "absolute",
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "stretch", // Stretch to full width on mobile
+              gap: isMobile ? 0 : 0,
+            }}
+          >
             {orderedCards.map((card, index) => {
               const isFocused = card.id === focusedCard;
               const blur = index === 2 ? 0 : index === 1 ? 2 : 4;

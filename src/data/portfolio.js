@@ -43,6 +43,11 @@ import blog2 from "@/assets/blogs/blog2.avif";
 import blogBanner from "@/assets/blogs/blog-banner.avif";
 
 export const aboutData = {
+  header: {
+    badge: "Who We Are",
+    mainText: "The One Behind",
+    italicText: "The Wheel",
+  },
   title: "The One Behind",
   subtitle: "The Wheel",
   image: professionalBgImg,
@@ -88,6 +93,7 @@ export const aboutData = {
 
 export const whyUsData = {
   header: {
+    badge: "Why Us",
     mainText: "Why Even",
     italicText: "Us",
     description:
@@ -118,6 +124,7 @@ export const whyUsData = {
 
 export const comparisonData = {
   header: {
+    badge: "Comparison",
     mainText: "Comparison",
     italicText: "Table",
     description:
@@ -156,6 +163,7 @@ export const comparisonData = {
 
 export const pricingData = {
   header: {
+    badge: "Pricing",
     mainText: "Simple Pricing,",
     italicText: "No Surprises",
     description:
@@ -385,6 +393,7 @@ export const provenResults = [
 
 export const faqData = {
   header: {
+    badge: "FAQ",
     mainText: "Your Questions",
     italicText: "Answered",
     description:
@@ -417,6 +426,7 @@ export const faqData = {
 
 export const blogData = {
   header: {
+    badge: "Blog",
     mainText: "Our Latest",
     italicText: "Insights",
     description:
@@ -547,6 +557,115 @@ export const contactPageData = {
   },
 };
 
+export const servicesHeader = {
+  badge: "Services",
+  mainText: "What We",
+  italicText: "Offer",
+  description: "Our services blend strategy and creativity to deliver impact.",
+};
+
+export const projectsHeader = {
+  badge: "Projects",
+  mainText: "Our Latest",
+  italicText: "Projects",
+  description: "Our projects showcase creativity and impact in every detail.",
+  buttonText: "See All Projects",
+};
+
+export const heroData = {
+  title: "Building brands to drive Results",
+  description: "We merge bold strategy, compelling storytelling, and timeless design to craft unforgettable brand experiences that truly resonate.",
+  profileImg: "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=512",
+  bgImg: "https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=2048",
+  rating: 4.7,
+  clients: "10+",
+  circularText: "Sr. Frontend Eng.",
+};
+
+export const processData = {
+  header: {
+    mainText: "Process is",
+    italicText: "Result",
+    description: "Thoughtful, intentional design is what makes brands stand out.",
+  },
+  steps: [
+    {
+      id: 1,
+      title: "Discover your brand",
+      description: "We'll dive into your vision, audience, and goals to align design with purpose and clarity.",
+      icon: "SearchIcon",
+      step: "1",
+    },
+    {
+      id: 2,
+      title: "Design with clarity",
+      description: "We translate strategy into visuals—crafted to be clean, consistent, memorable, and always on-brand.",
+      icon: "DesignServicesIcon",
+      step: "2",
+    },
+    {
+      id: 3,
+      title: "Deliver and refine with care",
+      description: "Final designs are shared for review, with feedback shaping the perfect result every time.",
+      icon: "RocketLaunchIcon",
+      step: "3",
+    },
+  ],
+};
+
+export const testimonialsData = {
+  header: {
+    badge: "Testimonials",
+    trustedText: "Audience worldwide",
+  },
+  items: [
+    {
+      username: "@DesignGenius87",
+      name: "pot mov",
+      quote: "Adrian took our ideas and turned them into an impressive digital experience that feels fresh and strategic.",
+    },
+    {
+      username: "@michelle56704",
+      name: "james carter",
+      quote: "Adrian delivered a bold, modern design that captured our vision and elevated our entire brand presence.",
+    },
+    {
+      username: "@CreativEdge",
+      name: "sarah smith",
+      quote: "The attention to detail and unique perspective Adrian brings is unmatched. Our conversion rates have skyrocketed.",
+    },
+    {
+      username: "@BrandMaster",
+      name: "alex johnson",
+      quote: "Working with Fade Studio was the best decision for our startup. Clean design and perfect execution.",
+    },
+    {
+      username: "@WebWizard",
+      name: "lisa wong",
+      quote: "Seamless collaboration and stunning results. They really understand modern aesthetics and UX.",
+    },
+    {
+      username: "@TechLead_99",
+      name: "mark davis",
+      quote: "Highly recommended for anyone looking to stand out. The designs are not just pretty, they work.",
+    },
+  ],
+  avatars: [
+    "https://i.pravatar.cc/150?u=1",
+    "https://i.pravatar.cc/150?u=2",
+    "https://i.pravatar.cc/150?u=3",
+    "https://i.pravatar.cc/150?u=4",
+  ]
+};
+
+export const provenResultsHeader = {
+  badge: "Results",
+  mainText: "Proven",
+  italicText: "Results",
+  description: "Simple, streamlined process is what gets you results",
+};
+
+
 export const footerData = {
   header: {
     badge: "Reach out anytime",
@@ -555,6 +674,7 @@ export const footerData = {
   },
   contact: {
     buttonText: "Contact Me",
+    downloadCVText: "Download CV",
     email: "m.yousufuddin10@gmail.com",
   },
   bottom: {
@@ -566,5 +686,3 @@ export const footerData = {
     ],
   },
 };
-
-

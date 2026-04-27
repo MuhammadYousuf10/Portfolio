@@ -36,7 +36,7 @@ const About = () => {
     >
       <Container maxWidth="lg">
         <Box sx={{ mb: 8, textAlign: "center" }}>
-          <SectionBadge text="Who We Are" icon={InfoIcon} />
+          <SectionBadge text={aboutData.header.badge} icon={InfoIcon} />
         </Box>
 
         <Grid container spacing={6} alignItems="flex-start">

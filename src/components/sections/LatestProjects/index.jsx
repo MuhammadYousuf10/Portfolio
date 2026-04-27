@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import CustomButton from "@/components/common/CustomButton";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import BrandLogoMarquee from "@/components/common/BrandLogoMarquee";
-import { projects as portfolioProjects } from "@/data/portfolio";
+import { projects as portfolioProjects, projectsHeader } from "@/data/portfolio";
 import SectionBadge from "@/components/common/SectionBadge";
 import ProjectCard from "@/components/common/ProjectCard";
 import NextLink from "next/link";
@@ -52,15 +52,15 @@ const LatestProjects = () => {
             alignItems: "center",
           }}
         >
-          <SectionBadge text="Projects" />
+          <SectionBadge text={projectsHeader.badge} />
           <Typography variant="h2" sx={{ mb: 2 }}>
-            Our Latest{" "}
+            {projectsHeader.mainText}{" "}
             <Typography
               component="span"
               variant="gradientText"
               sx={{ fontSize: "inherit" }}
             >
-              Projects
+              {projectsHeader.italicText}
             </Typography>
           </Typography>
           <Typography
@@ -68,12 +68,12 @@ const LatestProjects = () => {
             color="text.secondary"
             sx={{ maxWidth: 500, mb: 4 }}
           >
-            Our projects showcase creativity and impact in every detail.
+            {projectsHeader.description}
           </Typography>
           <CustomButton
             component={NextLink}
             href="/projects"
-            text="See All Projects"
+            text={projectsHeader.buttonText}
             variant="glass"
             icon={<ArrowOutwardIcon fontSize="small" />}
             sx={{ width: { xs: "100%", sm: "auto" } }}

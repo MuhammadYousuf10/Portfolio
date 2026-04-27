@@ -40,7 +40,7 @@ const Pricing = () => {
       <Container maxWidth="lg">
         {/* Header */}
         <Box sx={{ textAlign: "center", mb: { xs: 5, md: 5.5 } }}>
-          <SectionBadge text="Pricing" icon={LocalOfferOutlinedIcon} />
+          <SectionBadge text={pricingData.header.badge} icon={LocalOfferOutlinedIcon} />
 
           <Typography
             component="h2"

@@ -16,50 +16,12 @@ import RateReviewIcon from "@mui/icons-material/RateReview";
 import SectionBadge from "@/components/common/SectionBadge";
 import Counter from "@/components/common/Counter";
 import theme from "@/theme/theme";
-
-const testimonials = [
-  {
-    username: "@DesignGenius87",
-    name: "pot mov",
-    quote:
-      "Adrian took our ideas and turned them into an impressive digital experience that feels fresh and strategic.",
-  },
-  {
-    username: "@michelle56704",
-    name: "james carter",
-    quote:
-      "Adrian delivered a bold, modern design that captured our vision and elevated our entire brand presence.",
-  },
-  {
-    username: "@CreativEdge",
-    name: "sarah smith",
-    quote:
-      "The attention to detail and unique perspective Adrian brings is unmatched. Our conversion rates have skyrocketed.",
-  },
-  {
-    username: "@BrandMaster",
-    name: "alex johnson",
-    quote:
-      "Working with Fade Studio was the best decision for our startup. Clean design and perfect execution.",
-  },
-  {
-    username: "@WebWizard",
-    name: "lisa wong",
-    quote:
-      "Seamless collaboration and stunning results. They really understand modern aesthetics and UX.",
-  },
-  {
-    username: "@TechLead_99",
-    name: "mark davis",
-    quote:
-      "Highly recommended for anyone looking to stand out. The designs are not just pretty, they work.",
-  },
-];
+import { testimonialsData } from "@/data/portfolio";
 
 const duplicatedTestimonials = [
-  ...testimonials,
-  ...testimonials,
-  ...testimonials,
+  ...testimonialsData.items,
+  ...testimonialsData.items,
+  ...testimonialsData.items,
 ];
 
 const TestimonialCard = ({ testimonial }) => (
@@ -191,7 +153,7 @@ const Testimonials = () => {
 
       <Container maxWidth="lg">
         <Box sx={{ mb: { xs: 6, md: 8 }, textAlign: "center" }}>
-          <SectionBadge text="Testimonials" icon={RateReviewIcon} />
+          <SectionBadge text={testimonialsData.header.badge} icon={RateReviewIcon} />
         </Box>
         <Box sx={{ mb: 8 }}>
           <TestimonialRow
@@ -217,15 +179,14 @@ const Testimonials = () => {
           sx={{ mt: { xs: 4, md: 8 }, opacity: 0.8, textAlign: "center" }}
         >
           <AvatarGroup max={4}>
-            <Avatar alt="User 1" src="https://i.pravatar.cc/150?u=1" />
-            <Avatar alt="User 2" src="https://i.pravatar.cc/150?u=2" />
-            <Avatar alt="User 3" src="https://i.pravatar.cc/150?u=3" />
-            <Avatar alt="User 4" src="https://i.pravatar.cc/150?u=4" />
+            {testimonialsData.avatars.map((avatar, i) => (
+              <Avatar key={i} alt={`User ${i + 1}`} src={avatar} />
+            ))}
           </AvatarGroup>
           <Typography variant="body2" sx={{ color: "text.secondary", fontSize: { xs: "0.8rem", md: "0.875rem" } }}>
             Trusted by{" "}
             <Counter
-              value="10,000+"
+              value={testimonialsData.header.trustedText.split(" Audience")[0]}
               sx={{ fontWeight: 700, color: "text.primary", fontSize: "inherit" }}
             />{" "}
             Audience worldwide

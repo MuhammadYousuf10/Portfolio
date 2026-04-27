@@ -15,6 +15,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import CustomButton from "@/components/common/CustomButton";
 import { faqData } from "@/data/portfolio";
+import SectionBadge from "@/components/common/SectionBadge";
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
   return (

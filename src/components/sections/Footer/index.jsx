@@ -70,7 +70,7 @@ const Footer = () => {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                text="Download CV" 
+                text={footerData.contact.downloadCVText} 
                 variant="glass" 
                 icon={<DescriptionOutlinedIcon />}
                 sx={{ width: { xs: "100%", sm: "auto" } }}

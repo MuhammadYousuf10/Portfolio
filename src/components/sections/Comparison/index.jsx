@@ -34,7 +34,7 @@ const Comparison = () => {
     >
       <Container maxWidth="lg">
         <Box sx={{ textAlign: "center", mb: { xs: 5, md: 6 } }}>
-          <SectionBadge text="Comparison" icon={VerifiedIcon} />
+          <SectionBadge text={header.badge} icon={VerifiedIcon} />
 
           <SectionTitle
             mainText={header.mainText}

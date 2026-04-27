@@ -20,6 +20,7 @@ import FolderOpenIcon from "@mui/icons-material/FolderOpen";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import NextLink from "next/link";
 import { smoothScrollTo } from "@/utils/scroll";
+import { heroData } from "@/data/portfolio";
 
 const Hero = () => {
   const theme = useTheme();
@@ -88,7 +89,7 @@ const Hero = () => {
         }}
       >
         <ImageWrapper
-          src="https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=2048"
+          src={heroData.bgImg}
           alt="bg"
           fill
           style={{ objectFit: "cover" }}
@@ -146,7 +147,7 @@ const Hero = () => {
                       textAlign: { xs: "center", md: "left" },
                     }}
                   >
-                    Building brands to drive{" "}
+                    {heroData.title.split(" Results")[0]}{" "}
                     <Typography component="span" variant="gradientText">
                       Results
                     </Typography>
@@ -170,9 +171,7 @@ const Hero = () => {
                     mx: { xs: "auto", md: 0 },
                   }}
                 >
-                  We merge bold strategy, compelling storytelling, and timeless
-                  design to craft unforgettable brand experiences that truly
-                  resonate.
+                  {heroData.description}
                 </Typography>
                 <Stack
                   direction={{ xs: "column", sm: "row" }} // Stack on mobile
@@ -261,7 +260,7 @@ const Hero = () => {
                     }}
                   >
                     <ImageWrapper
-                      src="https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=512"
+                      src={heroData.profileImg}
                       alt="profile pic"
                       width={isMobile ? 240 : 280}
                       height={isMobile ? 240 : 280}
@@ -271,7 +270,7 @@ const Hero = () => {
                   <Box sx={{ mt: 2 }}>
                     <Rating
                       name="half-rating"
-                      defaultValue={4.7}
+                      defaultValue={heroData.rating}
                       precision={0.5}
                       max={5}
                       size={isMobile ? "medium" : "large"}
@@ -288,9 +287,9 @@ const Hero = () => {
                   </Box>
                   <Box>
                     <Typography variant="body1" sx={{ fontSize: isMobile ? "0.85rem" : "1rem" }}>
-                      <Counter value="4.7" sx={{ fontWeight: "inherit" }} />
+                      <Counter value={heroData.rating.toString()} sx={{ fontWeight: "inherit" }} />
                       /5 stars (
-                      <Counter value="10+" sx={{ fontWeight: "inherit" }} />
+                      <Counter value={heroData.clients} sx={{ fontWeight: "inherit" }} />
                       Clients)
                     </Typography>
                   </Box>
@@ -303,7 +302,7 @@ const Hero = () => {
                     }}
                   >
                     <CircularText
-                      text="Sr. Frontend Eng."
+                      text={heroData.circularText}
                       size={isMobile ? 90 : 150} // Responsive size
                       fontSize={isMobile ? 9 : 12}
                     />

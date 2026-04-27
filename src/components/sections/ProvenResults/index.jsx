@@ -18,7 +18,7 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import NextLink from "next/link";
-import { provenResults } from "@/data/portfolio";
+import { provenResults, provenResultsHeader } from "@/data/portfolio";
 import SectionBadge from "@/components/common/SectionBadge";
 import SectionTitle from "@/components/common/SectionTitle";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
@@ -69,14 +69,14 @@ const ProvenResults = () => {
               alignItems: { xs: "center", md: "flex-start" },
             }}
           >
-            <SectionBadge text="Results" icon={TrendingUpIcon} />
+            <SectionBadge text={provenResultsHeader.badge} icon={TrendingUpIcon} />
             <SectionTitle
-              mainText="Proven"
-              italicText="Results"
+              mainText={provenResultsHeader.mainText}
+              italicText={provenResultsHeader.italicText}
               sx={{ mb: 2 }}
             />
             <Typography variant="body1" sx={{ color: "text.secondary" }}>
-              Simple, streamlined process is what gets you results
+              {provenResultsHeader.description}
             </Typography>
           </Box>
           <CustomButton
