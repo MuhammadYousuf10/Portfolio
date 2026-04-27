@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Container,
@@ -20,6 +20,14 @@ import { projects, projectsPageData } from "@/data/portfolio";
 
 const ProjectsPage = () => {
   const { header, trustedAvatars } = projectsPageData;
+  const [visibleCount, setVisibleCount] = useState(2);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 2);
+  };
+
+  const visibleProjects = projects.slice(0, visibleCount);
+  const hasMore = visibleCount < projects.length;
 
   return (
     <Box
@@ -90,7 +98,7 @@ const ProjectsPage = () => {
 
         {/* Projects Grid */}
         <Grid container spacing={4} sx={{ mb: 8 }}>
-          {projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <Grid size={{ xs: 12, md: 6 }} key={index}>
               <ProjectCard project={project} />
             </Grid>
@@ -98,18 +106,21 @@ const ProjectsPage = () => {
         </Grid>
 
         {/* Load More Button */}
-        <Box sx={{ display: "flex", justifyContent: "center", mb: 12 }}>
-          <CustomButton
-            text="Load More"
-            variant="glass"
-            sx={{
-              px: 4,
-              py: 1.5,
-              fontSize: "0.9rem",
-              fontWeight: 600,
-            }}
-          />
-        </Box>
+        {hasMore && (
+          <Box sx={{ display: "flex", justifyContent: "center", mb: 12 }}>
+            <CustomButton
+              text="Load More"
+              variant="glass"
+              onClick={handleLoadMore}
+              sx={{
+                px: 4,
+                py: 1.5,
+                fontSize: "0.9rem",
+                fontWeight: 600,
+              }}
+            />
+          </Box>
+        )}
       </Container>
     </Box>
   );
