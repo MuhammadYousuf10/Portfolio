@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Container,
@@ -93,6 +92,7 @@ const Hero = () => {
           alt="bg"
           fill
           style={{ objectFit: "cover" }}
+          priority
         />
       </Box>
       {/* Overlay to dim the background */}

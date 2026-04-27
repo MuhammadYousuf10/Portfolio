@@ -18,7 +18,7 @@ import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const pathname = usePathname();
-  
+
   return (
     <Box
       sx={{
@@ -33,22 +33,34 @@ const Footer = () => {
           container
           spacing={4}
           alignItems="center"
-          justifyContent="center"
+          justifyContent="space-between"
           sx={{ textAlign: { xs: "center", md: "left" } }}
         >
           <Grid size={{ xs: 12, md: 8 }}>
-            <Typography variant="h6" color="text.secondary" gutterBottom sx={{ fontSize: "0.85rem", opacity: 0.8 }}>
+            <Typography
+              variant="h6"
+              color="text.secondary"
+              gutterBottom
+              sx={{ fontSize: "0.85rem", opacity: 0.8 }}
+            >
               {footerData.header.badge}
             </Typography>
             <Typography variant="h2" sx={{ mb: 2 }}>
               {footerData.header.title}
             </Typography>
-            <Typography variant="body1" sx={{ maxWidth: { xs: "100%", md: 450 }, mb: 4, mx: { xs: "auto", md: 0 } }}>
+            <Typography
+              variant="body1"
+              sx={{
+                maxWidth: { xs: "100%", md: 450 },
+                mb: 4,
+                mx: { xs: "auto", md: 0 },
+              }}
+            >
               {footerData.header.description}
             </Typography>
-            <Stack 
-              direction={{ xs: "column", sm: "row" }} 
-              spacing={2} 
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={2}
               justifyContent={{ xs: "center", md: "flex-start" }}
               sx={{ mb: { xs: 6, md: 0 } }}
             >
@@ -65,13 +77,13 @@ const Footer = () => {
                 icon={<ArrowOutwardIcon />}
                 sx={{ width: { xs: "100%", sm: "auto" } }}
               />
-               <CustomButton 
+              <CustomButton
                 component="a"
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                text={footerData.contact.downloadCVText} 
-                variant="glass" 
+                text={footerData.contact.downloadCVText}
+                variant="glass"
                 icon={<DescriptionOutlinedIcon />}
                 sx={{ width: { xs: "100%", sm: "auto" } }}
               />
@@ -79,7 +91,9 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        <Divider sx={{ my: { xs: 6, md: 8 }, borderColor: "divider", opacity: 0.5 }} />
+        <Divider
+          sx={{ my: { xs: 6, md: 8 }, borderColor: "divider", opacity: 0.5 }}
+        />
 
         <Stack
           direction={{ xs: "column-reverse", md: "row" }}
@@ -87,7 +101,11 @@ const Footer = () => {
           alignItems="center"
           spacing={3}
         >
-          <Typography variant="body2" color="text.secondary" sx={{ opacity: 0.7 }}>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{ opacity: 0.7 }}
+          >
             © {new Date().getFullYear()} {footerData.bottom.copyright}
           </Typography>
           <Stack direction="row" spacing={{ xs: 2, sm: 4 }}>
@@ -97,14 +115,16 @@ const Footer = () => {
                 component={NextLink}
                 href={link.url}
                 target={link.url.endsWith(".pdf") ? "_blank" : undefined}
-                rel={link.url.endsWith(".pdf") ? "noopener noreferrer" : undefined}
+                rel={
+                  link.url.endsWith(".pdf") ? "noopener noreferrer" : undefined
+                }
                 variant="body2"
                 color="text.secondary"
-                sx={{ 
+                sx={{
                   textDecoration: "none",
                   fontWeight: 500,
                   transition: "all 0.3s ease",
-                  "&:hover": { color: "text.primary" }
+                  "&:hover": { color: "text.primary" },
                 }}
               >
                 {link.text}

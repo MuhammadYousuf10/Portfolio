@@ -109,14 +109,15 @@ const ContactPage = () => {
             </Typography>
 
             <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-              <Grid container spacing={3}>
+              <Grid container spacing={3} suppressHydrationWarning>
                 <Grid size={{ xs: 12, sm: 6 }}>
                   <Typography
-                    variant="caption"
+                    variant="body2"
                     sx={{
                       mb: 1,
                       display: "block",
                       color: errors.name ? "error.main" : "text.secondary",
+                      fontWeight: 600,
                     }}
                   >
                     What's your name?
@@ -131,7 +132,6 @@ const ContactPage = () => {
                     InputProps={{
                       disableUnderline: false,
                       sx: {
-                        fontSize: "1.1rem",
                         py: 1,
                         "&:before": { borderColor: "rgba(255,255,255,0.1)" },
                         "&:after": { borderColor: "#fff" },
@@ -141,11 +141,12 @@ const ContactPage = () => {
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }}>
                   <Typography
-                    variant="caption"
+                    variant="body2"
                     sx={{
                       mb: 1,
                       display: "block",
                       color: errors.email ? "error.main" : "text.secondary",
+                      fontWeight: 600,
                     }}
                   >
                     What's your email?
@@ -166,7 +167,6 @@ const ContactPage = () => {
                     InputProps={{
                       disableUnderline: false,
                       sx: {
-                        fontSize: "1.1rem",
                         py: 1,
                         "&:before": { borderColor: "rgba(255,255,255,0.1)" },
                         "&:after": { borderColor: "#fff" },
@@ -176,11 +176,12 @@ const ContactPage = () => {
                 </Grid>
                 <Grid size={{ xs: 12 }}>
                   <Typography
-                    variant="caption"
+                    variant="body2"
                     sx={{
                       mb: 1,
                       display: "block",
                       color: errors.service ? "error.main" : "text.secondary",
+                      fontWeight: 600,
                     }}
                   >
                     What service are you looking for?
@@ -197,7 +198,6 @@ const ContactPage = () => {
                     InputProps={{
                       disableUnderline: false,
                       sx: {
-                        fontSize: "1.1rem",
                         py: 1,
                         "&:before": { borderColor: "rgba(255,255,255,0.1)" },
                         "&:after": { borderColor: "#fff" },
@@ -207,11 +207,12 @@ const ContactPage = () => {
                 </Grid>
                 <Grid size={{ xs: 12 }}>
                   <Typography
-                    variant="caption"
+                    variant="body2"
                     sx={{
                       mb: 1,
                       display: "block",
                       color: errors.message ? "error.main" : "text.secondary",
+                      fontWeight: 600,
                     }}
                   >
                     Tell me about your project
@@ -230,7 +231,6 @@ const ContactPage = () => {
                     InputProps={{
                       disableUnderline: false,
                       sx: {
-                        fontSize: "1.1rem",
                         py: 1,
                         "&:before": { borderColor: "rgba(255,255,255,0.1)" },
                         "&:after": { borderColor: "#fff" },
@@ -266,25 +266,36 @@ const ContactPage = () => {
               })}
             >
               {/* Stats */}
-              <Stack spacing={4} sx={{ mb: 8 }}>
+              <Grid container spacing={2} sx={{ mb: 5 }}>
                 {contactPageData.stats.map((stat, index) => (
-                  <Box key={index}>
+                  <Grid size={{ xs: 12 }} key={index}>
                     <Typography
-                      variant="caption"
+                      variant="subtitle2"
                       sx={{
                         color: "text.secondary",
-                        mb: 0.5,
-                        display: "block",
+                        mb: 0,
                       }}
                     >
                       {stat.label}
                     </Typography>
-                    <Typography variant="h3" sx={{ fontWeight: 700 }}>
-                      <Counter value={stat.value} sx={{ fontWeight: "inherit" }} />
+                    <Typography
+                      variant="h3"
+                      sx={{
+                        color: "text.primary",
+                      }}
+                    >
+                      <Counter
+                        value={stat.value}
+                        sx={{
+                          fontWeight: "inherit",
+                          fontSize: "inherit",
+                          color: "inherit",
+                        }}
+                      />
                     </Typography>
-                  </Box>
+                  </Grid>
                 ))}
-              </Stack>
+              </Grid>
 
               {/* Testimonial */}
               <Box sx={{ mb: 8 }}>

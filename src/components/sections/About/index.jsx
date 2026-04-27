@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import {
   Box,
   Container,
@@ -17,7 +16,6 @@ import SectionBadge from "@/components/common/SectionBadge";
 import InfoIcon from "@mui/icons-material/Info";
 import { aboutData } from "@/data/portfolio";
 import LineHeader from "@/components/common/LineHeader";
-import CustomButton from "@/components/common/CustomButton";
 import Counter from "@/components/common/Counter";
 
 const About = () => {

@@ -40,7 +40,10 @@ const Pricing = () => {
       <Container maxWidth="lg">
         {/* Header */}
         <Box sx={{ textAlign: "center", mb: { xs: 5, md: 5.5 } }}>
-          <SectionBadge text={pricingData.header.badge} icon={LocalOfferOutlinedIcon} />
+          <SectionBadge
+            text={pricingData.header.badge}
+            icon={LocalOfferOutlinedIcon}
+          />
 
           <Typography
             component="h2"
@@ -78,8 +81,6 @@ const Pricing = () => {
         {/* Main pricing card */}
         <Box
           sx={(theme) => ({
-            maxWidth: 1080,
-            mx: "auto",
             position: "relative",
             overflow: "hidden",
             borderRadius: "18px",
@@ -153,9 +154,7 @@ const Pricing = () => {
                       spacing={0.75}
                       sx={{ mb: 2.5 }}
                     >
-                      <Typography variant="h3">
-                        {currentPlan.price}
-                      </Typography>
+                      <Typography variant="h3">{currentPlan.price}</Typography>
 
                       {currentPlan.period && (
                         <Typography
@@ -242,7 +241,10 @@ const Pricing = () => {
                 )}`,
               })}
             >
-              <Typography variant="subtitle1" sx={{ mb: 2.5, textTransform: "lowercase" }}>
+              <Typography
+                variant="subtitle1"
+                sx={{ mb: 2.5, textTransform: "lowercase" }}
+              >
                 whats included
               </Typography>
 
@@ -271,9 +273,7 @@ const Pricing = () => {
                             }}
                           />
 
-                          <Typography variant="subtitle2">
-                            {feature}
-                          </Typography>
+                          <Typography variant="subtitle2">{feature}</Typography>
                         </Stack>
                       ))}
                     </Stack>
