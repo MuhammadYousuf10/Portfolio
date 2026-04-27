@@ -10,6 +10,7 @@ import CustomImage from "@/components/common/CustomImage";
 import { motion } from "framer-motion";
 import { whyUsData } from "@/data/portfolio";
 import ProfessionalBackground from "../ProfessionalBackground";
+import Counter from "@/components/common/Counter";
 
 const WhyUs = () => {
   const { header, card1, card2, card3 } = whyUsData;
@@ -374,7 +375,7 @@ const WhyUs = () => {
                       variant="caption"
                       sx={{ fontSize: "0.5rem", fontWeight: 700 }}
                     >
-                      {card3.chartValue}
+                    <Counter value={card3.chartValue} />
                     </Typography>
                   </Box>
                 </Box>

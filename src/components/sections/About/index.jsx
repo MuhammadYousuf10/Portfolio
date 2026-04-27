@@ -18,6 +18,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import { aboutData } from "@/data/portfolio";
 import LineHeader from "@/components/common/LineHeader";
 import CustomButton from "@/components/common/CustomButton";
+import Counter from "@/components/common/Counter";
 
 const About = () => {
   const { title, subtitle, image, rating, clientsCount, skills, experience } =
@@ -92,7 +93,7 @@ const About = () => {
                     variant="body2"
                     sx={{ fontWeight: 600, color: "text.primary" }}
                   >
-                    {rating}/5 stars ({clientsCount} Clients)
+                    <Counter value={rating} />/5 stars (<Counter value={clientsCount} /> Clients)
                   </Typography>
                 </Stack>
               </Box>

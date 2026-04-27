@@ -14,6 +14,7 @@ import CircularText from "@/components/common/CircularText";
 import CustomButton from "@/components/common/CustomButton";
 import ImageWrapper from "@/components/common/ImageWrapper";
 import Indicator from "@/components/common/IndicationPoint";
+import Counter from "@/components/common/Counter";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import FolderOpenIcon from "@mui/icons-material/FolderOpen";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -262,8 +263,8 @@ const Hero = () => {
                     <ImageWrapper
                       src="https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=512"
                       alt="profile pic"
-                      width={280} // Slightly smaller for mobile
-                      height={280}
+                      width={isMobile ? 240 : 280}
+                      height={isMobile ? 240 : 280}
                       priority
                     />
                   </Box>
@@ -273,7 +274,7 @@ const Hero = () => {
                       defaultValue={4.7}
                       precision={0.5}
                       max={5}
-                      size="large"
+                      size={isMobile ? "medium" : "large"}
                       readOnly
                       sx={{
                         "& .MuiRating-iconFilled": {
@@ -286,24 +287,28 @@ const Hero = () => {
                     />
                   </Box>
                   <Box>
-                    <Typography variant="body1">
-                      4.7/5 stars (10+Clients)
+                    <Typography variant="body1" sx={{ fontSize: isMobile ? "0.85rem" : "1rem" }}>
+                      <Counter value="4.7" sx={{ fontWeight: "inherit" }} />
+                      /5 stars (
+                      <Counter value="10+" sx={{ fontWeight: "inherit" }} />
+                      Clients)
                     </Typography>
                   </Box>
                   <Box
                     sx={{
                       position: "absolute",
-                      top: { xs: -30, md: -50 },
-                      right: { xs: -30, md: -60 },
+                      top: { xs: -20, md: -50 },
+                      right: { xs: -20, md: -60 },
                       zIndex: -1,
                     }}
                   >
                     <CircularText
                       text="Sr. Frontend Eng."
-                      size={isMobile ? 100 : 150} // Responsive size
-                      fontSize={isMobile ? 8 : 12}
+                      size={isMobile ? 90 : 150} // Responsive size
+                      fontSize={isMobile ? 9 : 12}
                     />
                   </Box>
+
                 </Box>
               </Grid>
             </Grid>

@@ -22,6 +22,7 @@ import { provenResults } from "@/data/portfolio";
 import SectionBadge from "@/components/common/SectionBadge";
 import SectionTitle from "@/components/common/SectionTitle";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import Counter from "@/components/common/Counter";
 
 const ProvenResults = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -184,16 +185,15 @@ const ProvenResults = () => {
                                 <polyline points="20 6 9 17 4 12"></polyline>
                               </svg>
                             </Box>
-                            <Typography
+                            <Counter
+                              value={metric.value}
                               variant="h3"
                               sx={{
                                 fontWeight: 700,
                                 mb: 0.5,
                                 mt: 1.5,
                               }}
-                            >
-                              {metric.value}
-                            </Typography>
+                            />
                             <Typography
                               variant="caption"
                               sx={{

@@ -14,6 +14,7 @@ import {
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import ProjectCard from "@/components/common/ProjectCard";
 import CustomButton from "@/components/common/CustomButton";
+import Counter from "@/components/common/Counter";
 import NextLink from "next/link";
 import { projects, projectsPageData } from "@/data/portfolio";
 
@@ -74,7 +75,7 @@ const ProjectsPage = () => {
               ))}
             </AvatarGroup>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              {header.trustedText}
+              Trusted by <Counter value="10,000+" sx={{ fontWeight: "inherit" }} /> Audience worldwide
             </Typography>
           </Stack>
 

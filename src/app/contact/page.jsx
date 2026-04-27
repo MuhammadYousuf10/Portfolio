@@ -18,8 +18,9 @@ import {
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import { contactPageData } from "@/data/portfolio";
+import { aboutData, contactPageData } from "@/data/portfolio";
 import CustomButton from "@/components/common/CustomButton";
+import Counter from "@/components/common/Counter";
 
 const ContactPage = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -279,7 +280,7 @@ const ContactPage = () => {
                       {stat.label}
                     </Typography>
                     <Typography variant="h3" sx={{ fontWeight: 700 }}>
-                      {stat.value}
+                      <Counter value={stat.value} sx={{ fontWeight: "inherit" }} />
                     </Typography>
                   </Box>
                 ))}

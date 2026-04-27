@@ -1,7 +1,13 @@
 "use client";
 
 import React from "react";
-import { Box, Container, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { motion } from "framer-motion";
 import CustomButton from "@/components/common/CustomButton";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
@@ -49,7 +55,11 @@ const LatestProjects = () => {
           <SectionBadge text="Projects" />
           <Typography variant="h2" sx={{ mb: 2 }}>
             Our Latest{" "}
-            <Typography component="span" variant="gradientText" sx={{ fontSize: "inherit" }}>
+            <Typography
+              component="span"
+              variant="gradientText"
+              sx={{ fontSize: "inherit" }}
+            >
               Projects
             </Typography>
           </Typography>
@@ -109,7 +119,11 @@ const LatestProjects = () => {
 
           <motion.div
             animate={{ x: ["0%", "-33.333333%"] }}
-            transition={{ repeat: Infinity, ease: "linear", duration: isMobile ? 8 : 15 }} 
+            transition={{
+              repeat: Infinity,
+              ease: "linear",
+              duration: isMobile ? 8 : 15,
+            }}
             style={{ display: "flex", gap: "24px", paddingLeft: "24px" }}
           >
             {duplicatedProjects.map((project, index) => (
@@ -127,7 +141,6 @@ const LatestProjects = () => {
         </Box>
       </Container>
 
-      {/* Sliding Logos Marquee - Moved outside container for full width */}
       <Container maxWidth="lg">
         <BrandLogoMarquee />
       </Container>

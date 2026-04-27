@@ -14,6 +14,7 @@ import {
 import { motion } from "framer-motion";
 import RateReviewIcon from "@mui/icons-material/RateReview";
 import SectionBadge from "@/components/common/SectionBadge";
+import Counter from "@/components/common/Counter";
 import theme from "@/theme/theme";
 
 const testimonials = [
@@ -223,12 +224,10 @@ const Testimonials = () => {
           </AvatarGroup>
           <Typography variant="body2" sx={{ color: "text.secondary", fontSize: { xs: "0.8rem", md: "0.875rem" } }}>
             Trusted by{" "}
-            <Typography
-              component="span"
+            <Counter
+              value="10,000+"
               sx={{ fontWeight: 700, color: "text.primary", fontSize: "inherit" }}
-            >
-              10,000+
-            </Typography>{" "}
+            />{" "}
             Audience worldwide
           </Typography>
         </Stack>

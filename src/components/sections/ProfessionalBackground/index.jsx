@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 
 import CustomImage from "@/components/common/CustomImage";
 import { aboutData } from "@/data/portfolio";
+import Counter from "@/components/common/Counter";
 
 const ProfessionalBackground = () => {
   const { title, subtitle, image, rating, clientsCount, skills, experience } =
@@ -137,7 +138,7 @@ const ProfessionalBackground = () => {
                         fontSize: { xs: "0.8rem", md: "0.875rem" }
                       }}
                     >
-                      {rating}/5 stars ({clientsCount}+Clients)
+                      <Counter value={rating} />/5 stars (<Counter value={clientsCount} />+Clients)
                     </Typography>
                   </Stack>
                 </Box>
