@@ -9,11 +9,13 @@ import {
   Collapse,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import NextLink from "next/link";
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import CustomButton from "@/components/common/CustomButton";
 import { faqData } from "@/data/portfolio";
+import SectionBadge from "@/components/common/SectionBadge";
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
   return (
@@ -103,8 +105,10 @@ const FAQ = () => {
               {faqData.header.description}
             </Typography>
             <CustomButton
+              component={NextLink}
+              href="/contact"
               text={faqData.buttonText}
-              variant="glass"
+              variant="glow"
               icon={<ArrowOutwardIcon fontSize="small" />}
               sx={{ width: { xs: "100%", sm: "auto" } }}
             />

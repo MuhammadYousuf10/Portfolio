@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Container,
@@ -14,10 +14,20 @@ import {
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import ProjectCard from "@/components/common/ProjectCard";
 import CustomButton from "@/components/common/CustomButton";
+import Counter from "@/components/common/Counter";
+import NextLink from "next/link";
 import { projects, projectsPageData } from "@/data/portfolio";
 
 const ProjectsPage = () => {
   const { header, trustedAvatars } = projectsPageData;
+  const [visibleCount, setVisibleCount] = useState(2);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 2);
+  };
+
+  const visibleProjects = projects.slice(0, visibleCount);
+  const hasMore = visibleCount < projects.length;
 
   return (
     <Box
@@ -73,20 +83,22 @@ const ProjectsPage = () => {
               ))}
             </AvatarGroup>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              {header.trustedText}
+              Trusted by <Counter value="10,000+" sx={{ fontWeight: "inherit" }} /> Audience worldwide
             </Typography>
           </Stack>
 
           <CustomButton
+            component={NextLink}
+            href="/contact"
             text={header.buttonText}
-            variant="glass"
+            variant="glow"
             icon={<ArrowOutwardIcon fontSize="small" />}
           />
         </Box>
 
         {/* Projects Grid */}
         <Grid container spacing={4} sx={{ mb: 8 }}>
-          {projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <Grid size={{ xs: 12, md: 6 }} key={index}>
               <ProjectCard project={project} />
             </Grid>
@@ -94,18 +106,21 @@ const ProjectsPage = () => {
         </Grid>
 
         {/* Load More Button */}
-        <Box sx={{ display: "flex", justifyContent: "center", mb: 12 }}>
-          <CustomButton
-            text="Load More"
-            variant="glass"
-            sx={{
-              px: 4,
-              py: 1.5,
-              fontSize: "0.9rem",
-              fontWeight: 600,
-            }}
-          />
-        </Box>
+        {hasMore && (
+          <Box sx={{ display: "flex", justifyContent: "center", mb: 12 }}>
+            <CustomButton
+              text="Load More"
+              variant="glass"
+              onClick={handleLoadMore}
+              sx={{
+                px: 4,
+                py: 1.5,
+                fontSize: "0.9rem",
+                fontWeight: 600,
+              }}
+            />
+          </Box>
+        )}
       </Container>
     </Box>
   );

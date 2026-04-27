@@ -11,6 +11,7 @@ import {
 import VerifiedIcon from "@mui/icons-material/Verified";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import NextLink from "next/link";
 import SectionBadge from "@/components/common/SectionBadge";
 import SectionTitle from "@/components/common/SectionTitle";
 import CustomImage from "@/components/common/CustomImage";
@@ -33,7 +34,7 @@ const Comparison = () => {
     >
       <Container maxWidth="lg">
         <Box sx={{ textAlign: "center", mb: { xs: 5, md: 6 } }}>
-          <SectionBadge text="Comparison" icon={VerifiedIcon} />
+          <SectionBadge text={header.badge} icon={VerifiedIcon} />
 
           <SectionTitle
             mainText={header.mainText}
@@ -245,9 +246,12 @@ const Comparison = () => {
             </Typography>
 
             <CustomButton
+              component={NextLink}
+              href="/contact"
               text={comparisonData.footer.buttonText}
-              variant="glass"
+              variant="glow"
               icon={<ArrowOutwardIcon fontSize="small" />}
+              sx={{ flexShrink: 0 }}
             />
           </Box>
         </Stack>

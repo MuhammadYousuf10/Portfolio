@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, useMediaQuery } from "@mui/material";
+import { Box, Container, useMediaQuery, IconButton, Tooltip } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useState } from "react";
 import navItems from "@/navigation";
@@ -9,6 +9,7 @@ import ImageWrapper from "@/components/common/ImageWrapper";
 import NextLink from "next/link";
 import MuiLink from "@mui/material/Link";
 import { smoothScrollTo } from "@/utils/scroll";
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -133,69 +134,148 @@ export default function Navbar() {
 
       {/* Mobile Nav Items */}
 
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {mobileOpen && isMobile && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "100vh", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             style={{
-              overflow: "hidden",
-              backgroundColor: "rgba(10, 10, 10, 0.98)", // Darker, more solid mobile menu
-              backdropFilter: "blur(20px)",
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100vh",
+              backgroundColor: "rgba(0, 0, 0, 0.95)",
+              backdropFilter: "blur(15px)",
+              zIndex: 2000,
+              display: "flex",
+              flexDirection: "column",
             }}
           >
-            <Box
+            {/* Mobile Menu Header */}
+            <Container
+              maxWidth="lg"
               sx={{
-                height: "100%",
-                padding: "4rem 2rem",
+                py: 2,
                 display: "flex",
-                flexDirection: "column",
-                alignItems: "center", // Centered for better mobile feel
-                justifyContent: "center",
-                gap: "32px",
+                justifyContent: "space-between",
+                alignItems: "center",
               }}
             >
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+              <MuiLink 
+                href="/" 
+                component={NextLink}
+                onClick={handleDrawerToggle}
+                sx={{ display: "flex", alignItems: "center" }}
+              >
+                <ImageWrapper
+                  src="https://framerusercontent.com/images/ETKy6pcTVJ5pEm7xuvzpO0jv9cw.svg"
+                  alt="Logo"
+                  width={80}
+                  height={39}
+                  priority={true}
+                />
+              </MuiLink>
+              <IconButton 
+                onClick={handleDrawerToggle}
+                sx={{ color: "white", p: 1 }}
+              >
+                <Box
+                  sx={{
+                    width: 24,
+                    height: 24,
+                    position: "relative",
+                  }}
                 >
-                  <MuiLink
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      width: "100%",
+                      height: 2,
+                      bgcolor: "white",
+                      top: "50%",
+                      left: 0,
+                      transform: "rotate(45deg)",
+                    }}
+                  />
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      width: "100%",
+                      height: 2,
+                      bgcolor: "white",
+                      top: "50%",
+                      left: 0,
+                      transform: "rotate(-45deg)",
+                    }}
+                  />
+                </Box>
+              </IconButton>
+            </Container>
+
+            {/* Mobile Menu Links */}
+            <Container maxWidth="lg" sx={{ flexGrow: 1, display: "flex", alignItems: "flex-start", pt: { xs: 4, sm: 6 } }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "32px",
+                  width: "100%",
+                  pl: { xs: 2, sm: 4 },
+                }}
+              >
+                {navItems.map((item, i) => (
+                  <motion.div
                     key={item.name}
-                    component={item.path.startsWith("/#") ? "button" : NextLink}
-                    href={item.path.startsWith("/#") ? undefined : item.path}
-                    onClick={(e) => {
-                      handleDrawerToggle();
-                      if (item.path.startsWith("/#")) {
-                        e.preventDefault();
-                        smoothScrollTo(item.path.replace("/#", ""));
-                      }
-                    }}
-                    variant="h4" // Larger text for mobile links
-                    sx={{ 
-                      background: "none", 
-                      border: "none", 
-                      padding: 0, 
-                      cursor: "pointer",
-                      fontFamily: "inherit",
-                      fontWeight: 700,
-                      color: "inherit",
-                      textDecoration: "none",
-                      letterSpacing: "-0.02em",
-                      "&:hover": {
-                        color: "primary.main",
-                      }
-                    }}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + i * 0.1, duration: 0.5, ease: "easeOut" }}
                   >
-                    {item?.name}
-                  </MuiLink>
-                </motion.div>
-              ))}
-            </Box>
+                    <MuiLink
+                      component={item.path.startsWith("/#") ? "button" : NextLink}
+                      href={item.path.startsWith("/#") ? undefined : item.path}
+                      onClick={(e) => {
+                        if (item.path.startsWith("/#")) {
+                          e.preventDefault();
+                          const targetId = item.path.replace("/#", "");
+                          handleDrawerToggle();
+                          // Use a slight delay to ensure the menu state change doesn't interrupt the scroll
+                          setTimeout(() => {
+                            smoothScrollTo(targetId);
+                          }, 10);
+                        } else {
+                          handleDrawerToggle();
+                        }
+                      }}
+                      sx={{ 
+                        background: "none", 
+                        border: "none", 
+                        p: 0, 
+                        cursor: "pointer",
+                        fontFamily: "inherit",
+                        fontSize: { xs: "2.8rem", sm: "3.5rem" },
+                        fontWeight: 700,
+                        color: "rgba(255, 255, 255, 0.6)",
+                        textDecoration: "none",
+                        letterSpacing: "-0.04em",
+                        transition: "all 0.3s ease",
+                        textAlign: "left",
+                        display: "block", // Required for transform
+                        width: "fit-content",
+                        "&:hover": {
+                          color: "#FFFFFF",
+                          transform: "translateX(15px)",
+                        }
+                      }}
+                    >
+                      {item?.name}
+                    </MuiLink>
+                  </motion.div>
+                ))}
+              </Box>
+            </Container>
           </motion.div>
         )}
       </AnimatePresence>

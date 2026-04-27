@@ -101,6 +101,7 @@ const ProjectDetails = () => {
                 <CustomButton
                   text="Contact Me"
                   variant="glass"
+                  onClick={() => router.push("/contact")}
                   icon={<ArrowOutwardIcon fontSize="small" />}
                 />
                 <CustomButton text="Site Preview" variant="outlined" />

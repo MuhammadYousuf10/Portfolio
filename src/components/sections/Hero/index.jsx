@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Container,
@@ -14,11 +13,13 @@ import CircularText from "@/components/common/CircularText";
 import CustomButton from "@/components/common/CustomButton";
 import ImageWrapper from "@/components/common/ImageWrapper";
 import Indicator from "@/components/common/IndicationPoint";
+import Counter from "@/components/common/Counter";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import FolderOpenIcon from "@mui/icons-material/FolderOpen";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import NextLink from "next/link";
 import { smoothScrollTo } from "@/utils/scroll";
+import { heroData } from "@/data/portfolio";
 
 const Hero = () => {
   const theme = useTheme();
@@ -87,10 +88,11 @@ const Hero = () => {
         }}
       >
         <ImageWrapper
-          src="https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=2048"
+          src={heroData.bgImg}
           alt="bg"
           fill
           style={{ objectFit: "cover" }}
+          priority
         />
       </Box>
       {/* Overlay to dim the background */}
@@ -145,7 +147,7 @@ const Hero = () => {
                       textAlign: { xs: "center", md: "left" },
                     }}
                   >
-                    Building brands to drive{" "}
+                    {heroData.title.split(" Results")[0]}{" "}
                     <Typography component="span" variant="gradientText">
                       Results
                     </Typography>
@@ -169,9 +171,7 @@ const Hero = () => {
                     mx: { xs: "auto", md: 0 },
                   }}
                 >
-                  We merge bold strategy, compelling storytelling, and timeless
-                  design to craft unforgettable brand experiences that truly
-                  resonate.
+                  {heroData.description}
                 </Typography>
                 <Stack
                   direction={{ xs: "column", sm: "row" }} // Stack on mobile
@@ -185,7 +185,7 @@ const Hero = () => {
                     component={NextLink}
                     href="/projects"
                     text={"View Projects"}
-                    variant="outlined"
+                    variant="glass"
                     icon={<FolderOpenIcon />}
                     sx={{ width: { xs: "100%", sm: "auto" } }}
                   />
@@ -193,7 +193,7 @@ const Hero = () => {
                     component={NextLink}
                     href="/contact"
                     text={"Get Started Now"}
-                    variant="filled"
+                    variant="primary"
                     icon={<ArrowOutwardIcon />}
                     sx={{ width: { xs: "100%", sm: "auto" } }}
                   />
@@ -260,20 +260,20 @@ const Hero = () => {
                     }}
                   >
                     <ImageWrapper
-                      src="https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=512"
+                      src={heroData.profileImg}
                       alt="profile pic"
-                      width={280} // Slightly smaller for mobile
-                      height={280}
+                      width={isMobile ? 240 : 280}
+                      height={isMobile ? 240 : 280}
                       priority
                     />
                   </Box>
                   <Box sx={{ mt: 2 }}>
                     <Rating
                       name="half-rating"
-                      defaultValue={4.7}
+                      defaultValue={heroData.rating}
                       precision={0.5}
                       max={5}
-                      size="large"
+                      size={isMobile ? "medium" : "large"}
                       readOnly
                       sx={{
                         "& .MuiRating-iconFilled": {
@@ -286,24 +286,28 @@ const Hero = () => {
                     />
                   </Box>
                   <Box>
-                    <Typography variant="body1">
-                      4.7/5 stars (10+Clients)
+                    <Typography variant="body1" sx={{ fontSize: isMobile ? "0.85rem" : "1rem" }}>
+                      <Counter value={heroData.rating.toString()} sx={{ fontWeight: "inherit" }} />
+                      /5 stars (
+                      <Counter value={heroData.clients} sx={{ fontWeight: "inherit" }} />
+                      Clients)
                     </Typography>
                   </Box>
                   <Box
                     sx={{
                       position: "absolute",
-                      top: { xs: -30, md: -50 },
-                      right: { xs: -30, md: -60 },
+                      top: { xs: -20, md: -50 },
+                      right: { xs: -20, md: -60 },
                       zIndex: -1,
                     }}
                   >
                     <CircularText
-                      text="Sr. Frontend Eng."
-                      size={isMobile ? 100 : 150} // Responsive size
-                      fontSize={isMobile ? 8 : 12}
+                      text={heroData.circularText}
+                      size={isMobile ? 90 : 150} // Responsive size
+                      fontSize={isMobile ? 9 : 12}
                     />
                   </Box>
+
                 </Box>
               </Grid>
             </Grid>

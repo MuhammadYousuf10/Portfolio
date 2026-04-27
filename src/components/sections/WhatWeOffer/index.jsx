@@ -5,7 +5,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import AdjustIcon from "@mui/icons-material/Adjust";
 import CustomImage from "@/components/common/CustomImage";
-import { services } from "@/data/portfolio";
+import { services, servicesHeader } from "@/data/portfolio";
 import MarqueeTags from "@/components/common/MarqueeTags";
 import SectionBadge from "@/components/common/SectionBadge";
 
@@ -244,11 +244,11 @@ const WhatWeOffer = () => {
             alignItems: "center",
           }}
         >
-          <SectionBadge text="Services" icon={AdjustIcon} />
+          <SectionBadge text={servicesHeader.badge} icon={AdjustIcon} />
           <Typography variant="h2" sx={{ mb: 2 }}>
-            What We{" "}
+            {servicesHeader.mainText}{" "}
             <Typography component="span" variant="gradientText" sx={{ fontSize: "inherit" }}>
-              Offer
+              {servicesHeader.italicText}
             </Typography>
           </Typography>
           <Typography
@@ -256,7 +256,7 @@ const WhatWeOffer = () => {
             color="text.secondary"
             sx={{ maxWidth: 500 }}
           >
-            Our services blend strategy and creativity to deliver impact.
+            {servicesHeader.description}
           </Typography>
         </Box>
 

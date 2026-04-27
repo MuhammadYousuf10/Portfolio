@@ -1,16 +1,26 @@
 "use client";
 
-import React from "react";
-import { Box, Container, Grid, Typography, Rating, Stack, Chip, Divider } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  Rating,
+  Stack,
+  Chip,
+  Divider,
+} from "@mui/material";
 import { motion } from "framer-motion";
 import CustomImage from "@/components/common/CustomImage";
 import SectionBadge from "@/components/common/SectionBadge";
 import InfoIcon from "@mui/icons-material/Info";
 import { aboutData } from "@/data/portfolio";
 import LineHeader from "@/components/common/LineHeader";
+import Counter from "@/components/common/Counter";
 
 const About = () => {
-  const { title, subtitle, image, rating, clientsCount, skills, experience } = aboutData;
+  const { title, subtitle, image, rating, clientsCount, skills, experience } =
+    aboutData;
 
   return (
     <Box
@@ -24,7 +34,7 @@ const About = () => {
     >
       <Container maxWidth="lg">
         <Box sx={{ mb: 8, textAlign: "center" }}>
-           <SectionBadge text="Who We Are" icon={InfoIcon} />
+          <SectionBadge text={aboutData.header.badge} icon={InfoIcon} />
         </Box>
 
         <Grid container spacing={6} alignItems="flex-start">
@@ -38,7 +48,7 @@ const About = () => {
             >
               <Box sx={{ mb: { xs: 6, md: 4 } }}>
                 <LineHeader text={`${title} ${subtitle}`} sx={{ mb: 3 }} />
-                
+
                 <Box
                   sx={{
                     position: "relative",
@@ -50,11 +60,7 @@ const About = () => {
                     mb: 3,
                   }}
                 >
-                  <CustomImage
-                    src={image}
-                    alt="Who We Are"
-                    objectFit="cover"
-                  />
+                  <CustomImage src={image} alt="Who We Are" objectFit="cover" />
                 </Box>
 
                 <Stack
@@ -76,14 +82,16 @@ const About = () => {
                     size="small"
                     sx={{
                       "& .MuiRating-iconFilled": { color: "text.primary" },
-                      "& .MuiRating-iconEmpty": { color: "rgba(255,255,255,0.1)" },
+                      "& .MuiRating-iconEmpty": {
+                        color: "rgba(255,255,255,0.1)",
+                      },
                     }}
                   />
                   <Typography
                     variant="body2"
                     sx={{ fontWeight: 600, color: "text.primary" }}
                   >
-                    {rating}/5 stars ({clientsCount} Clients)
+                    <Counter value={rating} />/5 stars (<Counter value={clientsCount} /> Clients)
                   </Typography>
                 </Stack>
               </Box>
@@ -109,7 +117,14 @@ const About = () => {
                   mb: 4,
                 }}
               >
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, justifyContent: { xs: "center", md: "flex-start" } }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 1.5,
+                    justifyContent: { xs: "center", md: "flex-start" },
+                  }}
+                >
                   {skills.map((skill, i) => (
                     <Chip
                       key={i}
@@ -155,8 +170,15 @@ const About = () => {
                             {exp.company}
                           </Typography>
                         </Grid>
-                        <Grid size={{ xs: 12, sm: 3 }} sx={{ textAlign: { xs: "left", sm: "right" } }}>
-                          <Typography variant="caption" color="text.secondary" sx={{ fontSize: "0.7rem" }}>
+                        <Grid
+                          size={{ xs: 12, sm: 3 }}
+                          sx={{ textAlign: { xs: "left", sm: "right" } }}
+                        >
+                          <Typography
+                            variant="caption"
+                            color="text.secondary"
+                            sx={{ fontSize: "0.7rem" }}
+                          >
                             {exp.period}
                           </Typography>
                         </Grid>

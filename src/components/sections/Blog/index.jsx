@@ -34,7 +34,7 @@ const Blog = () => {
             sx={{ mb: { xs: 6, md: 8 }, textAlign: { xs: "center", md: "left" } }}
           >
             <Box sx={{ display: "flex", flexDirection: "column", alignItems: { xs: "center", md: "flex-start" } }}>
-              <SectionBadge text="Blog" icon={ArticleIcon} />
+              <SectionBadge text={blogData.header.badge} />
 
               <Typography
                 component="h2"

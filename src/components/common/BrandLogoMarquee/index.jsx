@@ -50,7 +50,7 @@ const BrandLogoMarquee = () => {
       <Box sx={{ overflow: "hidden", width: "100%" }}>
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 10 }}
           style={{
             display: "flex",
             gap: "80px",
