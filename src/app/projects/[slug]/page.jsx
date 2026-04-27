@@ -104,7 +104,13 @@ const ProjectDetails = () => {
                   onClick={() => router.push("/contact")}
                   icon={<ArrowOutwardIcon fontSize="small" />}
                 />
-                <CustomButton text="Site Preview" variant="outlined" />
+                {project.link && (
+                  <CustomButton 
+                    text="Site Preview" 
+                    variant="outlined"
+                    onClick={() => window.open(project.link, '_blank')}
+                  />
+                )}
               </Stack>
             </Grid>
           </Grid>
