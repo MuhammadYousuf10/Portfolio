@@ -18,11 +18,24 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
 // Image Imports - Projects
-import atomaiMain from "@/assets/projects/atomai-main.avif";
-import atomaiHover from "@/assets/projects/atomai-hover.avif";
-import landioMain from "@/assets/projects/landio-main.avif";
-import landioHover from "@/assets/projects/landio-hover.avif";
-import poloMain from "@/assets/projects/polo-main.avif";
+import practicalMain from "@/assets/projects/practical-main.avif";
+import practicalHover from "@/assets/projects/practical-hover.avif";
+import practicalDetail from "@/assets/projects/practical-detail.avif";
+import connectdevsMain from "@/assets/projects/connectdevs-main.avif";
+import connectdevsHover from "@/assets/projects/connectdevs-hover.avif";
+import connectdevsDetail from "@/assets/projects/connectdevs-detail.avif";
+import connectdevsPortalMain from "@/assets/projects/connectdevs-portal-main.avif";
+import connectdevsPortalHover from "@/assets/projects/connectdevs-portal-hover.avif";
+import connectdevsPortalDetail from "@/assets/projects/connectdevs-portal-detail.avif";
+import horizonMain from "@/assets/projects/horizon-main.avif";
+import horizonHover from "@/assets/projects/horizon-hover.avif";
+import horizonDetail from "@/assets/projects/horizon-detail.avif";
+import livingmuseumMain from "@/assets/projects/livingmuseum-main.avif";
+import livingmuseumHover from "@/assets/projects/livingmuseum-hover.avif";
+import livingmuseumDetail from "@/assets/projects/livingmuseum-detail.avif";
+import lunateMain from "@/assets/projects/lunate-main.avif";
+import lunateHover from "@/assets/projects/lunate-hover.avif";
+import lunateDetail from "@/assets/projects/lunate-detail.avif";
 
 // Image Imports - Logos
 import logo1 from "@/assets/projects/project-logo1.avif";
@@ -243,77 +256,185 @@ export const services = [
 
 export const projects = [
   {
-    slug: "atomai",
-    title: "AtomAI",
-    tags: ["SaaS", "Template"],
-    image: atomaiMain,
-    hoverImage: atomaiHover,
-    description: "Scale Business with Automation. We transformed their digital presence with a focus on conversion and speed.",
-    services: "SaaS Design, UI/UX",
-    tools: "Framer, Figma",
-    value: "$2,200",
-    timeline: "4 Weeks",
+    slug: "practical",
+    title: "PractiCal",
+    tags: ["E-commerce", "Food Delivery"],
+    link: "https://practical.me/",
+    image: practicalMain,
+    hoverImage: practicalHover,
+    description: "Home delivery Meal Plans to help you eat better, every day across Dubai, Abu Dhabi and the UAE.",
+    services: "Web Development, UI/UX Design",
+    tools: "Next.js, React",
+    value: "Custom",
+    timeline: "8 Weeks",
     introduction: {
       badge: "Introduction",
-      title: "Building the future of AI automation",
-      description: "AtomAI needed a brand that felt both powerful and approachable. We focused on clean lines, dark aesthetics, and rapid load times.",
-      image: atomaiMain,
+      title: "Building a seamless meal plan subscription platform",
+      description: "PractiCal needed a modern platform to offer home delivery meal plans that help users eat better every day across the UAE.",
+      image: practicalMain,
     },
     problem: {
       badge: "Problem",
-      description: "The main challenge was presenting complex AI workflows in a way that non-technical users could easily understand and trust.",
-      image: atomaiHover,
+      description: "Users needed an easy, intuitive way to customize and subscribe to daily healthy meals without hassle.",
+      image: practicalHover,
     },
     solution: {
       badge: "Solution",
-      description: "We implemented a visual-first approach using interactive demos and a modular design system that scaled across their entire platform.",
-      image: atomaiMain,
+      description: "We built a fully custom web application with a streamlined onboarding, meal customization, and subscription flow.",
+      image: practicalDetail,
     },
-    conclusion: "AtomAI saw a 45% increase in sign-ups within the first month of the new design launch.",
+    conclusion: "PractiCal successfully expanded its user base across the UAE with a high retention rate and seamless user experience.",
   },
   {
-    slug: "landio",
-    title: "Landio",
-    tags: ["SaaS", "Template"],
-    image: landioMain,
-    hoverImage: landioHover,
-    description: "Unleash Your Full Potential with Lio. A modern landing page template designed for high-growth startups.",
-    services: "Landing Page, SaaS",
-    tools: "Framer, Figma",
-    value: "$1,800",
-    timeline: "3 Weeks",
+    slug: "connectdevs",
+    title: "ConnectDevs",
+    tags: ["SaaS", "AI Platform"],
+    link: "https://connectdevs.com/",
+    image: connectdevsMain,
+    hoverImage: connectdevsHover,
+    description: "The AI-powered recruiter that empowers hiring teams to source, enrich, and screen talent in minutes.",
+    services: "Platform Development, AI Integration",
+    tools: "React, Python, AWS",
+    value: "Custom",
+    timeline: "12 Weeks",
     introduction: {
       badge: "Introduction",
-      title: "A landing page for the next generation",
-      description: "Landio was built to solve the conversion problem for SaaS startups. We used bold typography and high-contrast elements.",
-      image: landioMain,
+      title: "Revolutionizing the hiring process with an AI-powered smart hiring engine",
+      description: "ConnectDevs set out to solve the problem of traditional hiring pipelines by using AI to source top talent from 800M+ profiles faster than any recruiter.",
+      image: connectdevsMain,
     },
     problem: {
       badge: "Problem",
-      description: "Most landing pages are cluttered and fail to communicate value quickly. Landio needed to be different.",
-      image: landioHover,
+      description: "Hiring teams were buried in applications and struggling to find top talent among millions of profiles, wasting time and resources.",
+      image: connectdevsHover,
     },
     solution: {
       badge: "Solution",
-      description: "We focused on a single-column flow with clear CTAs and social proof integrated into every section.",
-      image: landioMain,
+      description: "Developed a comprehensive platform featuring natural language search, domain-expert AI interviewers, and automated profile enrichment.",
+      image: connectdevsDetail,
     },
-    conclusion: "Landio is now one of the top-performing templates in the Framer marketplace.",
+    conclusion: "ConnectDevs helps companies save 90% on hiring costs while delivering high-quality, pre-screened technical talent.",
   },
   {
-    slug: "polo",
-    title: "Polo",
-    tags: ["Portfolio", "Template"],
-    image: poloMain,
-    hoverImage: atomaiHover, // Fallback
+    slug: "connectdevs-portal",
+    title: "ConnectDevs Portal",
+    tags: ["SaaS", "Dashboard"],
+    link: "https://app.connectdevs.com/register",
+    image: connectdevsPortalMain,
+    hoverImage: connectdevsPortalHover,
+    description: "The ConnectDevs recruiter portal — a powerful dashboard where hiring teams source, enrich, and screen top talent using AI-driven workflows.",
+    services: "Web App Development, UX Design",
+    tools: "React, Node.js, AWS",
+    value: "Custom",
+    timeline: "10 Weeks",
+    introduction: {
+      badge: "Introduction",
+      title: "Building the recruiter command center for AI-powered hiring",
+      description: "The ConnectDevs Portal is the operational heart of the platform — giving hiring teams a centralized dashboard to manage candidates, run AI interviews, and track the full hiring pipeline in real time.",
+      image: connectdevsPortalMain,
+    },
+    problem: {
+      badge: "Problem",
+      description: "Recruiters lacked a unified workspace to manage sourcing, screening, and interviewing — jumping between multiple tools caused inefficiencies and missed opportunities.",
+      image: connectdevsPortalHover,
+    },
+    solution: {
+      badge: "Solution",
+      description: "We designed and built a streamlined recruiter portal with role-based dashboards, AI interview scheduling, candidate pipeline management, and real-time analytics — all in one cohesive experience.",
+      image: connectdevsPortalDetail,
+    },
+    conclusion: "The ConnectDevs Portal drastically reduced time-to-hire and gave recruiting teams complete visibility and control over their hiring workflows.",
   },
   {
-    slug: "portfolite",
-    title: "Portfolite",
-    tags: ["Portfolio", "Template"],
-    image: atomaiMain,
-    hoverImage: landioHover, // Variation
+    slug: "horizon-university",
+    title: "Horizon University College",
+    tags: ["Education", "Corporate"],
+    link: "https://www.hu.ac.ae/",
+    image: horizonMain,
+    hoverImage: horizonHover,
+    description: "A leading higher education institution in the UAE offering programs in Business and Computing.",
+    services: "Educational Portal, Web Redesign",
+    tools: "Web Development",
+    value: "Custom",
+    timeline: "10 Weeks",
+    introduction: {
+      badge: "Introduction",
+      title: "Modernizing the digital presence for a prominent university",
+      description: "Horizon University College needed a modern, accessible platform to share news, programs, and resources with students, parents, and partners.",
+      image: horizonMain,
+    },
+    problem: {
+      badge: "Problem",
+      description: "The previous digital infrastructure made it difficult for stakeholders to find relevant information regarding academics and campus life.",
+      image: horizonHover,
+    },
+    solution: {
+      badge: "Solution",
+      description: "Designed and developed a user-friendly, informative portal with distinct sections for different stakeholders and seamless integration with their LMS.",
+      image: horizonDetail,
+    },
+    conclusion: "The new platform significantly improved information accessibility and engagement for the university community.",
   },
+  {
+    slug: "living-museum",
+    title: "The Living Museum",
+    tags: ["Culture", "Tourism"],
+    link: "https://www.livingmuseum.com/en/",
+    image: livingmuseumMain,
+    hoverImage: livingmuseumHover,
+    description: "A digital gateway to AlUla — showcasing over 200,000 years of human heritage, arts, and natural wonders in Saudi Arabia.",
+    services: "Web Development, UI/UX Design",
+    tools: "Next.js, React",
+    value: "Custom",
+    timeline: "14 Weeks",
+    introduction: {
+      badge: "Introduction",
+      title: "Bringing AlUla's rich heritage to a global digital audience",
+      description: "The Living Museum needed an immersive digital platform to showcase AlUla's 200,000+ years of human history, world-class art installations, and breathtaking natural landscapes to a global audience.",
+      image: livingmuseumMain,
+    },
+    problem: {
+      badge: "Problem",
+      description: "The vast scope of AlUla's cultural, artistic, and natural heritage required a cohesive digital experience that could engage diverse audiences — from art enthusiasts to history scholars and tourists.",
+      image: livingmuseumHover,
+    },
+    solution: {
+      badge: "Solution",
+      description: "We crafted a visually stunning, content-rich website with dedicated sections for Human Heritage, Arts, Natural Heritage, and Intangible Heritage — complete with interactive exhibitions, video stories, and multilingual support.",
+      image: livingmuseumDetail,
+    },
+    conclusion: "The Living Museum successfully became a digital ambassador for AlUla, driving global awareness and engagement with its unique cultural and natural treasures.",
+  },
+  {
+    slug: "lunate",
+    title: "Lunate",
+    tags: ["Finance", "Corporate"],
+    link: "https://lunate.com/",
+    image: lunateMain,
+    hoverImage: lunateHover,
+    description: "A leading alternative investment manager headquartered in Abu Dhabi, with USD 115 billion in assets under management.",
+    services: "Web Development, Corporate Design",
+    tools: "Web Development",
+    value: "Custom",
+    timeline: "10 Weeks",
+    introduction: {
+      badge: "Introduction",
+      title: "Crafting a premium digital presence for a global investment powerhouse",
+      description: "Lunate needed a sophisticated corporate website that reflects its stature as a leading alternative investment manager with USD 115 billion in AuM, while clearly communicating its diverse investment strategies and solutions.",
+      image: lunateMain,
+    },
+    problem: {
+      badge: "Problem",
+      description: "Communicating complex investment strategies, asset classes, and corporate information to a diverse audience of institutional investors, family offices, and corporates required clarity without sacrificing sophistication.",
+      image: lunateHover,
+    },
+    solution: {
+      badge: "Solution",
+      description: "Developed an elegant, video-driven corporate website with intuitive navigation across investment strategies, asset classes, and solutions — featuring multilingual support and a streamlined news & insights section.",
+      image: lunateDetail,
+    },
+    conclusion: "Lunate's digital platform effectively positions the firm as a world-class investment leader, providing stakeholders with clear access to strategies, insights, and partnership opportunities.",
+  }
 ];
 
 export const projectsPageData = {
