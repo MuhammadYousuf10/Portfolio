@@ -17,10 +17,9 @@ import SectionTitle from "@/components/common/SectionTitle";
 import CustomImage from "@/components/common/CustomImage";
 import CustomButton from "@/components/common/CustomButton";
 import { comparisonData } from "@/data/portfolio";
-import fadeLogo from "@/assets/logo/fade-logo.svg";
 
 const Comparison = () => {
-  const { header, fade, others } = comparisonData;
+  const { header, personal, others } = comparisonData;
 
   return (
     <Box
@@ -55,7 +54,7 @@ const Comparison = () => {
         </Box>
 
         <Grid container spacing={{ xs: 3, md: 2 }}>
-          {/* Fade */}
+          {/* My Process */}
           <Grid size={{ xs: 12, md: 7 }}>
             <Box
               sx={(theme) => ({
@@ -108,19 +107,17 @@ const Comparison = () => {
                   mb: 2,
                 }}
               >
-                <Box
+                <Typography
+                  variant="h5"
                   sx={{
-                    position: "relative",
-                    width: 118,
-                    height: 36,
+                    color: "primary.main",
+                    fontWeight: 700,
+                    letterSpacing: 1,
+                    textTransform: "uppercase",
                   }}
                 >
-                  <CustomImage
-                    src={fadeLogo}
-                    alt="Fade Logo"
-                    objectFit="contain"
-                  />
-                </Box>
+                  {personal.title}
+                </Typography>
               </Box>
 
               <Divider
@@ -141,7 +138,7 @@ const Comparison = () => {
                 rowSpacing={1.5}
                 sx={{ position: "relative", zIndex: 1 }}
               >
-                {fade.items.map((item, index) => (
+                {personal.items.map((item, index) => (
                   <Grid size={{ xs: 12, sm: 6 }} key={index}>
                     <ComparisonItem>{item}</ComparisonItem>
                   </Grid>

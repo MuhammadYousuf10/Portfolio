@@ -67,18 +67,21 @@ export const aboutData = {
   rating: 4.7,
   clientsCount: "100+",
   skills: [
-    "Product Design",
-    "UX Design",
-    "UI Design",
+    "Software Engineering",
+    "SEO Strategy",
+    "Frontend Development",
+    "React / Next.js",
+    "Node.js",
+    "UI/UX Design",
+    "Technical SEO",
+    "Digital Marketing",
     "Framer",
     "Branding",
     "Animations",
     "Interaction Design",
-    "Webflow",
-    "UX Research",
-    "Front-End Development",
-    "No-Code",
-    "Figma",
+    "System Architecture",
+    "Product Design",
+    "TypeScript",
   ],
   experience: [
     {
@@ -143,8 +146,8 @@ export const comparisonData = {
     description:
       "See how we stack up against others in clarity, speed, and quality.",
   },
-  fade: {
-    title: "Fade",
+  personal: {
+    title: "My Process",
     items: [
       "Exceptional Design Quality",
       "Attention to Detail",
@@ -223,33 +226,31 @@ export const pricingData = {
 
 export const services = [
   {
-    title: "Product Design",
+    title: "Software Engineering",
     description:
-      "We craft intuitive, user-centric digital products that drive engagement and conversion. We design for real-world.",
-    icon: <WebIcon />,
-    images: [offer1, offer2],
+      "Full-stack development with a focus on performance, scalability, and clean code. Building robust applications using modern technologies.",
+    icon: <CodeIcon />,
     size: 7,
   },
   {
-    title: "Brand Identity Design",
+    title: "SEO & Digital Strategy",
     description:
-      "Your brand is more than a logo. We build complete brand systems that express your vision, values, and voice - helping you stand out.",
-    icon: <EmojiObjectsIcon />,
-    size: 5,
-  },
-  {
-    title: "Marketing & SEO",
-    description:
-      "We align creative storytelling with smart strategy. From content to technical SEO, we help you rank higher, and grow organically.",
+      "Optimizing your digital presence for search engines. From technical SEO audits to content strategy that drives organic growth.",
     icon: <TrendingUpIcon />,
     size: 5,
   },
   {
-    title: "Ads & Others",
+    title: "UI/UX & Product Design",
     description:
-      "Maximize your ROI with targeted precision- ad campaigns. Whether it’s Google, Meta, or LinkedIn.",
-    icon: <GpsFixedIcon />,
-    images: [offer2, offer1],
+      "Crafting intuitive and aesthetically pleasing user interfaces that provide seamless user experiences and solve real-world problems.",
+    icon: <WebIcon />,
+    size: 5,
+  },
+  {
+    title: "Strategic Consulting",
+    description:
+      "Helping businesses navigate the digital landscape with technical insights and market-driven strategies for sustainable growth.",
+    icon: <EmojiObjectsIcon />,
     size: 7,
   },
 ];
@@ -262,7 +263,8 @@ export const projects = [
     link: "https://practical.me/",
     image: practicalMain,
     hoverImage: practicalHover,
-    description: "Home delivery Meal Plans to help you eat better, every day across Dubai, Abu Dhabi and the UAE.",
+    description:
+      "Home delivery Meal Plans to help you eat better, every day across Dubai, Abu Dhabi and the UAE.",
     services: "Web Development, UI/UX Design",
     tools: "Next.js, React",
     value: "Custom",
@@ -270,20 +272,24 @@ export const projects = [
     introduction: {
       badge: "Introduction",
       title: "Building a seamless meal plan subscription platform",
-      description: "PractiCal needed a modern platform to offer home delivery meal plans that help users eat better every day across the UAE.",
+      description:
+        "PractiCal needed a modern platform to offer home delivery meal plans that help users eat better every day across the UAE.",
       image: practicalMain,
     },
     problem: {
       badge: "Problem",
-      description: "Users needed an easy, intuitive way to customize and subscribe to daily healthy meals without hassle.",
+      description:
+        "Users needed an easy, intuitive way to customize and subscribe to daily healthy meals without hassle.",
       image: practicalHover,
     },
     solution: {
       badge: "Solution",
-      description: "We built a fully custom web application with a streamlined onboarding, meal customization, and subscription flow.",
+      description:
+        "We built a fully custom web application with a streamlined onboarding, meal customization, and subscription flow.",
       image: practicalDetail,
     },
-    conclusion: "PractiCal successfully expanded its user base across the UAE with a high retention rate and seamless user experience.",
+    conclusion:
+      "PractiCal successfully expanded its user base across the UAE with a high retention rate and seamless user experience.",
   },
   {
     slug: "connectdevs",
@@ -292,28 +298,34 @@ export const projects = [
     link: "https://connectdevs.com/",
     image: connectdevsMain,
     hoverImage: connectdevsHover,
-    description: "The AI-powered recruiter that empowers hiring teams to source, enrich, and screen talent in minutes.",
+    description:
+      "The AI-powered recruiter that empowers hiring teams to source, enrich, and screen talent in minutes.",
     services: "Platform Development, AI Integration",
     tools: "React, Python, AWS",
     value: "Custom",
     timeline: "12 Weeks",
     introduction: {
       badge: "Introduction",
-      title: "Revolutionizing the hiring process with an AI-powered smart hiring engine",
-      description: "ConnectDevs set out to solve the problem of traditional hiring pipelines by using AI to source top talent from 800M+ profiles faster than any recruiter.",
+      title:
+        "Revolutionizing the hiring process with an AI-powered smart hiring engine",
+      description:
+        "ConnectDevs set out to solve the problem of traditional hiring pipelines by using AI to source top talent from 800M+ profiles faster than any recruiter.",
       image: connectdevsMain,
     },
     problem: {
       badge: "Problem",
-      description: "Hiring teams were buried in applications and struggling to find top talent among millions of profiles, wasting time and resources.",
+      description:
+        "Hiring teams were buried in applications and struggling to find top talent among millions of profiles, wasting time and resources.",
       image: connectdevsHover,
     },
     solution: {
       badge: "Solution",
-      description: "Developed a comprehensive platform featuring natural language search, domain-expert AI interviewers, and automated profile enrichment.",
+      description:
+        "Developed a comprehensive platform featuring natural language search, domain-expert AI interviewers, and automated profile enrichment.",
       image: connectdevsDetail,
     },
-    conclusion: "ConnectDevs helps companies save 90% on hiring costs while delivering high-quality, pre-screened technical talent.",
+    conclusion:
+      "ConnectDevs helps companies save 90% on hiring costs while delivering high-quality, pre-screened technical talent.",
   },
   {
     slug: "connectdevs-portal",
@@ -322,7 +334,8 @@ export const projects = [
     link: "https://app.connectdevs.com/register",
     image: connectdevsPortalMain,
     hoverImage: connectdevsPortalHover,
-    description: "The ConnectDevs recruiter portal — a powerful dashboard where hiring teams source, enrich, and screen top talent using AI-driven workflows.",
+    description:
+      "The ConnectDevs recruiter portal — a powerful dashboard where hiring teams source, enrich, and screen top talent using AI-driven workflows.",
     services: "Web App Development, UX Design",
     tools: "React, Node.js, AWS",
     value: "Custom",
@@ -330,20 +343,24 @@ export const projects = [
     introduction: {
       badge: "Introduction",
       title: "Building the recruiter command center for AI-powered hiring",
-      description: "The ConnectDevs Portal is the operational heart of the platform — giving hiring teams a centralized dashboard to manage candidates, run AI interviews, and track the full hiring pipeline in real time.",
+      description:
+        "The ConnectDevs Portal is the operational heart of the platform — giving hiring teams a centralized dashboard to manage candidates, run AI interviews, and track the full hiring pipeline in real time.",
       image: connectdevsPortalMain,
     },
     problem: {
       badge: "Problem",
-      description: "Recruiters lacked a unified workspace to manage sourcing, screening, and interviewing — jumping between multiple tools caused inefficiencies and missed opportunities.",
+      description:
+        "Recruiters lacked a unified workspace to manage sourcing, screening, and interviewing — jumping between multiple tools caused inefficiencies and missed opportunities.",
       image: connectdevsPortalHover,
     },
     solution: {
       badge: "Solution",
-      description: "We designed and built a streamlined recruiter portal with role-based dashboards, AI interview scheduling, candidate pipeline management, and real-time analytics — all in one cohesive experience.",
+      description:
+        "We designed and built a streamlined recruiter portal with role-based dashboards, AI interview scheduling, candidate pipeline management, and real-time analytics — all in one cohesive experience.",
       image: connectdevsPortalDetail,
     },
-    conclusion: "The ConnectDevs Portal drastically reduced time-to-hire and gave recruiting teams complete visibility and control over their hiring workflows.",
+    conclusion:
+      "The ConnectDevs Portal drastically reduced time-to-hire and gave recruiting teams complete visibility and control over their hiring workflows.",
   },
   {
     slug: "horizon-university",
@@ -352,7 +369,8 @@ export const projects = [
     link: "https://www.hu.ac.ae/",
     image: horizonMain,
     hoverImage: horizonHover,
-    description: "A leading higher education institution in the UAE offering programs in Business and Computing.",
+    description:
+      "A leading higher education institution in the UAE offering programs in Business and Computing.",
     services: "Educational Portal, Web Redesign",
     tools: "Web Development",
     value: "Custom",
@@ -360,20 +378,24 @@ export const projects = [
     introduction: {
       badge: "Introduction",
       title: "Modernizing the digital presence for a prominent university",
-      description: "Horizon University College needed a modern, accessible platform to share news, programs, and resources with students, parents, and partners.",
+      description:
+        "Horizon University College needed a modern, accessible platform to share news, programs, and resources with students, parents, and partners.",
       image: horizonMain,
     },
     problem: {
       badge: "Problem",
-      description: "The previous digital infrastructure made it difficult for stakeholders to find relevant information regarding academics and campus life.",
+      description:
+        "The previous digital infrastructure made it difficult for stakeholders to find relevant information regarding academics and campus life.",
       image: horizonHover,
     },
     solution: {
       badge: "Solution",
-      description: "Designed and developed a user-friendly, informative portal with distinct sections for different stakeholders and seamless integration with their LMS.",
+      description:
+        "Designed and developed a user-friendly, informative portal with distinct sections for different stakeholders and seamless integration with their LMS.",
       image: horizonDetail,
     },
-    conclusion: "The new platform significantly improved information accessibility and engagement for the university community.",
+    conclusion:
+      "The new platform significantly improved information accessibility and engagement for the university community.",
   },
   {
     slug: "living-museum",
@@ -382,7 +404,8 @@ export const projects = [
     link: "https://www.livingmuseum.com/en/",
     image: livingmuseumMain,
     hoverImage: livingmuseumHover,
-    description: "A digital gateway to AlUla — showcasing over 200,000 years of human heritage, arts, and natural wonders in Saudi Arabia.",
+    description:
+      "A digital gateway to AlUla — showcasing over 200,000 years of human heritage, arts, and natural wonders in Saudi Arabia.",
     services: "Web Development, UI/UX Design",
     tools: "Next.js, React",
     value: "Custom",
@@ -390,20 +413,24 @@ export const projects = [
     introduction: {
       badge: "Introduction",
       title: "Bringing AlUla's rich heritage to a global digital audience",
-      description: "The Living Museum needed an immersive digital platform to showcase AlUla's 200,000+ years of human history, world-class art installations, and breathtaking natural landscapes to a global audience.",
+      description:
+        "The Living Museum needed an immersive digital platform to showcase AlUla's 200,000+ years of human history, world-class art installations, and breathtaking natural landscapes to a global audience.",
       image: livingmuseumMain,
     },
     problem: {
       badge: "Problem",
-      description: "The vast scope of AlUla's cultural, artistic, and natural heritage required a cohesive digital experience that could engage diverse audiences — from art enthusiasts to history scholars and tourists.",
+      description:
+        "The vast scope of AlUla's cultural, artistic, and natural heritage required a cohesive digital experience that could engage diverse audiences — from art enthusiasts to history scholars and tourists.",
       image: livingmuseumHover,
     },
     solution: {
       badge: "Solution",
-      description: "We crafted a visually stunning, content-rich website with dedicated sections for Human Heritage, Arts, Natural Heritage, and Intangible Heritage — complete with interactive exhibitions, video stories, and multilingual support.",
+      description:
+        "We crafted a visually stunning, content-rich website with dedicated sections for Human Heritage, Arts, Natural Heritage, and Intangible Heritage — complete with interactive exhibitions, video stories, and multilingual support.",
       image: livingmuseumDetail,
     },
-    conclusion: "The Living Museum successfully became a digital ambassador for AlUla, driving global awareness and engagement with its unique cultural and natural treasures.",
+    conclusion:
+      "The Living Museum successfully became a digital ambassador for AlUla, driving global awareness and engagement with its unique cultural and natural treasures.",
   },
   {
     slug: "lunate",
@@ -412,29 +439,35 @@ export const projects = [
     link: "https://lunate.com/",
     image: lunateMain,
     hoverImage: lunateHover,
-    description: "A leading alternative investment manager headquartered in Abu Dhabi, with USD 115 billion in assets under management.",
+    description:
+      "A leading alternative investment manager headquartered in Abu Dhabi, with USD 115 billion in assets under management.",
     services: "Web Development, Corporate Design",
     tools: "Web Development",
     value: "Custom",
     timeline: "10 Weeks",
     introduction: {
       badge: "Introduction",
-      title: "Crafting a premium digital presence for a global investment powerhouse",
-      description: "Lunate needed a sophisticated corporate website that reflects its stature as a leading alternative investment manager with USD 115 billion in AuM, while clearly communicating its diverse investment strategies and solutions.",
+      title:
+        "Crafting a premium digital presence for a global investment powerhouse",
+      description:
+        "Lunate needed a sophisticated corporate website that reflects its stature as a leading alternative investment manager with USD 115 billion in AuM, while clearly communicating its diverse investment strategies and solutions.",
       image: lunateMain,
     },
     problem: {
       badge: "Problem",
-      description: "Communicating complex investment strategies, asset classes, and corporate information to a diverse audience of institutional investors, family offices, and corporates required clarity without sacrificing sophistication.",
+      description:
+        "Communicating complex investment strategies, asset classes, and corporate information to a diverse audience of institutional investors, family offices, and corporates required clarity without sacrificing sophistication.",
       image: lunateHover,
     },
     solution: {
       badge: "Solution",
-      description: "Developed an elegant, video-driven corporate website with intuitive navigation across investment strategies, asset classes, and solutions — featuring multilingual support and a streamlined news & insights section.",
+      description:
+        "Developed an elegant, video-driven corporate website with intuitive navigation across investment strategies, asset classes, and solutions — featuring multilingual support and a streamlined news & insights section.",
       image: lunateDetail,
     },
-    conclusion: "Lunate's digital platform effectively positions the firm as a world-class investment leader, providing stakeholders with clear access to strategies, insights, and partnership opportunities.",
-  }
+    conclusion:
+      "Lunate's digital platform effectively positions the firm as a world-class investment leader, providing stakeholders with clear access to strategies, insights, and partnership opportunities.",
+  },
 ];
 
 export const projectsPageData = {
@@ -448,7 +481,7 @@ export const projectsPageData = {
     "https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=1024",
     "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=1024",
     "https://framerusercontent.com/images/JOe12C6fPKzVmRUdr0wnFdxrZE.jpg",
-  ]
+  ],
 };
 
 export const clientLogos = [
@@ -503,9 +536,9 @@ export const provenResults = [
     ],
     testimonial: {
       quote:
-        "Working with Fade Studio was a game-changer. They didn't just design a website; they built a brand identity that resonates with our audience.",
-      author: "sarah smith",
-      rating: 3,
+        "Yousuf's expertise in both development and SEO was a game-changer. He didn't just build a website; he built a high-performing platform that ranks.",
+      author: "Sarah Smith",
+      rating: 5,
     },
     image:
       "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=1024",
@@ -564,9 +597,11 @@ export const blogData = {
       author: {
         name: "Muhammad Yousuf",
         role: "Frontend Engineer",
-        avatar: "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=512",
+        avatar:
+          "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=512",
       },
-      description: "User experience isn't just about how a website looks; it's about how it works and how it makes people feel. In a digital world where attention is the new currency, UX is your most valuable asset.",
+      description:
+        "User experience isn't just about how a website looks; it's about how it works and how it makes people feel. In a digital world where attention is the new currency, UX is your most valuable asset.",
       content: `
         <h2>The Foundation of Digital Trust</h2>
         <p>In today's fast-paced digital landscape, users decide whether to stay on your site or leave within seconds. This split-second decision is rarely based on content alone—it's based on the initial experience.</p>
@@ -588,9 +623,10 @@ export const blogData = {
       image: blog2,
       author: {
         name: "Muhammad Yousuf",
-        role: "Frontend Engineer",
+        role: "Software Engineer & SEO Specialist",
       },
-      description: "With over 60% of web traffic coming from mobile devices, a mobile-first approach is no longer optional—it's essential for survival.",
+      description:
+        "With over 60% of web traffic coming from mobile devices, a mobile-first approach is no longer optional—it's essential for survival.",
       content: "Detailed content about mobile-first design...",
     },
     {
@@ -600,9 +636,10 @@ export const blogData = {
       image: blog1,
       author: {
         name: "Muhammad Yousuf",
-        role: "Frontend Engineer",
+        role: "Software Engineer & SEO Specialist",
       },
-      description: "Designing for everyone often means designing for no one. Learn why niche-focused design leads to better results.",
+      description:
+        "Designing for everyone often means designing for no one. Learn why niche-focused design leads to better results.",
       content: "Detailed content about audience-centered design...",
     },
     {
@@ -612,9 +649,10 @@ export const blogData = {
       image: blog2,
       author: {
         name: "Muhammad Yousuf",
-        role: "Frontend Engineer",
+        role: "Software Engineer & SEO Specialist",
       },
-      description: "Social proof is a powerful tool. Discover how to use testimonials to build credibility and trust.",
+      description:
+        "Social proof is a powerful tool. Discover how to use testimonials to build credibility and trust.",
       content: "Detailed content about testimonials...",
     },
     {
@@ -624,9 +662,10 @@ export const blogData = {
       image: blog1,
       author: {
         name: "Muhammad Yousuf",
-        role: "Frontend Engineer",
+        role: "Software Engineer & SEO Specialist",
       },
-      description: "Less is more. Explore the principles of minimalism and how they can improve your site's focus.",
+      description:
+        "Less is more. Explore the principles of minimalism and how they can improve your site's focus.",
       content: "Detailed content about minimalism...",
     },
     {
@@ -636,9 +675,10 @@ export const blogData = {
       image: blogBanner,
       author: {
         name: "Muhammad Yousuf",
-        role: "Frontend Engineer",
+        role: "Software Engineer & SEO Specialist",
       },
-      description: "A slow site is a broken site. Learn why performance optimization should be your top priority.",
+      description:
+        "A slow site is a broken site. Learn why performance optimization should be your top priority.",
       content: "Detailed content about site speed...",
     },
     {
@@ -648,9 +688,10 @@ export const blogData = {
       image: blog1,
       author: {
         name: "Muhammad Yousuf",
-        role: "Frontend Engineer",
+        role: "Software Engineer & SEO Specialist",
       },
-      description: "Colors speak louder than words. Learn how to choose the perfect palette for your brand identity.",
+      description:
+        "Colors speak louder than words. Learn how to choose the perfect palette for your brand identity.",
       content: "Detailed content about color theory...",
     },
   ],
@@ -660,7 +701,8 @@ export const contactPageData = {
   header: {
     mainText: "Get in touch",
     italicText: "Now",
-    description: "Find the answers to our most common questions here, but if you still need help, feel free to contact me.",
+    description:
+      "Find the answers to our most common questions here, but if you still need help, feel free to contact me.",
   },
   stats: [
     { label: "Happy clients", value: "100+" },
@@ -668,7 +710,11 @@ export const contactPageData = {
     { label: "Average Rating", value: "4.8" },
   ],
   socials: [
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/yousuf-frontenddev", icon: "IN" },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/muhammad-yousuf-software-engineer",
+      icon: "IN",
+    },
     { name: "WhatsApp", url: "https://wa.me/92310293747", icon: "WA" },
   ],
   testimonial: {
@@ -694,40 +740,47 @@ export const projectsHeader = {
 };
 
 export const heroData = {
-  title: "Building brands to drive Results",
-  description: "We merge bold strategy, compelling storytelling, and timeless design to craft unforgettable brand experiences that truly resonate.",
-  profileImg: "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=512",
-  bgImg: "https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=2048",
-  rating: 4.7,
-  clients: "10+",
-  circularText: "Sr. Frontend Eng.",
+  title: "Software Engineer & SEO Specialist",
+  description:
+    "I build high-performance web applications and optimize digital presence to drive measurable results through code and SEO strategy.",
+  profileImg:
+    "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=512",
+  bgImg:
+    "https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=2048",
+  rating: 4.9,
+  clients: "20+",
+  circularText: "Software Engineer • SEO Expert • ",
 };
 
 export const processData = {
   header: {
     mainText: "Process is",
     italicText: "Result",
-    description: "Thoughtful, intentional design is what makes brands stand out.",
+    description:
+      "Thoughtful, intentional design is what makes brands stand out.",
   },
   steps: [
     {
       id: 1,
       title: "Discover your brand",
-      description: "We'll dive into your vision, audience, and goals to align design with purpose and clarity.",
+      description:
+        "We'll dive into your vision, audience, and goals to align design with purpose and clarity.",
       icon: "SearchIcon",
       step: "1",
     },
     {
       id: 2,
       title: "Design with clarity",
-      description: "We translate strategy into visuals—crafted to be clean, consistent, memorable, and always on-brand.",
+      description:
+        "We translate strategy into visuals—crafted to be clean, consistent, memorable, and always on-brand.",
       icon: "DesignServicesIcon",
       step: "2",
     },
     {
       id: 3,
       title: "Deliver and refine with care",
-      description: "Final designs are shared for review, with feedback shaping the perfect result every time.",
+      description:
+        "Final designs are shared for review, with feedback shaping the perfect result every time.",
       icon: "RocketLaunchIcon",
       step: "3",
     },
@@ -737,38 +790,44 @@ export const processData = {
 export const testimonialsData = {
   header: {
     badge: "Testimonials",
-    trustedText: "Audience worldwide",
+    trustedText: "5000+ Audience worldwide",
   },
   items: [
     {
       username: "@DesignGenius87",
       name: "pot mov",
-      quote: "Adrian took our ideas and turned them into an impressive digital experience that feels fresh and strategic.",
+      quote:
+        "Adrian took our ideas and turned them into an impressive digital experience that feels fresh and strategic.",
     },
     {
       username: "@michelle56704",
       name: "james carter",
-      quote: "Adrian delivered a bold, modern design that captured our vision and elevated our entire brand presence.",
+      quote:
+        "Adrian delivered a bold, modern design that captured our vision and elevated our entire brand presence.",
     },
     {
       username: "@CreativEdge",
       name: "sarah smith",
-      quote: "The attention to detail and unique perspective Adrian brings is unmatched. Our conversion rates have skyrocketed.",
+      quote:
+        "The attention to detail and unique perspective Adrian brings is unmatched. Our conversion rates have skyrocketed.",
     },
     {
       username: "@BrandMaster",
       name: "alex johnson",
-      quote: "Working with Fade Studio was the best decision for our startup. Clean design and perfect execution.",
+      quote:
+        "Yousuf delivered exactly what we needed. Clean design and perfect technical execution.",
     },
     {
       username: "@WebWizard",
       name: "lisa wong",
-      quote: "Seamless collaboration and stunning results. They really understand modern aesthetics and UX.",
+      quote:
+        "Seamless collaboration and stunning results. They really understand modern aesthetics and UX.",
     },
     {
       username: "@TechLead_99",
       name: "mark davis",
-      quote: "Highly recommended for anyone looking to stand out. The designs are not just pretty, they work.",
+      quote:
+        "Highly recommended for anyone looking to stand out. The designs are not just pretty, they work.",
     },
   ],
   avatars: [
@@ -776,7 +835,7 @@ export const testimonialsData = {
     "https://i.pravatar.cc/150?u=2",
     "https://i.pravatar.cc/150?u=3",
     "https://i.pravatar.cc/150?u=4",
-  ]
+  ],
 };
 
 export const provenResultsHeader = {
@@ -786,12 +845,12 @@ export const provenResultsHeader = {
   description: "Simple, streamlined process is what gets you results",
 };
 
-
 export const footerData = {
   header: {
     badge: "Reach out anytime",
     title: "Let’s Stay Connected",
-    description: "Got questions or want to collaborate? Feel free to reach out—We are open to new projects or just a casual chat!",
+    description:
+      "Got questions or want to collaborate? Feel free to reach out—We are open to new projects or just a casual chat!",
   },
   contact: {
     buttonText: "Contact Me",

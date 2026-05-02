@@ -8,8 +8,34 @@ import Footer from "@/components/sections/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Fade Clone",
-  description: "A clone of the Fade template using Next.js",
+  title: "Muhammad Yousuf | Software Engineer",
+  description:
+    "Official portfolio of Muhammad Yousuf, a Software Engineer focused on building high-performance web applications and driving organic growth.",
+  keywords: [
+    "Software Engineer",
+    "SEO Specialist",
+    "Frontend Developer",
+    "Next.js",
+    "React",
+    "Digital Marketing",
+    "Technical SEO",
+    "Web Development",
+  ],
+  authors: [{ name: "Muhammad Yousuf" }],
+  openGraph: {
+    title: "Muhammad Yousuf | Software Engineer & SEO Specialist",
+    description:
+      "I build high-performance web applications and optimize digital presence.",
+    url: "https://yousuf-portfolio.vercel.app", // Example URL, user can update
+    siteName: "Muhammad Yousuf Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Muhammad Yousuf | Software Engineer & SEO Specialist",
+    description: "Software Engineer & SEO Expert",
+  },
 };
 
 export default function RootLayout({ children }) {

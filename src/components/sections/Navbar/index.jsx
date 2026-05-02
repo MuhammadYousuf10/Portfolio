@@ -1,6 +1,12 @@
 "use client";
 
-import { Box, Container, useMediaQuery, IconButton, Tooltip } from "@mui/material";
+import {
+  Box,
+  Container,
+  useMediaQuery,
+  IconButton,
+  Tooltip,
+} from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useState } from "react";
 import navItems from "@/navigation";
@@ -70,13 +76,13 @@ export default function Navbar() {
                   }
                 }}
                 variant="body1"
-                sx={{ 
-                  background: "none", 
-                  border: "none", 
-                  padding: 0, 
+                sx={{
+                  background: "none",
+                  border: "none",
+                  padding: 0,
                   cursor: "pointer",
                   font: "inherit",
-                  color: "inherit"
+                  color: "inherit",
                 }}
               >
                 {item.name}
@@ -164,8 +170,8 @@ export default function Navbar() {
                 alignItems: "center",
               }}
             >
-              <MuiLink 
-                href="/" 
+              <MuiLink
+                href="/"
                 component={NextLink}
                 onClick={handleDrawerToggle}
                 sx={{ display: "flex", alignItems: "center" }}
@@ -178,7 +184,7 @@ export default function Navbar() {
                   priority={true}
                 />
               </MuiLink>
-              <IconButton 
+              <IconButton
                 onClick={handleDrawerToggle}
                 sx={{ color: "white", p: 1 }}
               >
@@ -216,7 +222,15 @@ export default function Navbar() {
             </Container>
 
             {/* Mobile Menu Links */}
-            <Container maxWidth="lg" sx={{ flexGrow: 1, display: "flex", alignItems: "flex-start", pt: { xs: 4, sm: 6 } }}>
+            <Container
+              maxWidth="lg"
+              sx={{
+                flexGrow: 1,
+                display: "flex",
+                alignItems: "flex-start",
+                pt: { xs: 4, sm: 6 },
+              }}
+            >
               <Box
                 sx={{
                   display: "flex",
@@ -231,10 +245,16 @@ export default function Navbar() {
                     key={item.name}
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 + i * 0.1, duration: 0.5, ease: "easeOut" }}
+                    transition={{
+                      delay: 0.1 + i * 0.1,
+                      duration: 0.5,
+                      ease: "easeOut",
+                    }}
                   >
                     <MuiLink
-                      component={item.path.startsWith("/#") ? "button" : NextLink}
+                      component={
+                        item.path.startsWith("/#") ? "button" : NextLink
+                      }
                       href={item.path.startsWith("/#") ? undefined : item.path}
                       onClick={(e) => {
                         if (item.path.startsWith("/#")) {
@@ -249,10 +269,10 @@ export default function Navbar() {
                           handleDrawerToggle();
                         }
                       }}
-                      sx={{ 
-                        background: "none", 
-                        border: "none", 
-                        p: 0, 
+                      sx={{
+                        background: "none",
+                        border: "none",
+                        p: 0,
                         cursor: "pointer",
                         fontFamily: "inherit",
                         fontSize: { xs: "2.8rem", sm: "3.5rem" },
@@ -267,7 +287,7 @@ export default function Navbar() {
                         "&:hover": {
                           color: "#FFFFFF",
                           transform: "translateX(15px)",
-                        }
+                        },
                       }}
                     >
                       {item?.name}
