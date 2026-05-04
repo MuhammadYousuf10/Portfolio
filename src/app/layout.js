@@ -8,33 +8,22 @@ import Footer from "@/components/sections/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Muhammad Yousuf | Software Engineer",
-  description:
-    "Official portfolio of Muhammad Yousuf, a Software Engineer focused on building high-performance web applications and driving organic growth.",
-  keywords: [
-    "Software Engineer",
-    "SEO Specialist",
-    "Frontend Developer",
-    "Next.js",
-    "React",
-    "Digital Marketing",
-    "Technical SEO",
-    "Web Development",
-  ],
+  title: "Muhammad Yousuf | Engineering Scalable Digital Systems",
+  description: "Advanced engineering for high-growth teams. We architect mission-critical web applications, AI-driven platforms, and scalable cloud systems that drive business impact.",
+  keywords: ["Software Engineering Agency", "Full Stack Development", "Cloud Architecture", "AI Integration", "Next.js", "React", "Node.js", "System Design"],
   authors: [{ name: "Muhammad Yousuf" }],
   openGraph: {
-    title: "Muhammad Yousuf | Software Engineer & SEO Specialist",
-    description:
-      "I build high-performance web applications and optimize digital presence.",
-    url: "https://yousuf-portfolio.vercel.app", // Example URL, user can update
+    title: "Muhammad Yousuf | Engineering Scalable Digital Systems",
+    description: "Architecting mission-critical systems and AI platforms for business growth.",
+    url: "https://yousuf-portfolio.vercel.app",
     siteName: "Muhammad Yousuf Portfolio",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Yousuf | Software Engineer & SEO Specialist",
-    description: "Software Engineer & SEO Expert",
+    title: "Muhammad Yousuf | Engineering Scalable Digital Systems",
+    description: "Engineering Partner for Scalable Web & AI Systems",
   },
 };
 

@@ -10,7 +10,7 @@ const CustomImage = ({
   sx = {}, 
   className = "",
   priority = false,
-  quality = 90,
+  quality = 75,
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   ...props 
 }) => {
