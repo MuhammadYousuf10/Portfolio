@@ -102,7 +102,14 @@ const ProfessionalBackground = () => {
                     <CustomImage
                       src={image}
                       alt="Professional Background"
+                      fill={true}
                       objectFit="cover"
+                      sx={{
+                        "& img": {
+                          objectPosition: "top center",
+                        },
+                        filter: "grayscale(100%) brightness(1.1) contrast(1.1)",
+                      }}
                     />
                   </Box>
 

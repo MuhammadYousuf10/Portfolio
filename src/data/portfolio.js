@@ -54,78 +54,80 @@ import professionalBgImg from "@/assets/why-us/professional-bg.avif";
 import blog1 from "@/assets/blogs/blog1.avif";
 import blog2 from "@/assets/blogs/blog2.avif";
 import blogBanner from "@/assets/blogs/blog-banner.avif";
+import profileHero from "@/assets/profile/hero-profile.jpg";
+import profileAbout from "@/assets/profile/about-profile.jpg";
+import profileAvatar from "@/assets/profile/avatar-profile.jpg";
+import profileCinematic from "@/assets/profile/cinematic-profile.jpg";
+import profileSuit from "@/assets/profile/suit-profile.jpg";
 
 export const aboutData = {
   header: {
-    badge: "Who We Are",
-    mainText: "The One Behind",
-    italicText: "The Wheel",
+    badge: "The Technical Partner",
+    mainText: "Engineering Business",
+    italicText: "Growth",
   },
-  title: "The One Behind",
-  subtitle: "The Wheel",
-  image: professionalBgImg,
-  rating: 4.7,
+  title: "Engineering Business",
+  subtitle: "Growth",
+  image: profileAbout,
+  rating: 4.9,
   clientsCount: "100+",
   skills: [
-    "Software Engineering",
-    "SEO Strategy",
-    "Frontend Development",
+    "Full Stack Development",
+    "Cloud Architecture",
+    "System Design",
     "React / Next.js",
-    "Node.js",
-    "UI/UX Design",
-    "Technical SEO",
-    "Digital Marketing",
-    "Framer",
-    "Branding",
-    "Animations",
-    "Interaction Design",
-    "System Architecture",
-    "Product Design",
+    "Node.js / Express",
     "TypeScript",
+    "PostgreSQL / MongoDB",
+    "AWS / Azure",
+    "Docker / Kubernetes",
+    "Microservices",
+    "GraphQL / REST APIs",
+    "CI/CD Pipelines",
   ],
   experience: [
     {
-      role: "Freelance",
-      company: "GreenLeaf Co., UrbanFit Studio",
-      period: "Jan 2020 - Present",
-    },
-    {
-      role: "UX/UI Designer",
-      company: "PixelCraft Studios",
-      period: "May 2018 - Dec 2018",
+      role: "Full Stack Engineer",
+      company: "Self-Employed / Freelance",
+      period: "2021 - Present",
     },
     {
       role: "Frontend Developer",
-      company: "BrightWave Technologies",
-      period: "March 2016 - April 2017",
+      company: "Tech Startup (Contract)",
+      period: "2020 - 2021",
     },
     {
-      role: "Graphic Designer",
-      company: "VistaWorks Agency",
-      period: "June 2013 - Aug 2021",
+      role: "Web Developer",
+      company: "Digital Agency",
+      period: "2019 - 2020",
+    },
+    {
+      role: "Junior Developer",
+      company: "Software House",
+      period: "2018 - 2019",
     },
   ],
 };
 
 export const whyUsData = {
   header: {
-    badge: "Why Us",
-    mainText: "Why Even",
+    badge: "The Advantage",
+    mainText: "Why Partner With",
     italicText: "Us",
     description:
-      "We craft innovative designs that elevate your brand and engage your audience in a world of endless noise.",
+      "We don't just write code; we build technical foundations that enable companies to scale, innovate, and dominate their markets.",
   },
   card1: {
-    image: whoWeAreImg,
-    subtitle: "— ELITE DESIGN IS NOW YOURS —",
-    title: "We Are \n Professionals",
-    features: ["Industry Experts", "World Class Talent"],
+    image: profileSuit,
+    subtitle: "— MISSION CRITICAL ENGINEERING —",
+    title: "Performance \n First",
+    features: ["Sub-second Load Times", "99.9% System Uptime"],
   },
   card2: {
-    title: "24/7 priority care",
+    title: "Scalability by design",
     description:
-      "Receive priority treatment for urgent tasks, with an average response time of 24 hours for high-priority.",
-    features: ["Unlimited Revisions", "Dedicated 24/7 Support"],
+      "Our architectures are built to handle traffic surges and data growth without breaking a sweat, ensuring your business stays online when it matters most.",
+    features: ["Microservices Architecture", "Auto-scaling Infrastructure"],
   },
   card3: {
     title: "Perfection leads to growth",
@@ -140,40 +142,40 @@ export const whyUsData = {
 
 export const comparisonData = {
   header: {
-    badge: "Comparison",
-    mainText: "Comparison",
-    italicText: "Table",
+    badge: "The Agency Edge",
+    mainText: "The Strategy",
+    italicText: "Difference",
     description:
-      "See how we stack up against others in clarity, speed, and quality.",
+      "Compare our engineering-first approach against standard development cycles.",
   },
   personal: {
-    title: "My Process",
+    title: "Our Approach",
     items: [
-      "Exceptional Design Quality",
-      "Attention to Detail",
-      "Transparent Communication",
-      "Consistent Branding",
-      "Rapid Delivery Times",
-      "Scalable Design Systems",
-      "Customized Solutions",
-      "Collaborative Workflow",
-      "Strategy-Driven Approach",
-      "Ongoing Client Support",
+      "Enterprise-Grade Scalability",
+      "Rigorous Security Standards",
+      "Proactive Problem Solving",
+      "Performance-First Mentality",
+      "Modern AI Integration",
+      "Clean, Maintainable Code",
+      "Data-Driven Decisions",
+      "Seamless CI/CD Pipelines",
+      "Strategic Technical Debt Management",
+      "Post-Launch Growth Support",
     ],
   },
   others: {
-    title: "Others",
+    title: "Standard Devs",
     items: [
-      "Basic Design Output",
-      "Limited Communication",
-      "Slow Turnarounds",
-      "Generic Templates",
-      "Minimal Post-Project Support",
+      "Fragile Architectures",
+      "Opaque Documentation",
+      "Inconsistent Testing",
+      "Surface-Level Solutions",
+      "Lack of Long-Term Vision",
     ],
   },
   footer: {
-    title: "Delivering Designs with unmatched precision and speed.",
-    buttonText: "Contact Us",
+    title: "Ready to upgrade your technical foundation?",
+    buttonText: "Start the Conversation",
   },
 };
 
@@ -226,30 +228,30 @@ export const pricingData = {
 
 export const services = [
   {
-    title: "Software Engineering",
+    title: "Enterprise Web Engineering",
     description:
-      "Full-stack development with a focus on performance, scalability, and clean code. Building robust applications using modern technologies.",
+      "Building high-performance, mission-critical web applications using React, Next.js, and Node.js. Focused on speed, security, and global scale.",
     icon: <CodeIcon />,
     size: 7,
   },
   {
-    title: "SEO & Digital Strategy",
+    title: "AI & Intelligent Systems",
     description:
-      "Optimizing your digital presence for search engines. From technical SEO audits to content strategy that drives organic growth.",
+      "Integrating cutting-edge AI and LLM capabilities into your business workflows to automate tasks and unlock new value from your data.",
     icon: <TrendingUpIcon />,
     size: 5,
   },
   {
-    title: "UI/UX & Product Design",
+    title: "Architecture & Cloud Strategy",
     description:
-      "Crafting intuitive and aesthetically pleasing user interfaces that provide seamless user experiences and solve real-world problems.",
+      "Designing resilient cloud-native systems on AWS and Azure. We optimize infrastructure for maximum performance and cost-efficiency.",
     icon: <WebIcon />,
     size: 5,
   },
   {
-    title: "Strategic Consulting",
+    title: "Technical Product Strategy",
     description:
-      "Helping businesses navigate the digital landscape with technical insights and market-driven strategies for sustainable growth.",
+      "We partner with founders and stakeholders to translate business vision into technical roadmaps that drive growth and ROI.",
     icon: <EmojiObjectsIcon />,
     size: 7,
   },
@@ -475,7 +477,7 @@ export const projectsPageData = {
     mainText: "The Design Of",
     italicText: "Success",
     trustedText: "Trusted by 10,000+ Audience worldwide",
-    buttonText: "Contact Me",
+    buttonText: "Request a Proposal",
   },
   trustedAvatars: [
     "https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=1024",
@@ -512,36 +514,34 @@ export const marqueeTags2 = [
 
 export const provenResults = [
   {
-    company: "PixelRise Creative Solutions",
-    logoText: "Funnel",
+    company: "E-Commerce Platform",
+    logoText: "Scale",
     metrics: [
-      { label: "new customers", value: "100k+" },
-      { label: "opportunity value", value: "$5m+" },
+      { label: "page load improvement", value: "3x" },
+      { label: "conversion rate increase", value: "42%" },
     ],
     testimonial: {
       quote:
-        "The team delivered outstanding designs that perfectly captured our brand's essence. Every detail was thoughtful, polished, and user-centric. Collaborating with them was smooth and efficient.",
-      author: "jerry nelson",
+        "Muhammad re-architected our entire frontend from scratch. The performance gains were immediate and measurable — our checkout conversion jumped significantly within weeks.",
+      author: "Client — E-Commerce Lead",
       rating: 5,
     },
-    image:
-      "https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=1024",
+    image: practicalDetail,
   },
   {
-    company: "NexaCraft Innovations",
-    logoText: "Nexa",
+    company: "SaaS Dashboard Product",
+    logoText: "SaaS",
     metrics: [
-      { label: "user growth", value: "70k+" },
-      { label: "revenue increase", value: "120%" },
+      { label: "features shipped", value: "30+" },
+      { label: "dev cycle reduction", value: "60%" },
     ],
     testimonial: {
       quote:
-        "Yousuf's expertise in both development and SEO was a game-changer. He didn't just build a website; he built a high-performing platform that ranks.",
-      author: "Sarah Smith",
+        "Yousuf built our entire admin dashboard and API layer. His clean architecture and attention to scalability saved us months of technical debt down the road.",
+      author: "Client — SaaS Founder",
       rating: 5,
     },
-    image:
-      "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=1024",
+    image: horizonDetail,
   },
 ];
 
@@ -556,24 +556,24 @@ export const faqData = {
   buttonText: "Contact Us",
   items: [
     {
-      question: "What services does you offer?",
+      question: "What kind of projects do you take on?",
       answer:
-        "I specialize in branding, UI/UX design, web design, and creative strategy— delivering tailored solutions that elevate your business visually and functionally.",
+        "I specialize in full-stack web applications, AI-integrated platforms, cloud infrastructure, and scalable APIs. I work with startups, product teams, and businesses looking to build or scale their digital products.",
     },
     {
-      question: "What's your typical design process?",
+      question: "What does your development process look like?",
       answer:
-        "My process typically involves research, ideation, prototyping, and final implementation, ensuring clear communication at every step.",
+        "I follow a structured approach: discovery & planning, architecture design, iterative development with code reviews, testing, and CI/CD deployment. I keep clients informed at every milestone.",
     },
     {
-      question: "What is your approach to web design?",
+      question: "Can you work with an existing codebase?",
       answer:
-        "I focus on creating user-centric, aesthetically pleasing, and highly functional designs that perfectly align with your brand's core values.",
+        "Absolutely. I regularly onboard onto existing projects for feature development, performance optimization, refactoring, or technical leadership. I'll audit the codebase first to assess scope.",
     },
     {
-      question: "How long does project usually take?",
+      question: "How long does a typical project take?",
       answer:
-        "Project timelines vary depending on scope and complexity, but generally range from a few weeks to a couple of months.",
+        "Timelines depend on scope and complexity. A focused feature or MVP can ship in 2–4 weeks. A full-scale product typically ranges from 6 weeks to 3 months. I'll provide a clear estimate after scoping.",
     },
   ],
 };
@@ -597,8 +597,7 @@ export const blogData = {
       author: {
         name: "Muhammad Yousuf",
         role: "Frontend Engineer",
-        avatar:
-          "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=512",
+        avatar: profileAvatar,
       },
       description:
         "User experience isn't just about how a website looks; it's about how it works and how it makes people feel. In a digital world where attention is the new currency, UX is your most valuable asset.",
@@ -623,7 +622,7 @@ export const blogData = {
       image: blog2,
       author: {
         name: "Muhammad Yousuf",
-        role: "Software Engineer & SEO Specialist",
+        role: "Senior Software Engineer",
       },
       description:
         "With over 60% of web traffic coming from mobile devices, a mobile-first approach is no longer optional—it's essential for survival.",
@@ -636,7 +635,7 @@ export const blogData = {
       image: blog1,
       author: {
         name: "Muhammad Yousuf",
-        role: "Software Engineer & SEO Specialist",
+        role: "Senior Software Engineer",
       },
       description:
         "Designing for everyone often means designing for no one. Learn why niche-focused design leads to better results.",
@@ -649,7 +648,7 @@ export const blogData = {
       image: blog2,
       author: {
         name: "Muhammad Yousuf",
-        role: "Software Engineer & SEO Specialist",
+        role: "Senior Software Engineer",
       },
       description:
         "Social proof is a powerful tool. Discover how to use testimonials to build credibility and trust.",
@@ -715,7 +714,7 @@ export const contactPageData = {
       url: "https://www.linkedin.com/in/muhammad-yousuf-software-engineer",
       icon: "IN",
     },
-    { name: "WhatsApp", url: "https://wa.me/92310293747", icon: "WA" },
+    { name: "WhatsApp", url: "https://wa.me/923102983747", icon: "WA" },
   ],
   testimonial: {
     rating: 5,
@@ -725,10 +724,10 @@ export const contactPageData = {
 };
 
 export const servicesHeader = {
-  badge: "Services",
+  badge: "Capabilities",
   mainText: "What We",
-  italicText: "Offer",
-  description: "Our services blend strategy and creativity to deliver impact.",
+  italicText: "Deliver",
+  description: "Advanced engineering meets strategic business impact.",
 };
 
 export const projectsHeader = {
@@ -740,47 +739,40 @@ export const projectsHeader = {
 };
 
 export const heroData = {
-  title: "Software Engineer & SEO Specialist",
-  description:
-    "I build high-performance web applications and optimize digital presence to drive measurable results through code and SEO strategy.",
-  profileImg:
-    "https://framerusercontent.com/images/UEn20HWHR8SAYg61F9bsmJDq9w.png?scale-down-to=512",
-  bgImg:
-    "https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=2048",
+  title: "Engineering Scalable Digital Systems",
+  description: "Architecting mission-critical applications and AI-driven platforms that drive measurable business impact.",
+  profileImg: profileHero,
+  bgImg: "https://framerusercontent.com/images/q3gTUOBoxKAobXGtZtKxUomvqTc.jpeg?scale-down-to=2048",
   rating: 4.9,
   clients: "20+",
-  circularText: "Software Engineer • SEO Expert • ",
+  circularText: "Technical Partner • System Architect • ",
 };
 
 export const processData = {
   header: {
-    mainText: "Process is",
-    italicText: "Result",
-    description:
-      "Thoughtful, intentional design is what makes brands stand out.",
+    mainText: "Execution is",
+    italicText: "Everything",
+    description: "Our rigorous engineering process ensures your product is built to last and ready to scale.",
   },
   steps: [
     {
       id: 1,
-      title: "Discover your brand",
-      description:
-        "We'll dive into your vision, audience, and goals to align design with purpose and clarity.",
+      title: "Strategic Discovery",
+      description: "We deep-dive into your business objectives, target audience, and technical requirements to define a clear roadmap for success.",
       icon: "SearchIcon",
       step: "1",
     },
     {
       id: 2,
-      title: "Design with clarity",
-      description:
-        "We translate strategy into visuals—crafted to be clean, consistent, memorable, and always on-brand.",
+      title: "Robust Engineering",
+      description: "We architect and develop your solution using modern, scalable technologies, ensuring performance, security, and maintainability.",
       icon: "DesignServicesIcon",
       step: "2",
     },
     {
       id: 3,
-      title: "Deliver and refine with care",
-      description:
-        "Final designs are shared for review, with feedback shaping the perfect result every time.",
+      title: "Optimized Delivery",
+      description: "We deploy with zero downtime and provide continuous monitoring and refinement to ensure peak performance as you scale.",
       icon: "RocketLaunchIcon",
       step: "3",
     },
@@ -797,19 +789,19 @@ export const testimonialsData = {
       username: "@DesignGenius87",
       name: "pot mov",
       quote:
-        "Adrian took our ideas and turned them into an impressive digital experience that feels fresh and strategic.",
+        "Yousuf took our complex requirements and turned them into a seamless digital system that scales perfectly.",
     },
     {
       username: "@michelle56704",
       name: "james carter",
       quote:
-        "Adrian delivered a bold, modern design that captured our vision and elevated our entire brand presence.",
+        "The team delivered a high-performance, modern platform that transformed our digital presence and operations.",
     },
     {
       username: "@CreativEdge",
       name: "sarah smith",
       quote:
-        "The attention to detail and unique perspective Adrian brings is unmatched. Our conversion rates have skyrocketed.",
+        "The technical depth and strategic perspective Yousuf brings is unmatched. Our platform's efficiency has skyrocketed.",
     },
     {
       username: "@BrandMaster",
@@ -847,14 +839,14 @@ export const provenResultsHeader = {
 
 export const footerData = {
   header: {
-    badge: "Reach out anytime",
-    title: "Let’s Stay Connected",
+    badge: "Scale your business",
+    title: "Let’s Build Something Iconic",
     description:
-      "Got questions or want to collaborate? Feel free to reach out—We are open to new projects or just a casual chat!",
+      "Partner with a dedicated technical team that understands your business goals as much as your code.",
   },
   contact: {
-    buttonText: "Contact Me",
-    downloadCVText: "Download CV",
+    buttonText: "Schedule a Strategy Call",
+    downloadCVText: "Download Deck",
     email: "m.yousufuddin10@gmail.com",
   },
   bottom: {

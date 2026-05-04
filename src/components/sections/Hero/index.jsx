@@ -265,6 +265,11 @@ const Hero = () => {
                       width={isMobile ? 240 : 280}
                       height={isMobile ? 240 : 280}
                       priority
+                      style={{
+                        objectFit: "cover",
+                        // objectPosition: "top center",
+                        filter: "grayscale(100%) brightness(1.1) contrast(1.1)",
+                      }}
                     />
                   </Box>
                   <Box sx={{ mt: 2 }}>
@@ -286,10 +291,19 @@ const Hero = () => {
                     />
                   </Box>
                   <Box>
-                    <Typography variant="body1" sx={{ fontSize: isMobile ? "0.85rem" : "1rem" }}>
-                      <Counter value={heroData.rating.toString()} sx={{ fontWeight: "inherit" }} />
+                    <Typography
+                      variant="body1"
+                      sx={{ fontSize: isMobile ? "0.85rem" : "1rem" }}
+                    >
+                      <Counter
+                        value={heroData.rating.toString()}
+                        sx={{ fontWeight: "inherit" }}
+                      />
                       /5 stars (
-                      <Counter value={heroData.clients} sx={{ fontWeight: "inherit" }} />
+                      <Counter
+                        value={heroData.clients}
+                        sx={{ fontWeight: "inherit" }}
+                      />
                       Clients)
                     </Typography>
                   </Box>
@@ -307,7 +321,6 @@ const Hero = () => {
                       fontSize={isMobile ? 9 : 12}
                     />
                   </Box>
-
                 </Box>
               </Grid>
             </Grid>
